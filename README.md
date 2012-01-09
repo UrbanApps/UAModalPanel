@@ -109,3 +109,7 @@ You must also implement the delegate method for when the close button is pressed
 
   
 That's it. Please feel free to fork and submit pull requests, fix issues or whatever else.
+
+13k reputation on Stack Overflow: http://stackoverflow.com/users/69634/coneybeare
+Follow my code blog: http://code.coneybeare.net
+Contact me on Twitter: @coneybeare
