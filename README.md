@@ -70,7 +70,7 @@ In your `.h` file, keep an instance variable to the panel. This allows your cont
     }
     @property (nonatomic, retain) UAModalPanel	*currentPanel;
     
-In your .m file, sysnthesize and dealloc the panel
+In your .m file, synthesize and dealloc the panel
 
     @synthesize currentPanel;
     - (void)dealloc {
