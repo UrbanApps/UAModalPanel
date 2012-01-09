@@ -82,16 +82,16 @@ Display the panel by creating an instance of your subclass and show it from a po
 
     - (IBAction)showModalPanel:(id)sender {
 	
-    	self.currentPanel = [[[UAExampleModalPanel alloc] initWithFrame:self.view.bounds title:[(UIButton *)sender titleForState:UIControlStateNormal]] autorelease];
+    	  self.currentPanel = [[[UAExampleModalPanel alloc] initWithFrame:self.view.bounds title:[(UIButton *)sender titleForState:UIControlStateNormal]] autorelease];
 	
-    	self.currentPanel.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-    	self.currentPanel.autoresizesSubviews = YES;
-    	self.currentPanel.delegate = self;
-      self.currentPanel.margin = 20.0f;
-    	self.currentPanel.shouldBounce = YES;
-	
-    	[self.view addSubview:self.currentPanel];
-    	[self.currentPanel showFromPoint:[sender center]];
+    	  self.currentPanel.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    	  self.currentPanel.autoresizesSubviews = YES;
+    	  self.currentPanel.delegate = self;
+        self.currentPanel.margin = 20.0f;
+    	  self.currentPanel.shouldBounce = YES;
+
+    	  [self.view addSubview:self.currentPanel];
+    	  [self.currentPanel showFromPoint:[sender center]];
     }
 
 You must also implement the delegate method for when the close button is pressed:
