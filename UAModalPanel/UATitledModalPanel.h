@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "UAModalDisplayPanelView.h"
+#import "UAModalPanel.h"
 #import "UANoisyGradientBackground.h"	
 
-@interface UAModalTitledDisplayPanelView : UAModalDisplayPanelView {
+@interface UATitledModalPanel : UAModalPanel {
 
 	UANoisyGradientBackground	*titleBar;
 	UILabel						*headerLabel;

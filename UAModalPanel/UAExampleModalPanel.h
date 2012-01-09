@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Urban Apps. All rights reserved.
 //
 
-#import "UAModalTitledDisplayPanelView.h"
+#import "UATitledModalPanel.h"
 
-@interface UAModalExampleView : UAModalTitledDisplayPanelView <UITableViewDataSource> {
+@interface UAExampleModalPanel : UATitledModalPanel <UITableViewDataSource> {
 	UIView	*v;
 }
 

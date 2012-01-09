@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-#import "UAModalDisplayPanelView.h"
+#import "UAModalPanel.h"
 #import "UARoundedRectView.h"
 
 #define DEFAULT_MARGIN	20
 
 
-@implementation UAModalDisplayPanelView
+@implementation UAModalPanel
 
 @synthesize roundedRect, closeButton, delegate, contentView, contentContainer, shouldBounce, margin;
 

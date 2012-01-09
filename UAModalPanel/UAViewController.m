@@ -8,7 +8,7 @@
 
 #import "UAViewController.h"
 
-#import "UAModalExampleView.h"
+#import "UAExampleModalPanel.h"
 
 @implementation UAViewController
 
@@ -39,11 +39,12 @@
 
 - (IBAction)showModalPanel:(id)sender {
 	
-	self.currentPanel = [[[UAModalExampleView alloc] initWithFrame:self.view.bounds title:[(UIButton *)sender titleForState:UIControlStateNormal]] autorelease];
+	self.currentPanel = [[[UAExampleModalPanel alloc] initWithFrame:self.view.bounds title:[(UIButton *)sender titleForState:UIControlStateNormal]] autorelease];
 	
 	self.currentPanel.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 	self.currentPanel.autoresizesSubviews = YES;
 	self.currentPanel.delegate = self;
+	self.currentPanel.margin = 20;
 	self.currentPanel.shouldBounce = YES;
 	
 	[self.view addSubview:self.currentPanel];

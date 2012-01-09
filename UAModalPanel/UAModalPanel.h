@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "UARoundedRectView.h"
 
-@interface UAModalDisplayPanelView : UIView {	
+@interface UAModalPanel : UIView {	
 	id			delegate;
 	
 	UIView		*contentContainer;

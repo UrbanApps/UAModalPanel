@@ -6,10 +6,10 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "UAModalTitledDisplayPanelView.h"
+#import "UATitledModalPanel.h"
 #import <QuartzCore/QuartzCore.h>
 
-@implementation UAModalTitledDisplayPanelView
+@implementation UATitledModalPanel
 
 @synthesize titleBar, headerLabel;
 
@@ -34,7 +34,7 @@
 		[self.roundedRect addSubview:self.titleBar];
 		
 		self.headerLabel = [[[UILabel alloc] initWithFrame:CGRectZero] autorelease];
-		self.headerLabel.font = [UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:24.0f];
+		self.headerLabel.font = [UIFont systemFontOfSize:24];
 		self.headerLabel.backgroundColor = [UIColor clearColor];
 		self.headerLabel.textColor = [UIColor whiteColor];
 		self.headerLabel.shadowColor = [UIColor blackColor];

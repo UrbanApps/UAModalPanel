@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 Urban Apps. All rights reserved.
 //
 
-#import "UAModalExampleView.h"
+#import "UAExampleModalPanel.h"
 
 #define BLACK_BAR_COMPONENTS				{ 0.22, 0.22, 0.22, 1.0, 0.07, 0.07, 0.07, 1.0 }
 
-@implementation UAModalExampleView
+@implementation UAExampleModalPanel
 
 
 - (id)initWithFrame:(CGRect)frame title:(NSString *)title {
