@@ -8,48 +8,23 @@
 
 #import "UAViewController.h"
 
+#import "UAModalExampleView.h"
+
 @implementation UAViewController
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
-}
+@synthesize currentPanel;
 
 #pragma mark - View lifecycle
 
-- (void)viewDidLoad
-{
+- (void)dealloc {
+    self.currentPanel = nil;
+    [super dealloc];
+}
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
-}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -61,4 +36,32 @@
 	}
 }
 
+
+- (IBAction)showModalPanel:(id)sender {
+	
+	self.currentPanel = [[[UAModalExampleView alloc] initWithFrame:self.view.bounds title:[(UIButton *)sender titleForState:UIControlStateNormal]] autorelease];
+	
+	self.currentPanel.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+	self.currentPanel.autoresizesSubviews = YES;
+	self.currentPanel.delegate = self;
+	self.currentPanel.shouldBounce = YES;
+	
+	[self.view addSubview:self.currentPanel];
+	[self.currentPanel showFromPoint:[sender center]];
+}
+
+#pragma mark - UAModalDisplayPanelViewDelegate
+
+- (void)removeModalView {
+	if (self.currentPanel) {
+		[self.currentPanel hideWithDelegate:self selector:@selector(removeModal)];
+	}
+}
+
+- (void)removeModal {
+	if (self.currentPanel) {
+		[self.currentPanel removeFromSuperview];
+		self.currentPanel = nil;
+	}
+}
 @end

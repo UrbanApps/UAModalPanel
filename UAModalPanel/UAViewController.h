@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UAViewController : UIViewController
+@class UAModalDisplayPanelView;
+
+@interface UAViewController : UIViewController {
+	UAModalDisplayPanelView *currentPanel; // pointer to the current one
+}
+
+@property (nonatomic, retain) UAModalDisplayPanelView	*currentPanel; // pointer to the current one
+
+- (IBAction)showModalPanel:(id)sender;
 
 @end
