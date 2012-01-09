@@ -1,0 +1,293 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E64F520614BA98FA009CB18D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64F520514BA98FA009CB18D /* UIKit.framework */; };
+		E64F520814BA98FA009CB18D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64F520714BA98FA009CB18D /* Foundation.framework */; };
+		E64F520A14BA98FA009CB18D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64F520914BA98FA009CB18D /* CoreGraphics.framework */; };
+		E64F521014BA98FA009CB18D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E64F520E14BA98FA009CB18D /* InfoPlist.strings */; };
+		E64F521214BA98FA009CB18D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E64F521114BA98FA009CB18D /* main.m */; };
+		E64F521614BA98FA009CB18D /* UAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E64F521514BA98FA009CB18D /* UAAppDelegate.m */; };
+		E64F521914BA98FA009CB18D /* UAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E64F521814BA98FA009CB18D /* UAViewController.m */; };
+		E64F521C14BA98FA009CB18D /* UAViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = E64F521A14BA98FA009CB18D /* UAViewController_iPhone.xib */; };
+		E64F521F14BA98FA009CB18D /* UAViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = E64F521D14BA98FA009CB18D /* UAViewController_iPad.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E64F520114BA98FA009CB18D /* UAModalPanel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UAModalPanel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E64F520514BA98FA009CB18D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E64F520714BA98FA009CB18D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E64F520914BA98FA009CB18D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E64F520D14BA98FA009CB18D /* UAModalPanel-Info.plist */ = {isa = PBXFileReference; path = "UAModalPanel-Info.plist"; sourceTree = "<group>"; };
+		E64F520F14BA98FA009CB18D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E64F521114BA98FA009CB18D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E64F521314BA98FA009CB18D /* UAModalPanel-Prefix.pch */ = {isa = PBXFileReference; path = "UAModalPanel-Prefix.pch"; sourceTree = "<group>"; };
+		E64F521414BA98FA009CB18D /* UAAppDelegate.h */ = {isa = PBXFileReference; path = UAAppDelegate.h; sourceTree = "<group>"; };
+		E64F521514BA98FA009CB18D /* UAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UAAppDelegate.m; sourceTree = "<group>"; };
+		E64F521714BA98FA009CB18D /* UAViewController.h */ = {isa = PBXFileReference; path = UAViewController.h; sourceTree = "<group>"; };
+		E64F521814BA98FA009CB18D /* UAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UAViewController.m; sourceTree = "<group>"; };
+		E64F521B14BA98FA009CB18D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/UAViewController_iPhone.xib; sourceTree = "<group>"; };
+		E64F521E14BA98FA009CB18D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/UAViewController_iPad.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E64F51FE14BA98FA009CB18D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E64F520614BA98FA009CB18D /* UIKit.framework in Frameworks */,
+				E64F520814BA98FA009CB18D /* Foundation.framework in Frameworks */,
+				E64F520A14BA98FA009CB18D /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E64F51F614BA98FA009CB18D = {
+			isa = PBXGroup;
+			children = (
+				E64F520B14BA98FA009CB18D /* UAModalPanel */,
+				E64F520414BA98FA009CB18D /* Frameworks */,
+				E64F520214BA98FA009CB18D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E64F520214BA98FA009CB18D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E64F520114BA98FA009CB18D /* UAModalPanel.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E64F520414BA98FA009CB18D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E64F520514BA98FA009CB18D /* UIKit.framework */,
+				E64F520714BA98FA009CB18D /* Foundation.framework */,
+				E64F520914BA98FA009CB18D /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E64F520B14BA98FA009CB18D /* UAModalPanel */ = {
+			isa = PBXGroup;
+			children = (
+				E64F521414BA98FA009CB18D /* UAAppDelegate.h */,
+				E64F521514BA98FA009CB18D /* UAAppDelegate.m */,
+				E64F521714BA98FA009CB18D /* UAViewController.h */,
+				E64F521814BA98FA009CB18D /* UAViewController.m */,
+				E64F521A14BA98FA009CB18D /* UAViewController_iPhone.xib */,
+				E64F521D14BA98FA009CB18D /* UAViewController_iPad.xib */,
+				E64F520C14BA98FA009CB18D /* Supporting Files */,
+			);
+			path = UAModalPanel;
+			sourceTree = "<group>";
+		};
+		E64F520C14BA98FA009CB18D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E64F520D14BA98FA009CB18D /* UAModalPanel-Info.plist */,
+				E64F520E14BA98FA009CB18D /* InfoPlist.strings */,
+				E64F521114BA98FA009CB18D /* main.m */,
+				E64F521314BA98FA009CB18D /* UAModalPanel-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E64F520014BA98FA009CB18D /* UAModalPanel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E64F522214BA98FA009CB18D /* Build configuration list for PBXNativeTarget "UAModalPanel" */;
+			buildPhases = (
+				E64F51FD14BA98FA009CB18D /* Sources */,
+				E64F51FE14BA98FA009CB18D /* Frameworks */,
+				E64F51FF14BA98FA009CB18D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UAModalPanel;
+			productName = UAModalPanel;
+			productReference = E64F520114BA98FA009CB18D /* UAModalPanel.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E64F51F814BA98FA009CB18D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Urban Apps";
+			};
+			buildConfigurationList = E64F51FB14BA98FA009CB18D /* Build configuration list for PBXProject "UAModalPanel" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E64F51F614BA98FA009CB18D;
+			productRefGroup = E64F520214BA98FA009CB18D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E64F520014BA98FA009CB18D /* UAModalPanel */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E64F51FF14BA98FA009CB18D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E64F521014BA98FA009CB18D /* InfoPlist.strings in Resources */,
+				E64F521C14BA98FA009CB18D /* UAViewController_iPhone.xib in Resources */,
+				E64F521F14BA98FA009CB18D /* UAViewController_iPad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E64F51FD14BA98FA009CB18D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E64F521214BA98FA009CB18D /* main.m in Sources */,
+				E64F521614BA98FA009CB18D /* UAAppDelegate.m in Sources */,
+				E64F521914BA98FA009CB18D /* UAViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E64F520E14BA98FA009CB18D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E64F520F14BA98FA009CB18D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E64F521A14BA98FA009CB18D /* UAViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E64F521B14BA98FA009CB18D /* en */,
+			);
+			name = UAViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		E64F521D14BA98FA009CB18D /* UAViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E64F521E14BA98FA009CB18D /* en */,
+			);
+			name = UAViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E64F522014BA98FA009CB18D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E64F522114BA98FA009CB18D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E64F522314BA98FA009CB18D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UAModalPanel/UAModalPanel-Prefix.pch";
+				INFOPLIST_FILE = "UAModalPanel/UAModalPanel-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E64F522414BA98FA009CB18D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UAModalPanel/UAModalPanel-Prefix.pch";
+				INFOPLIST_FILE = "UAModalPanel/UAModalPanel-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E64F51FB14BA98FA009CB18D /* Build configuration list for PBXProject "UAModalPanel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E64F522014BA98FA009CB18D /* Debug */,
+				E64F522114BA98FA009CB18D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E64F522214BA98FA009CB18D /* Build configuration list for PBXNativeTarget "UAModalPanel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E64F522314BA98FA009CB18D /* Debug */,
+				E64F522414BA98FA009CB18D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E64F51F814BA98FA009CB18D /* Project object */;
+}
