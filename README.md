@@ -113,4 +113,4 @@ That's it. Please feel free to fork and submit pull requests, fix issues or what
 
 * 13k reputation on Stack Overflow: http://stackoverflow.com/users/69634/coneybeare
 * Follow my code blog: http://code.coneybeare.net
-* Contact me on Twitter: @coneybeare
+* Contact me on Twitter: http://twitter.com/coneybeare
