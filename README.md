@@ -23,16 +23,9 @@ In terminal navigate to the root of your project directory and run these command
 
 This creates new submodule, downloads the files to Submodules/UAModalPanel directory within your project and creates new commit with updated git repo settings.
 
-Now navigate to the newly created ShareKit dir and download all submodules files
-
-    cd Submodules/UAModalPanel
-    git submodule init
-    git submodule update
-
 Thanks to the fact that you added UAModalPanel as submodule, it is easy to keep it updated to the newest version by doing:
 
-    cd Submodules/UAModalPanel
-    git pull
+    git submodule update
 
 
 Step 2: Add UAModalPanel to your project
