@@ -1,10 +1,13 @@
+What is UAModalPanel?
+---------------------
+
 ![UAModalPanel Example Pic](http://files.urbanapps.com/images/UAModalPanel.jpg "UAModalPanel Example Pic")
 
-`UAModalPanel` is an alternative modal panel that you can popup in your view controllers to show content that might not need an entire new screen to show. Example shots
+`UAModalPanel` is an alternative modal panel that you can popup in your view controllers to show content that might not need an entire new screen to show. It works on the iPhone and iPad, with or without rotation, and is a non-ARC project.
 
 Example Video
 ---------------------
-<iframe width="420" height="315" src="http://www.youtube.com/embed/AJDR0GAsV9E" frameborder="0" allowfullscreen></iframe>
+<object width="420" height="315"><param name="movie" value="http://www.youtube.com/v/AJDR0GAsV9E?version=3&amp;hl=en_US&amp;rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/AJDR0GAsV9E?version=3&amp;hl=en_US&amp;rel=0" type="application/x-shockwave-flash" width="420" height="315" allowscriptaccess="always" allowfullscreen="true"></embed></object>
 
 
 Step 0: Prerequisites
