@@ -22,7 +22,7 @@
 		
 		
 		UIWebView *wv = [[[UIWebView alloc] initWithFrame:CGRectZero] autorelease];
-		[wv loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://urbanapps.com"]]];
+		[wv loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://github.com/coneybeare/UAModalPanel"]]];
 		
 		UITableView *tv = [[[UITableView alloc] initWithFrame:CGRectZero] autorelease];
 		[tv setDataSource:self];
