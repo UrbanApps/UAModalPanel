@@ -68,7 +68,7 @@ In your `.h` file, keep an instance variable to the panel. This allows your cont
     @interface UAViewController : UIViewController {
         UAModalPanel *currentPanel;
     }
-    @property (nonatomic, retain) UAModalPanel	*currentPanel;
+    @property (nonatomic, retain) UAModalPanel  *currentPanel;
     
 In your .m file, synthesize and dealloc the panel
 
@@ -81,17 +81,17 @@ In your .m file, synthesize and dealloc the panel
 Display the panel by creating an instance of your subclass and show it from a point:
 
     - (IBAction)showModalPanel:(id)sender {
-	
-    	  self.currentPanel = [[[UAExampleModalPanel alloc] initWithFrame:self.view.bounds title:[(UIButton *)sender titleForState:UIControlStateNormal]] autorelease];
-	
-    	  self.currentPanel.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-    	  self.currentPanel.autoresizesSubviews = YES;
-    	  self.currentPanel.delegate = self;
+  
+        self.currentPanel = [[[UAExampleModalPanel alloc] initWithFrame:self.view.bounds title:[(UIButton *)sender titleForState:UIControlStateNormal]] autorelease];
+  
+        self.currentPanel.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+        self.currentPanel.autoresizesSubviews = YES;
+        self.currentPanel.delegate = self;
         self.currentPanel.margin = 20.0f;
-    	  self.currentPanel.shouldBounce = YES;
+        self.currentPanel.shouldBounce = YES;
 
-    	  [self.view addSubview:self.currentPanel];
-    	  [self.currentPanel showFromPoint:[sender center]];
+        [self.view addSubview:self.currentPanel];
+        [self.currentPanel showFromPoint:[sender center]];
     }
 
 You must also implement the delegate method for when the close button is pressed:
@@ -104,7 +104,7 @@ You must also implement the delegate method for when the close button is pressed
 
     - (void)removeModal {
         [self.currentPanel removeFromSuperview];
-    		self.currentPanel = nil;
+        self.currentPanel = nil;
     }
 
   
