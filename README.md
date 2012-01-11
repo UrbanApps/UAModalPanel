@@ -95,7 +95,7 @@ You must also implement the delegate method for when the close button is pressed
 
 
 
-Step 3: Customize UAModalPanel
+Step 4: Customize UAModalPanel
 ------------------------
   
 **UAModalPanel Customizations**
@@ -139,7 +139,7 @@ These components are pretty self explanatory. Dig in if you want to use these fo
 
 
 
-Step 4: There is no step 4.
+Step 5: There is no step 5.
 ------------------------
 
 That's it. Please feel free to fork and submit pull requests, fix issues or whatever else.
