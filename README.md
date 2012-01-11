@@ -85,7 +85,8 @@ Display the panel by creating an instance of your subclass and show it from a po
         [self.currentPanel showFromPoint:[sender center]];
     }
 ````
-** Event Handling
+
+**Event Handling (Delegates or Blocks)**
 
 You can either implement the delegate method for when the close button is pressed:
 
