@@ -23,6 +23,7 @@
 
 @synthesize roundedRect, closeButton, delegate, contentView, contentContainer;
 @synthesize innerMargin, outerMargin, cornerRadius, borderWidth, borderColor, contentColor, shouldBounce;
+@synthesize onClosePressed;
 
 - (void)calculateInnerFrame {
 	//adjust the popup frame here for iPad if it is too big.
@@ -180,6 +181,9 @@
 	if (delegate && [delegate respondsToSelector:@selector(removeModalView)]) {
 		[delegate performSelector:@selector(removeModalView)];
 	}
+    
+    if (self.onClosePressed)
+        self.onClosePressed(self);
 }
 
 - (void)showAnimationStarting {};		//subcalsses override
@@ -256,6 +260,23 @@
 					 completion:^(BOOL finished){
 						 if ([del respondsToSelector:sel])
 							 [del performSelector:sel];
+					 }];
+}
+
+
+- (void)hideWithOnComplete:(UAModalDisplayPanelAnimationComplete)onComplete {	
+	// Hide the view right away
+    [UIView animateWithDuration:0.3
+					 animations:^{
+						 self.alpha = 0;
+						 if (startEndPoint.x != CGPointZero.x || startEndPoint.y != CGPointZero.y) {
+							 self.contentContainer.center = startEndPoint;
+						 }
+						 self.contentContainer.transform = CGAffineTransformMakeScale(0.0001, 0.0001);
+					 }
+					 completion:^(BOOL finished){
+						 if (onComplete)
+                             onComplete(finished);
 					 }];
 }
 

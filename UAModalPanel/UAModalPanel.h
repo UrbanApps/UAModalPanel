@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "UARoundedRectView.h"
 
+@class UAModalPanel;
+
+typedef void (^UAModalDisplayPanelEvent)(UAModalPanel* panel);
+typedef void (^UAModalDisplayPanelAnimationComplete)(BOOL finished);
+
 @interface UAModalPanel : UIView {	
 	id			delegate;
 	
@@ -51,9 +56,12 @@
 // Shows the bounce animation. Default = YES
 @property (nonatomic, assign) BOOL			shouldBounce;
 
+@property (readwrite, copy) UAModalDisplayPanelEvent onClosePressed;
+
 - (void)show;
 - (void)showFromPoint:(CGPoint)point;
 - (void)hideWithDelegate:(id)del selector:(SEL)sel;
+- (void)hideWithOnComplete:(UAModalDisplayPanelAnimationComplete)onComplete;
 
 - (CGRect)roundedRectFrame;
 - (CGRect)closeButtonFrame;

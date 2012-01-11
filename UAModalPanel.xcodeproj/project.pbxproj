@@ -53,11 +53,11 @@
 		E64F521E14BA98FA009CB18D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/UAViewController_iPad.xib; sourceTree = "<group>"; };
 		E64F522614BA9AC1009CB18D /* UARoundedRectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UARoundedRectView.h; sourceTree = "<group>"; };
 		E64F522714BA9AC1009CB18D /* UARoundedRectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UARoundedRectView.m; sourceTree = "<group>"; };
-		E64F522814BA9AC1009CB18D /* UAModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; path = UAModalPanel.h; sourceTree = "<group>"; };
+		E64F522814BA9AC1009CB18D /* UAModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAModalPanel.h; sourceTree = "<group>"; };
 		E64F522914BA9AC1009CB18D /* UAModalPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAModalPanel.m; sourceTree = "<group>"; };
-		E64F522A14BA9AC1009CB18D /* UATitledModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; path = UATitledModalPanel.h; sourceTree = "<group>"; };
+		E64F522A14BA9AC1009CB18D /* UATitledModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UATitledModalPanel.h; sourceTree = "<group>"; };
 		E64F522B14BA9AC1009CB18D /* UATitledModalPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UATitledModalPanel.m; sourceTree = "<group>"; };
-		E64F522F14BA9B1F009CB18D /* UAExampleModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; path = UAExampleModalPanel.h; sourceTree = "<group>"; };
+		E64F522F14BA9B1F009CB18D /* UAExampleModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAExampleModalPanel.h; sourceTree = "<group>"; };
 		E64F523014BA9B1F009CB18D /* UAExampleModalPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAExampleModalPanel.m; sourceTree = "<group>"; };
 		E64F523214BA9B6C009CB18D /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		E64F523314BA9B6C009CB18D /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
@@ -186,6 +186,7 @@
 		E64F51F814BA98FA009CB18D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "Urban Apps";
 			};
 			buildConfigurationList = E64F51FB14BA98FA009CB18D /* Build configuration list for PBXProject "UAModalPanel" */;
