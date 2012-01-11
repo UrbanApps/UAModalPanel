@@ -9,6 +9,8 @@
 #import "UAViewController.h"
 
 #import "UAExampleModalPanel.h"
+#import "UANoisyGradientBackground.h"
+#import "UAGradientBackground.h"
 
 @implementation UAViewController
 
@@ -74,6 +76,12 @@
 		// The background color gradient of the title
 		CGFloat colors[8] = {0, 0, 1, 1, 1, 0, 0, 1};
 		[[(UATitledModalPanel *)self.currentPanel titleBar] setColorComponents:colors];
+		// The gradient style (Linear, linear reversed, radial, radial reversed, center highlight). Default = Linear
+		[[(UATitledModalPanel *)self.currentPanel titleBar] setGradientStyle:UAGradientBackgroundStyleCenterHighlight];
+		// The line mode of the gradient view (top, bottom, both, none). Top is a white line, bottom is a black line.
+		[[(UATitledModalPanel *)self.currentPanel titleBar] setLineMode:UAGradientLineModeNone];
+		// The noise layer opacity. Default = 0.4
+		[[(UATitledModalPanel *)self.currentPanel titleBar] setNoiseOpacity:0.8];
 		
 		// The header label, a UILabel with the same frame as the titleBar
 		[(UATitledModalPanel *)self.currentPanel headerLabel].font = [UIFont boldSystemFontOfSize:48];

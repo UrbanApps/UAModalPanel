@@ -15,19 +15,19 @@
 
 @implementation UANoisyGradientBackground
 
-@synthesize opacity, blendMode;
+@synthesize noiseOpacity, blendMode;
 
 
-- (id)initWithFrame:(CGRect)frame style:(UAGradientBackgroundStyle)aStyle color:(CGFloat *)components lineMode:(UAGradientLineMode)lineModes noiseOpacity:(CGFloat)noiseOpacity blendMode:(CGBlendMode)mode {
+- (id)initWithFrame:(CGRect)frame style:(UAGradientBackgroundStyle)aStyle color:(CGFloat *)components lineMode:(UAGradientLineMode)lineModes noiseOpacity:(CGFloat)opacity blendMode:(CGBlendMode)mode {
 	if ((self = [self initWithFrame:frame style:aStyle color:components lineMode:lineModes])) {
-		self.opacity = noiseOpacity;
+		self.noiseOpacity = opacity;
 		self.blendMode = mode;
 	}
 	return self;
 }
-- (id)initWithFrame:(CGRect)frame noiseOpacity:(CGFloat)noiseOpacity {
+- (id)initWithFrame:(CGRect)frame noiseOpacity:(CGFloat)opacity {
 	if (self = [self initWithFrame:frame]) {
-		self.opacity = noiseOpacity;
+		self.noiseOpacity = opacity;
 	}
 	return self;
 }
@@ -41,7 +41,7 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.opacity = NOISE_DEFAULT_OPACITY;
+        self.noiseOpacity = NOISE_DEFAULT_OPACITY;
 		self.blendMode = kCGBlendModeNormal;
     }
     return self;
@@ -49,12 +49,12 @@
 
 
 
-+ (id)gradientWithFrame:(CGRect)frame style:(UAGradientBackgroundStyle)aStyle color:(CGFloat *)components lineMode:(UAGradientLineMode)lineModes noiseOpacity:(CGFloat)noiseOpacity blendMode:(CGBlendMode)mode {
++ (id)gradientWithFrame:(CGRect)frame style:(UAGradientBackgroundStyle)aStyle color:(CGFloat *)components lineMode:(UAGradientLineMode)lineModes noiseOpacity:(CGFloat)opacity blendMode:(CGBlendMode)mode {
 	return  [[[UANoisyGradientBackground alloc] initWithFrame:frame
 														style:aStyle
 														color:components
 													 lineMode:lineModes
-												 noiseOpacity:noiseOpacity
+												 noiseOpacity:opacity
 													blendMode:mode] autorelease];
 }
 + (id)gradientWithFrame:(CGRect)frame noiseOpacity:(CGFloat)noiseOpacity {
@@ -69,7 +69,7 @@
 - (void)drawRect:(CGRect)rect {
 	[super drawRect:rect];
 	
-	[self drawCGNoiseWithOpacity:self.opacity blendMode:self.blendMode];
+	[self drawCGNoiseWithOpacity:self.noiseOpacity blendMode:self.blendMode];
 }
 
 @end

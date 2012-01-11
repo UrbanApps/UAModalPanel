@@ -24,10 +24,13 @@ typedef enum {
 } UAGradientLineMode;
 
 @interface UAGradientBackground : UIView {
-	int					gradientStyle;
-	CGFloat				*colorComponents;
-	UAGradientLineMode	lineMode;
+	UAGradientBackgroundStyle	gradientStyle;
+	UAGradientLineMode			lineMode;
+	CGFloat						*colorComponents;
 }
+
+@property (nonatomic, assign) UAGradientBackgroundStyle	gradientStyle;
+@property (nonatomic, assign) UAGradientLineMode		lineMode;
 
 - (id)initWithFrame:(CGRect)frame style:(UAGradientBackgroundStyle)aStyle color:(CGFloat *)components lineMode:(UAGradientLineMode)lineModes;
 - (id)initWithFrame:(CGRect)frame color:(CGFloat *)components;

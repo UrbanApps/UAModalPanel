@@ -10,6 +10,8 @@
 
 @implementation UAGradientBackground
 
+@synthesize gradientStyle, lineMode;
+
 - (id)initWithFrame:(CGRect)frame style:(UAGradientBackgroundStyle)aStyle color:(CGFloat *)components lineMode:(UAGradientLineMode)lineModes {
 	if ((self = [super initWithFrame:frame])) {
         // Initialization code
