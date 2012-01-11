@@ -46,7 +46,7 @@ Expand the 'Frameworks' group in your project's file list. Make sure you have th
 If you are missing any frameworks, right click the 'Frameworks' group and select Add -> Existing Frameworks. Select the framework you are missing and add it to your project.
 
 
-Step 3: Using UAModalPanel
+Step 3: Implement UAModalPanel
 ------------------------
 
 **Subclass UAModalPanel**
@@ -74,15 +74,8 @@ In your .m file, synthesize and dealloc the panel
 Display the panel by creating an instance of your subclass and show it from a point:
 
     - (IBAction)showModalPanel:(id)sender {
-        
-        self.currentPanel = [[[UAExampleModalPanel alloc] initWithFrame:self.view.bounds title:[(UIButton *)sender titleForState:UIControlStateNormal]] autorelease];
-  
-        self.currentPanel.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-        self.currentPanel.autoresizesSubviews = YES;
+        self.currentPanel = [[[UAExampleModalPanel alloc] initWithFrame:self.view.bounds] autorelease];
         self.currentPanel.delegate = self;
-        self.currentPanel.margin = 20.0f;
-        self.currentPanel.shouldBounce = YES;
-
         [self.view addSubview:self.currentPanel];
         [self.currentPanel showFromPoint:[sender center]];
     }
@@ -100,7 +93,55 @@ You must also implement the delegate method for when the close button is pressed
         self.currentPanel = nil;
     }
 
+
+
+Step 3: Customize UAModalPanel
+------------------------
   
+**UAModalPanel Customizations**
+
+    // Margin between edge of container frame and panel. Default = 20.0
+    self.currentPanel.outerMargin = 30.0f;  // Default = 20.0f;
+    
+    // Margin between edge of panel and the content area. Default = 20.0
+    self.currentPanel.innerMargin = 30.0f;  // Default = 20.0f;
+    
+    // Border color of the panel. Default = [UIColor whiteColor]
+    self.currentPanel.borderColor = [UIColor blueColor];
+    
+    // Border width of the panel. Default = 1.5f;
+    self.currentPanel.borderWidth = 5.0f;
+    
+    // Corner radius of the panel. Default = 4.0f
+    self.currentPanel.cornerRadius = 10.0f;
+    
+    // Color of the panel itself. Default = [UIColor colorWithWhite:0.0 alpha:0.8]
+    self.currentPanel.contentColor = [UIColor yellowColor];
+    
+    // Shows the bounce animation. Default = YES
+    self.currentPanel.shouldBounce = NO;
+  
+**UATitledModalPanel customizations**
+    
+    // Height of the title view. Default = 40.0f
+    self.currentPanel.titleBarHeight = 80.0f;
+    
+    // The background color gradient of the title
+    CGFloat colors[8] = {0, 1, 1, 1, 1, 1, 0, 1};
+    [self.currentPanel.titleBar setColorComponents:colors];
+    
+    // The header label, a UILabel with the same frame as the titleBar
+    self.currentPanel.headerLabel.font = [UIFont boldSystemFontOfSize:24];
+  
+**UANoisyGradientBackground and UAGradientBackground customizations**
+
+These components are pretty self explanatory. Dig in if you want to use these for other purposes, but I leave that as an exercise to the reader :)
+
+
+
+Step 4: There is no step 4.
+------------------------
+
 That's it. Please feel free to fork and submit pull requests, fix issues or whatever else.
 
 
