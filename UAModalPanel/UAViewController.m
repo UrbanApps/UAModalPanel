@@ -6,8 +6,6 @@
 //  Copyright (c) 2012 Urban Apps. All rights reserved.
 //
 
-#define USE_BLOCKS
-
 #import "UAViewController.h"
 
 #import "UAExampleModalPanel.h"
@@ -43,24 +41,33 @@
 
 - (IBAction)showModalPanel:(id)sender {
 	
+	
+	/////////////////////////////////
+	// Randomly use the blocks method instead of the delgate methods
+	BOOL useBlocks = arc4random() % 2;
+	
 	self.currentPanel = [[[UAExampleModalPanel alloc] initWithFrame:self.view.bounds title:[(UIButton *)sender titleForState:UIControlStateNormal]] autorelease];
 
-#ifdef USE_BLOCKS
-    // NOTE: actually keeping a reference to the current panel is less necessary when using blocks as the block
-    // passes back a pointer to the panel
-    self.currentPanel.onClosePressed = ^(UAModalPanel* panel) {
-        [panel hideWithOnComplete:^(BOOL finished) {
-            [panel removeFromSuperview];
-            
-            if (panel == self.currentPanel) {
-                self.currentPanel = nil;
-            }
-        }];
-    };
-#else
-    self.currentPanel.delegate = self;
-#endif
+	if (useBlocks) {
+		// NOTE: actually keeping a reference to the current panel is less necessary when using blocks as the block
+		// passes back a pointer to the panel
+		self.currentPanel.onClosePressed = ^(UAModalPanel* panel) {
+			[panel hideWithOnComplete:^(BOOL finished) {
+				[panel removeFromSuperview];
+				
+				if (panel == self.currentPanel) {
+					self.currentPanel = nil;
+				}
+			}];
+		};
 	
+	} else {
+		self.currentPanel.delegate = self;
+	}
+
+	
+	////////////////////////////////////
+	// CUSTOMIZE IT
 	// Show the defaults mostly, but once in awhile show a funky one
 	if (arc4random() % 5 == 4) {
 		// Funky time.
