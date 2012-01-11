@@ -9,9 +9,11 @@
 #import "UATitledModalPanel.h"
 #import <QuartzCore/QuartzCore.h>
 
+#define DEFAULT_TITLE_BAR_HEIGHT	40.0f
+
 @implementation UATitledModalPanel
 
-@synthesize titleBar, headerLabel;
+@synthesize titleBarHeight, titleBar, headerLabel;
 
 - (void)dealloc {
     self.titleBar = nil;
@@ -23,6 +25,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         
+		self.titleBarHeight = DEFAULT_TITLE_BAR_HEIGHT;
+		
 		CGFloat colors[8] = { 1, 1, 1, 1, 0, 0, 0, 1 };
 		self.titleBar = [UANoisyGradientBackground gradientWithFrame:CGRectZero
 															   style:UAGradientBackgroundStyleLinear
@@ -47,14 +51,14 @@
     return self;
 }
 
-#define TITLE_BAR_SIZE	40
 
-- (CGRect)titleBarFrame {
+
+- (CGRect)titleBarFrame { 
 	CGRect frame = [self.roundedRect bounds];
 	return CGRectMake(frame.origin.x,
 					  frame.origin.y + self.roundedRect.layer.borderWidth,
 					  frame.size.width,
-					  TITLE_BAR_SIZE - self.roundedRect.layer.borderWidth);
+					  self.titleBarHeight - self.roundedRect.layer.borderWidth);
 }
 
 
@@ -62,11 +66,11 @@
 - (CGRect)contentViewFrame {
 	CGRect titleBarFrame = [self titleBarFrame];
 	CGRect roundedRectFrame = [self roundedRectFrame];
-	CGFloat y = self.margin + titleBarFrame.origin.y + titleBarFrame.size.height;
-	CGRect rect = CGRectMake(2 * self.margin,
-							 y,
-							 roundedRectFrame.size.width - 2*self.margin,
-							 roundedRectFrame.size.height - y);
+	CGFloat y = titleBarFrame.origin.y + titleBarFrame.size.height;
+	CGRect rect = CGRectMake(self.outerMargin + self.innerMargin,
+							 self.outerMargin + self.innerMargin + y,
+							 roundedRectFrame.size.width - 2*self.innerMargin,
+							 roundedRectFrame.size.height - y - 2*self.innerMargin);
 	return rect;
 }
 

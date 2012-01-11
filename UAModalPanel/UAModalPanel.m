@@ -12,15 +12,20 @@
 #import "UAModalPanel.h"
 #import "UARoundedRectView.h"
 
-#define DEFAULT_MARGIN	20
-
+#define DEFAULT_MARGIN				20.0f
+#define DEFAULT_BACKGROUND_COLOR	[UIColor colorWithWhite:0.0 alpha:0.8]
+#define DEFAULT_CORNER_RADIUS		4.0f
+#define DEFAULT_BORDER_WIDTH		1.5f
+#define DEFAULT_BORDER_COLOR		[UIColor whiteColor]
+#define DEFAULT_BOUNCE				YES
 
 @implementation UAModalPanel
 
-@synthesize roundedRect, closeButton, delegate, contentView, contentContainer, shouldBounce, margin;
+@synthesize roundedRect, closeButton, delegate, contentView, contentContainer;
+@synthesize innerMargin, outerMargin, cornerRadius, borderWidth, borderColor, contentColor, shouldBounce;
 
 - (void)calculateInnerFrame {
-	//adjust the popup frame for iPad if it is too big.
+	//adjust the popup frame here for iPad if it is too big.
 	innerFrame = self.frame;
 }
 
@@ -34,43 +39,80 @@
 		contentView = nil;
 		startEndPoint = CGPointZero;
 		
+		outerMargin = DEFAULT_MARGIN;
+		innerMargin = DEFAULT_MARGIN;
+		cornerRadius = DEFAULT_CORNER_RADIUS;
+		borderWidth = DEFAULT_BORDER_WIDTH;
+		borderColor = [DEFAULT_BORDER_COLOR retain];
+		contentColor = [DEFAULT_BACKGROUND_COLOR retain];
+		shouldBounce = DEFAULT_BOUNCE;
+		
+		self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+		self.autoresizesSubviews = YES;
+		
 		self.contentContainer = [[[UIView alloc] initWithFrame:self.bounds] autorelease];
 		self.contentContainer.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 		self.contentContainer.autoresizesSubviews = YES;
 		[self addSubview:self.contentContainer];
 		
-		[self setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.5]];
-		self.roundedRect.hidden = NO;  // init.
-		self.closeButton.hidden = NO; // init.
+		[self setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.5]]; // Fixed, the bacground mask.
+		
+//		self.roundedRect.hidden = NO;  // init.
+//		self.closeButton.hidden = NO; // init.
+		
 		[self.contentView setBackgroundColor:[UIColor clearColor]];
 		self.delegate = nil;
-		
-		self.margin = DEFAULT_MARGIN;
-		
-		self.shouldBounce = YES;
+	
 		
 	}
 	return self;
 }
 
-- (void) dealloc {
+- (void)dealloc {
 	self.roundedRect = nil;
 	self.closeButton = nil;
 	self.contentContainer = nil;
+	self.borderColor = nil;
+	self.contentColor = nil;
 	delegate = nil;
 	[super dealloc];
+}
+
+#pragma mark - Accessors
+
+- (void)setCornerRadius:(CGFloat)newRadius {
+	cornerRadius = newRadius;
+	self.roundedRect.layer.cornerRadius = cornerRadius;
+}
+- (void)setBorderWidth:(CGFloat)newWidth {
+	borderWidth = newWidth;
+	self.roundedRect.layer.borderWidth = borderWidth;
+}
+- (void)setBorderColor:(UIColor *)newColor {
+	[newColor retain];
+	[borderColor release];
+	borderColor = newColor;
+	
+	self.roundedRect.layer.borderColor = [borderColor CGColor];
+}
+- (void)setContentColor:(UIColor *)newColor {
+	[newColor retain];
+	[contentColor release];
+	contentColor = newColor;
+	
+	self.roundedRect.backgroundColor = contentColor;
 }
 
 - (UIView *)roundedRect {
 	if (!roundedRect) {
 		self.roundedRect = [[[UIView alloc] initWithFrame:CGRectZero] autorelease];
-		roundedRect.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.8];
-		roundedRect.layer.cornerRadius = 4.0f;
 		roundedRect.layer.masksToBounds = YES;
-		roundedRect.layer.borderColor = [[UIColor whiteColor] CGColor];
-		roundedRect.layer.borderWidth = 1.5f;
+		roundedRect.backgroundColor = self.contentColor;
+		roundedRect.layer.borderColor = [self.borderColor CGColor];
+		roundedRect.layer.borderWidth = self.borderWidth;
+		roundedRect.layer.cornerRadius = self.cornerRadius;
 
-		[self.contentContainer addSubview:roundedRect];
+		[self.contentContainer insertSubview:roundedRect atIndex:0];
 	}
 	return roundedRect;
 }
@@ -82,10 +124,9 @@
 		self.closeButton.layer.shadowColor = [[UIColor blackColor] CGColor];
 		self.closeButton.layer.shadowOffset = CGSizeMake(0,4);
 		self.closeButton.layer.shadowOpacity = 0.3;
-
 		
 		[closeButton addTarget:self action:@selector(closePressed:) forControlEvents:UIControlEventTouchUpInside];		
-		[self.contentContainer addSubview:closeButton];
+		[self.contentContainer insertSubview:closeButton aboveSubview:self.roundedRect];
 	}
 	return closeButton;
 }
@@ -103,10 +144,10 @@
 	[self calculateInnerFrame];
 	CGFloat x = (self.frame.origin.x + floor((self.frame.size.width - innerFrame.size.width)/2));
 	CGFloat y = (self.frame.origin.y + floor((self.frame.size.height - innerFrame.size.height)/2));
-	return CGRectMake(x + margin,
-					  y + margin,
-					  innerFrame.size.width - 2*margin,
-					  innerFrame.size.height - 2*margin);
+	return CGRectMake(x + self.outerMargin,
+					  y + self.outerMargin,
+					  innerFrame.size.width - 2*self.outerMargin,
+					  innerFrame.size.height - 2*self.outerMargin);
 }
 
 - (CGRect)closeButtonFrame {
@@ -118,7 +159,7 @@
 }
 
 - (CGRect)contentViewFrame {
-	CGRect rect = CGRectInset([self roundedRectFrame], margin, margin);
+	CGRect rect = CGRectInset([self roundedRectFrame], self.innerMargin, self.innerMargin);
 	return rect;
 }
 
@@ -152,7 +193,7 @@
 	self.contentContainer.transform = CGAffineTransformMakeScale(0.00001, 0.00001);
 	
 	
-	void (^animationBlock)(BOOL) = ^(BOOL finished){
+	void (^animationBlock)(BOOL) = ^(BOOL finished) {
 		[self showAnimationPart1Finished];
 		// Wait one second and then fade in the view
 		[UIView animateWithDuration:0.1
@@ -189,7 +230,7 @@
 					 animations:^{
 						 self.alpha = 1.0;
 						 self.contentContainer.center = self.center;
-						 self.contentContainer.transform = CGAffineTransformMakeScale((shouldBounce?1.05:1.0), (shouldBounce?1.05:1.0));
+						 self.contentContainer.transform = CGAffineTransformMakeScale((shouldBounce ? 1.05 : 1.0), (shouldBounce ? 1.05 : 1.0));
 					 }
 					 completion:(shouldBounce ? animationBlock : ^(BOOL finished) {
 						[self showAnimationFinished];

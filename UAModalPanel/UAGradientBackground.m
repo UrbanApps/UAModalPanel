@@ -131,10 +131,7 @@
 
 - (void)dealloc {
 	NSZoneFree(NSDefaultMallocZone(), colorComponents);
-//	DebugLog(@"FUCK: self.tag = %d, self = %@", self.tag, self);
-	@try {
-		[super dealloc];
-	} @catch (NSException *e) {} // bandaid
+	[super dealloc];
 }
 
 
