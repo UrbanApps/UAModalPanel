@@ -12,7 +12,7 @@ I can't figure out how to embed a video in markdown, so here is a link to it: ht
 
 Step 0: Prerequisites
 ---------------------
-You'll need at least XCode 3.2.
+You'll need at least XCode 3.2 and an iOS 4.0+ project
 
 Step 1: Get UAModalPanel files (add as Git submodule)
 ----------------
@@ -101,10 +101,10 @@ Step 4: Customize UAModalPanel
 **UAModalPanel Customizations**
 
     // Margin between edge of container frame and panel. Default = 20.0
-    self.currentPanel.outerMargin = 30.0f;  // Default = 20.0f;
+    self.currentPanel.outerMargin = 30.0f;
     
     // Margin between edge of panel and the content area. Default = 20.0
-    self.currentPanel.innerMargin = 30.0f;  // Default = 20.0f;
+    self.currentPanel.innerMargin = 30.0f;
     
     // Border color of the panel. Default = [UIColor whiteColor]
     self.currentPanel.borderColor = [UIColor blueColor];
