@@ -11,7 +11,7 @@
 @class UAModalPanel;
 
 @interface UAViewController : UIViewController {
-	UAModalPanel *currentPanel; // pointer to the current one
+	__block UAModalPanel *currentPanel; // pointer to the current one
 }
 
 @property (nonatomic, retain) UAModalPanel	*currentPanel; // pointer to the current one

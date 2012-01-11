@@ -85,8 +85,9 @@ Display the panel by creating an instance of your subclass and show it from a po
         [self.currentPanel showFromPoint:[sender center]];
     }
 ````
+** Event Handling
 
-You must also implement the delegate method for when the close button is pressed:
+You can either implement the delegate method for when the close button is pressed:
 
 ````objective-c
     - (void)removeModalView {
@@ -102,6 +103,20 @@ You must also implement the delegate method for when the close button is pressed
         self.currentPanel = nil;
     }
 ````
+
+or use blocks
+````objective-c
+    self.currentPanel.onClosePressed = ^(UAModalPanel* panel) {
+        [panel hideWithOnComplete:^(BOOL finished) {
+            [panel removeFromSuperview];
+            
+            if (panel == self.currentPanel) {
+                self.currentPanel = nil;
+            }
+        }];
+    };
+````
+
 
 
 Step 4: Customize UAModalPanel
