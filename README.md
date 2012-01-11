@@ -136,9 +136,11 @@ Step 4: Customize UAModalPanel
 **UANoisyGradientBackground and UAGradientBackground customizations**
 
     // The gradient style (Linear, linear reversed, radial, radial reversed, center highlight). Default = Linear
-		[[(UATitledModalPanel *)self.currentPanel titleBar] setGradientStyle:UAGradientBackgroundStyleCenterHighlight];
+    [[(UATitledModalPanel *)self.currentPanel titleBar] setGradientStyle:UAGradientBackgroundStyleCenterHighlight];
+    
     // The line mode of the gradient view (top, bottom, both, none)
     [[self.currentPanel titleBar] setLineMode:UAGradientLineModeNone];
+    
     // The noise layer opacity
     [[self.currentPanel titleBar] setNoiseOpacity:0.3];
 
