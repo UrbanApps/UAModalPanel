@@ -1,7 +1,7 @@
 What is UAModalPanel?
 ---------------------
 
-![UAModalPanel Example Pic](http://files.urbanapps.com/images/UAModalPanel.jpg "UAModalPanel Example Pic")
+![UAModalPanel Example Pic](http://files.urbanapps.com/images/UAModalPanel.jpg "UAModalPanel Example Pic") ![UAModalPanel Example Pic 2](http://files.urbanapps.com/images/UAModalPanel2.jpg "UAModalPanel Example Pic 2")
 
 `UAModalPanel` is an alternative modal panel that you can popup in your view controllers to show content that might not need an entire new screen to show. It works on the iPhone and iPad, with or without rotation, and is a non-ARC project.
 
@@ -21,9 +21,7 @@ In terminal navigate to the root of your project directory and run these command
     git submodule add git://github.com/coneybeare/UAModalPanel.git Submodules/UAModalPanel
     git commit -m 'UAModalPanel added as submodule'
 
-This creates new submodule, downloads the files to Submodules/UAModalPanel directory within your project and creates new commit with updated git repo settings.
-
-Thanks to the fact that you added UAModalPanel as submodule, it is easy to keep it updated to the newest version by doing:
+This creates new submodule, downloads the files to Submodules/UAModalPanel directory within your project and creates new commit with updated git repo settings. Thanks to the fact that you added UAModalPanel as submodule, it is easy to keep it updated to the newest version by simply doing:
 
     git submodule update
 
@@ -33,11 +31,9 @@ Step 2: Add UAModalPanel to your project
 
 **Copy files from example project**
 
-Open both the example project (that you downloaded in step 1 above) and your app's project in XCode.
-
-Drag the UAModalPanel Group from the example project into your project's Groups & Files.
-
-Make sure the _"Copy items into destination group's folder (if needed)"_ checkbox is _UNchecked_.
+* Open both the example project (that you downloaded in step 1 above) and your app's project in XCode.
+* Drag the UAModalPanel Group from the example project into your project's Groups & Files.
+* Make sure the _"Copy items into destination group's folder (if needed)"_ checkbox is _UNchecked_.
 
 XCode 4 note: adding the files is different in Xcode 4 - first, make sure your UAModalPanel project window is closed, then you drag the UAModalPanel.xcodeproj file (from a Finder window) to your project. You should see the UAModalPanel's proj tree open up within your project in XCode, and then you should be able to drag UAModalPanel group as stated above. You then **must remove UAModalPanel.xcodeproj (whole UAModalPanel project) from your project**, so that it does not interfere with your project.
 
@@ -49,9 +45,6 @@ Expand the 'Frameworks' group in your project's file list. Make sure you have th
 
 If you are missing any frameworks, right click the 'Frameworks' group and select Add -> Existing Frameworks. Select the framework you are missing and add it to your project.
 
-**Base SDK and Deployment Targets**
-
-If you aren't already, you'll want to make sure your base SDK is set to Latest iOS. You can still support older versions (back to 3.*) by setting your deployment target.
 
 Step 3: Using UAModalPanel
 ------------------------
@@ -81,7 +74,7 @@ In your .m file, synthesize and dealloc the panel
 Display the panel by creating an instance of your subclass and show it from a point:
 
     - (IBAction)showModalPanel:(id)sender {
-  
+        
         self.currentPanel = [[[UAExampleModalPanel alloc] initWithFrame:self.view.bounds title:[(UIButton *)sender titleForState:UIControlStateNormal]] autorelease];
   
         self.currentPanel.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
