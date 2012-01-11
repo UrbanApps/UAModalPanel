@@ -1,9 +1,9 @@
 What is UAModalPanel?
 ---------------------
 
-![UAModalPanel Example Pic](http://files.urbanapps.com/images/UAModalPanel.jpg "UAModalPanel Example Pic") ![UAModalPanel Example Pic 2](http://files.urbanapps.com/images/UAModalPanel2.jpg "UAModalPanel Example Pic 2")
+![UAModalPanel Example Pic](http://files.urbanapps.com/images/UAModalPanel.jpg "UAModalPanel Example Pic")![UAModalPanel Example Pic 2](http://files.urbanapps.com/images/UAModalPanel2.jpg "UAModalPanel Example Pic 2")![UAModalPanel Example Pic 3](http://files.urbanapps.com/images/UAModalPanel3.jpg "UAModalPanel Example Pic 3")
 
-`UAModalPanel` is an alternative modal panel that you can popup in your view controllers to show content that might not need an entire new screen to show. It has a bounce animation, content fade-in, and a fancy noisy-gradient title bar. It works on the iPhone and iPad, with or without rotation, and is a non-ARC project.
+`UAModalPanel` is a highly customizable, alternative modal panel that you can popup in your view controllers to show content that might not need an entire new screen to show. It has a bounce animation, content fade-in, and a fancy noisy-gradient title bar. It works on the iPhone and iPad, with or without rotation, and is a non-ARC project.
 
 Example Video
 ---------------------
@@ -135,7 +135,12 @@ Step 4: Customize UAModalPanel
   
 **UANoisyGradientBackground and UAGradientBackground customizations**
 
-These components are pretty self explanatory. Dig in if you want to use these for other purposes, but I leave that as an exercise to the reader :)
+    // The gradient style (Linear, linear reversed, radial, radial reversed, center highlight). Default = Linear
+		[[(UATitledModalPanel *)self.currentPanel titleBar] setGradientStyle:UAGradientBackgroundStyleCenterHighlight];
+    // The line mode of the gradient view (top, bottom, both, none)
+    [[self.currentPanel titleBar] setLineMode:UAGradientLineModeNone];
+    // The noise layer opacity
+    [[self.currentPanel titleBar] setNoiseOpacity:0.3];
 
 
 
