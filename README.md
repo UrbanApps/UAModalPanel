@@ -105,6 +105,7 @@ You can either implement the delegate method for when the close button is presse
 ````
 
 or use blocks
+
 ````objective-c
     self.currentPanel.onClosePressed = ^(UAModalPanel* panel) {
         [panel hideWithOnComplete:^(BOOL finished) {
