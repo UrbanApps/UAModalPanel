@@ -41,7 +41,7 @@ XCode 4 note: adding the files is different in Xcode 4 - first, make sure your U
 
 Expand the 'Frameworks' group in your project's file list. Make sure you have the following framework installed:
 
-* QuartzCore.framework
+* `QuartzCore.framework`
 
 If you are missing any frameworks, right click the 'Frameworks' group and select Add -> Existing Frameworks. Select the framework you are missing and add it to your project.
 
@@ -57,42 +57,51 @@ The best way to use the panel is to subclass it and add your own elements to the
 
 In your `.h` file, keep an instance variable to the panel. This allows your controller to communicate with the panel if necessary, and to close it when done.
 
+````objective-c
     @class UAModalPanel;
     @interface UAViewController : UIViewController {
         UAModalPanel *currentPanel;
     }
     @property (nonatomic, retain) UAModalPanel  *currentPanel;
-    
+````
+
 In your .m file, synthesize and dealloc the panel
 
+````objective-c
     @synthesize currentPanel;
     - (void)dealloc {
         self.currentPanel = nil;
         [super dealloc];
     }
-    
+````
+
 Display the panel by creating an instance of your subclass and show it from a point:
 
+````objective-c
     - (IBAction)showModalPanel:(id)sender {
         self.currentPanel = [[[UAExampleModalPanel alloc] initWithFrame:self.view.bounds] autorelease];
         self.currentPanel.delegate = self;
         [self.view addSubview:self.currentPanel];
         [self.currentPanel showFromPoint:[sender center]];
     }
+````
 
 You must also implement the delegate method for when the close button is pressed:
 
+````objective-c
     - (void)removeModalView {
         [self.currentPanel hideWithDelegate:self selector:@selector(removeModal)];
     }
+````
 
 ... and for when the close animations are completed:
 
+````objective-c
     - (void)removeModal {
         [self.currentPanel removeFromSuperview];
         self.currentPanel = nil;
     }
-
+````
 
 
 Step 4: Customize UAModalPanel
@@ -100,6 +109,7 @@ Step 4: Customize UAModalPanel
   
 **UAModalPanel Customizations**
 
+````objective-c
     // Margin between edge of container frame and panel. Default = 20.0
     self.currentPanel.outerMargin = 30.0f;
     
@@ -120,9 +130,11 @@ Step 4: Customize UAModalPanel
     
     // Shows the bounce animation. Default = YES
     self.currentPanel.shouldBounce = NO;
+````
   
 **UATitledModalPanel customizations**
-    
+
+````objective-c
     // Height of the title view. Default = 40.0f
     self.currentPanel.titleBarHeight = 80.0f;
     
@@ -132,9 +144,11 @@ Step 4: Customize UAModalPanel
     
     // The header label, a UILabel with the same frame as the titleBar
     self.currentPanel.headerLabel.font = [UIFont boldSystemFontOfSize:24];
-  
+````
+
 **UANoisyGradientBackground and UAGradientBackground customizations**
 
+````objective-c
     // The gradient style (Linear, linear reversed, radial, radial reversed, center highlight). Default = Linear
     [[(UATitledModalPanel *)self.currentPanel titleBar] setGradientStyle:UAGradientBackgroundStyleCenterHighlight];
     
@@ -143,7 +157,7 @@ Step 4: Customize UAModalPanel
     
     // The noise layer opacity
     [[self.currentPanel titleBar] setNoiseOpacity:0.3];
-
+````
 
 
 Step 5: There is no step 5.
