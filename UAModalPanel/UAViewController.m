@@ -46,6 +46,8 @@
 	self.currentPanel = [[[UAExampleModalPanel alloc] initWithFrame:self.view.bounds title:[(UIButton *)sender titleForState:UIControlStateNormal]] autorelease];
 
 #ifdef USE_BLOCKS
+    // NOTE: actually keeping a reference to the current panel is less necessary when using blocks as the block
+    // passes back a point to the panel
     self.currentPanel.onClosePressed = ^(UAModalPanel* panel) {
         [panel hideWithOnComplete:^(BOOL finished) {
             [panel removeFromSuperview];
