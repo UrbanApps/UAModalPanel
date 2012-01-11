@@ -1,7 +1,7 @@
 What is UAModalPanel?
 ---------------------
 
-![UAModalPanel Example Pic](http://files.urbanapps.com/images/UAModalPanel.jpg "UAModalPanel Example Pic")![UAModalPanel Example Pic 2](http://files.urbanapps.com/images/UAModalPanel2.jpg "UAModalPanel Example Pic 2")![UAModalPanel Example Pic 3](http://files.urbanapps.com/images/UAModalPanel3.jpg "UAModalPanel Example Pic 3")
+![UAModalPanel Example Pic](http://files.urbanapps.com/images/_UAModalPanel.jpg "UAModalPanel Example Pic")![UAModalPanel Example Pic 2](http://files.urbanapps.com/images/_UAModalPanel2.jpg "UAModalPanel Example Pic 2")![UAModalPanel Example Pic 3](http://files.urbanapps.com/images/_UAModalPanel3.jpg "UAModalPanel Example Pic 3")
 
 `UAModalPanel` is a highly customizable, alternative modal panel that you can popup in your view controllers to show content that might not need an entire new screen to show. It has a bounce animation, content fade-in, and a fancy noisy-gradient title bar. It works on the iPhone and iPad, with or without rotation, and is a non-ARC project.
 
