@@ -104,7 +104,7 @@ You can either implement the delegate method for when the close button is presse
     }
 ````
 
-or use blocks
+... or forget about delegates completely and use blocks when creating the panel. See example project for example usage.
 
 ````objective-c
     self.currentPanel.onClosePressed = ^(UAModalPanel* panel) {
@@ -117,6 +117,9 @@ or use blocks
         }];
     };
 ````
+
+*NOTE: Keeping a reference to the current panel is less necessary when using blocks because the block passes back a pointer to the panel.
+
 
 
 
