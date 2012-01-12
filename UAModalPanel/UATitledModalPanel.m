@@ -1,9 +1,9 @@
 //
 //  UAModalTitledDisplayPanelView.m
-//  Flipped Text
+//  UAModalPanel
 //
-//  Created by Matt Coneybeare on 7/11/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Matt Coneybeare on 1/8/12.
+//  Copyright (c) 2012 Urban Apps. All rights reserved.
 //
 
 #import "UATitledModalPanel.h"
@@ -91,6 +91,7 @@
 }
 
 - (void)showAnimationFinished {
+	UADebugLog(@"Fading in content for modalPanel: %@", self);
 	[UIView animateWithDuration:0.2
 						  delay:0.0
 						options:UIViewAnimationCurveEaseIn

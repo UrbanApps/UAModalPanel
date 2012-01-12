@@ -320,6 +320,11 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UAModalPanel/UAModalPanel-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					UAMODALVIEW_DEBUG,
+					"DEBUG=1",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "UAModalPanel/UAModalPanel-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";

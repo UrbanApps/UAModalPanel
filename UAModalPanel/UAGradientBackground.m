@@ -1,9 +1,9 @@
 //
 //  UAGradientBackground.m
-//  Mobilize
+//  UAModalPanel
 //
-//  Created by Matt Coneybeare on 9/22/09.
-//  Copyright 2009 coneybeare. All rights reserved.
+//  Created by Matt Coneybeare on 1/8/12.
+//  Copyright (c) 2012 Urban Apps. All rights reserved.
 //
 
 #import "UAGradientBackground.h"

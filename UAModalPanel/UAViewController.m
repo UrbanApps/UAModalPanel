@@ -14,127 +14,83 @@
 
 @implementation UAViewController
 
-@synthesize currentPanel;
-
 #pragma mark - View lifecycle
 
-- (void)dealloc {
-    self.currentPanel = nil;
-    [super dealloc];
-}
-- (void)viewDidLoad {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
-
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-	    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-	} else {
-	    return YES;
-	}
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+	return YES;
 }
 
 
 - (IBAction)showModalPanel:(id)sender {
 	
-	
-	/////////////////////////////////
-	// Randomly use the blocks method instead of the delgate methods
-	BOOL useBlocks = arc4random() % 2;
-	
-	self.currentPanel = [[[UAExampleModalPanel alloc] initWithFrame:self.view.bounds title:[(UIButton *)sender titleForState:UIControlStateNormal]] autorelease];
+	UAExampleModalPanel *modalPanel = [[[UAExampleModalPanel alloc] initWithFrame:self.view.bounds title:[(UIButton *)sender titleForState:UIControlStateNormal]] autorelease];
 
-	if (useBlocks) {
-		// NOTE: actually keeping a reference to the current panel is less necessary when using blocks as the block
-		// passes back a pointer to the panel
-		self.currentPanel.onClosePressed = ^(UAModalPanel* panel) {
+	/////////////////////////////////
+	// Randomly use the blocks method, delgate methods, or neither of them
+	int blocksDelegateOrNone = arc4random() % 3;
+	
+	
+	////////////////////////
+	// USE BLOCKS
+	if (0 == blocksDelegateOrNone) {
+		///////////////////////////////////////////
+		// The block is responsible for closing the panel,
+		//   either with -[UAModalPanel hide] or -[UAModalPanel hideWithOnComplete:]
+		//   Panel is a reference to the modalPanel
+		modalPanel.onClosePressed = ^(UAModalPanel* panel) {
+			// [panel hide];
 			[panel hideWithOnComplete:^(BOOL finished) {
 				[panel removeFromSuperview];
-				
-				if (panel == self.currentPanel) {
-					self.currentPanel = nil;
-				}
 			}];
 		};
+		
+		UADebugLog(@"UAModalView will display using blocks: %@", modalPanel);
 	
+	////////////////////////
+	// USE DELEGATE
+	} else if (1 == blocksDelegateOrNone) {
+		///////////////////////////////////
+		// Add self as the delegate so we know how to close the panel
+		modalPanel.delegate = self;
+		
+		UADebugLog(@"UAModalView will display using delegate methods: %@", modalPanel);
+	
+	////////////////////////
+	// USE NOTHING
 	} else {
-		self.currentPanel.delegate = self;
-	}
-
-	
-	////////////////////////////////////
-	// CUSTOMIZE IT
-	// Show the defaults mostly, but once in awhile show a funky one
-	if (arc4random() % 5 == 4) {
-		// Funky time.
-		
-		// Margin between edge of container frame and panel. Default = 20.0
-		self.currentPanel.outerMargin = 30.0f;  // Default = 20.0f;
-		
-		// Margin between edge of panel and the content area. Default = 20.0
-		self.currentPanel.innerMargin = 30.0f;  // Default = 20.0f;
-		
-		// Border color of the panel. Default = [UIColor whiteColor]
-		self.currentPanel.borderColor = [UIColor blueColor];
-		
-		// Border width of the panel. Default = 1.5f;
-		self.currentPanel.borderWidth = 5.0f;
-		
-		// Corner radius of the panel. Default = 4.0f
-		self.currentPanel.cornerRadius = 10.0f;
-		
-		// Color of the panel itself. Default = [UIColor colorWithWhite:0.0 alpha:0.8]
-		self.currentPanel.contentColor = [UIColor yellowColor];
-		
-		// Shows the bounce animation. Default = YES
-		self.currentPanel.shouldBounce = NO;
-		
-		// Height of the title view. Default = 40.0f
-		[(UATitledModalPanel *)self.currentPanel setTitleBarHeight:80.0f];
-		
-		// The background color gradient of the title
-		CGFloat colors[8] = {0, 0, 1, 1, 1, 0, 0, 1};
-		[[(UATitledModalPanel *)self.currentPanel titleBar] setColorComponents:colors];
-		// The gradient style (Linear, linear reversed, radial, radial reversed, center highlight). Default = Linear
-		[[(UATitledModalPanel *)self.currentPanel titleBar] setGradientStyle:UAGradientBackgroundStyleCenterHighlight];
-		// The line mode of the gradient view (top, bottom, both, none). Top is a white line, bottom is a black line.
-		[[(UATitledModalPanel *)self.currentPanel titleBar] setLineMode:UAGradientLineModeNone];
-		// The noise layer opacity. Default = 0.4
-		[[(UATitledModalPanel *)self.currentPanel titleBar] setNoiseOpacity:0.8];
-		
-		// The header label, a UILabel with the same frame as the titleBar
-		[(UATitledModalPanel *)self.currentPanel headerLabel].font = [UIFont boldSystemFontOfSize:48];
+		// no-op. No delegate or blocks
+		UADebugLog(@"UAModalView will display without blocks or delegate methods: %@", modalPanel);
 	}
 	
 	
+	///////////////////////////////////
+	// Add the panel to our view
+	[self.view addSubview:modalPanel];
 	
-	[self.view addSubview:self.currentPanel];
-	[self.currentPanel showFromPoint:[sender center]];
+	///////////////////////////////////
+	// Show the panel from the center of the button that was pressed
+	[modalPanel showFromPoint:[sender center]];
 }
 
 
-#pragma mark - UAModalDisplayPanelViewDelegate
+#pragma mark - UAModalDisplayPanelViewDelegate 
 
-#ifndef USE_BLOCKS
-
-- (void)removeModalView {
-	if (self.currentPanel) {
-		[self.currentPanel hideWithDelegate:self selector:@selector(removeModal)];
-	}
+// Optional: This is called when the close button is pressed
+//   You can use it to perform validations
+//   Return YES to close the panel, otherwise NO
+//   Only used if delegate is set. You can use blocks instead
+- (BOOL)shouldCloseModalPanel:(UAModalPanel *)modalPanel {
+	UADebugLog(@"shouldCloseModalPanel called with modalPanel: %@", modalPanel);
+	return YES;
 }
 
-- (void)removeModal {
-	if (self.currentPanel) {
-		[self.currentPanel removeFromSuperview];
-		self.currentPanel = nil;
-	}
+// Optional: This is called after the close animations.
+//   If you store a local iVar, you could remove the view from the superview here and cleanup
+//   Only used if delegate is set. You can use blocks instead
+- (void)didCloseModalPanel:(UAModalPanel *)modalPanel {
+	UADebugLog(@"didCloseModalPanel called with modalPanel: %@", modalPanel);
+	[modalPanel removeFromSuperview];
 }
-
-#endif
 
 
 @end

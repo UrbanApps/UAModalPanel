@@ -1,9 +1,9 @@
 //
 //  UACategoryDetailsViewController.m
-//  Ambiance
+//  UAModalPanel
 //
-//  Created by Matt Coneybeare on 3/6/10.
-//  Copyright 2010 Urban Apps LLC. All rights reserved.
+//  Created by Matt Coneybeare on 1/8/12.
+//  Copyright (c) 2012 Urban Apps. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -25,15 +25,10 @@
 @synthesize innerMargin, outerMargin, cornerRadius, borderWidth, borderColor, contentColor, shouldBounce;
 @synthesize onClosePressed;
 
-- (void)calculateInnerFrame {
-	//adjust the popup frame here for iPad if it is too big.
-	innerFrame = self.frame;
-}
 
 - (id)initWithFrame:(CGRect)frame {
 	self = [super initWithFrame:frame];
 	if (self != nil) {
-		[self calculateInnerFrame];
 		delegate = nil;
 		roundedRect = nil;
 		closeButton = nil;
@@ -56,14 +51,12 @@
 		self.contentContainer.autoresizesSubviews = YES;
 		[self addSubview:self.contentContainer];
 		
-		[self setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.5]]; // Fixed, the bacground mask.
-		
-//		self.roundedRect.hidden = NO;  // init.
-//		self.closeButton.hidden = NO; // init.
-		
+		[self setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.5]]; // Fixed value, the bacground mask.
+				
 		[self.contentView setBackgroundColor:[UIColor clearColor]];
 		self.delegate = nil;
 	
+		self.tag = (arc4random() % 32768);
 		
 	}
 	return self;
@@ -77,6 +70,12 @@
 	self.contentColor = nil;
 	delegate = nil;
 	[super dealloc];
+}
+
+#pragma mark - Description
+
+- (NSString *)description {
+	return [NSString stringWithFormat:@"<%@ %d>", [[self class] description], self.tag];
 }
 
 #pragma mark - Accessors
@@ -142,13 +141,11 @@
 }
 
 - (CGRect)roundedRectFrame {
-	[self calculateInnerFrame];
-	CGFloat x = (self.frame.origin.x + floor((self.frame.size.width - innerFrame.size.width)/2));
-	CGFloat y = (self.frame.origin.y + floor((self.frame.size.height - innerFrame.size.height)/2));
-	return CGRectMake(x + self.outerMargin,
-					  y + self.outerMargin,
-					  innerFrame.size.width - 2*self.outerMargin,
-					  innerFrame.size.height - 2*self.outerMargin);
+
+	return CGRectMake(self.outerMargin + self.frame.origin.x,
+					  self.outerMargin + self.frame.origin.y,
+					  self.frame.size.width - 2*self.outerMargin,
+					  self.frame.size.height - 2*self.outerMargin);
 }
 
 - (CGRect)closeButtonFrame {
@@ -172,18 +169,30 @@
 	self.closeButton.frame = [self closeButtonFrame];
 	self.contentView.frame = [self contentViewFrame];
 	
-//	DebugLog(@"roundedRect: %@", NSStringFromCGRect([self _roundedRectFrame]));
-//	DebugLog(@"contentView: %@", NSStringFromCGRect([self _contentViewFrame]));
+//	UADebugLog(@"roundedRect frame: %@", NSStringFromCGRect(self.roundedRect.frame));
+//	UADebugLog(@"contentView frame: %@", NSStringFromCGRect(self.contentView.frame));
 }
 
 - (void)closePressed:(id)sender {
-	//What now?
-	if (delegate && [delegate respondsToSelector:@selector(removeModalView)]) {
-		[delegate performSelector:@selector(removeModalView)];
+	
+	// Using Delegates
+	if ([delegate respondsToSelector:@selector(shouldCloseModalPanel:)]) {
+		if ([delegate shouldCloseModalPanel:self]) {
+			UADebugLog(@"Closing using delegates for modalPanel: %@", self);
+			[self hide];
+		}
+		
+	
+	// Using blocks
+	} else if (self.onClosePressed) {
+		UADebugLog(@"Closing using blocks for modalPanel: %@", self);
+		self.onClosePressed(self);
+		
+	// No delegate or blocks. Just close myself
+	} else {
+		UADebugLog(@"Closing modalPanel: %@", self);
+		[self hide];
 	}
-    
-    if (self.onClosePressed)
-        self.onClosePressed(self);
 }
 
 - (void)showAnimationStarting {};		//subcalsses override
@@ -247,7 +256,7 @@
 	[self show];
 }
 
-- (void)hideWithDelegate:(id)del selector:(SEL)sel {	
+- (void)hide {	
 	// Hide the view right away
     [UIView animateWithDuration:0.3
 					 animations:^{
@@ -258,8 +267,11 @@
 						 self.contentContainer.transform = CGAffineTransformMakeScale(0.0001, 0.0001);
 					 }
 					 completion:^(BOOL finished){
-						 if ([del respondsToSelector:sel])
-							 [del performSelector:sel];
+						 if ([delegate respondsToSelector:@selector(didCloseModalPanel:)]) {
+							 [delegate didCloseModalPanel:self];
+						 } else {
+							 [self removeFromSuperview];
+						 }
 					 }];
 }
 

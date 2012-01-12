@@ -1,21 +1,34 @@
 //
 //  UAModalDisplayPanelView.h
-//  Ambiance
+//  UAModalPanel
 //
-//  Created by Matt Coneybeare on 3/6/10.
-//  Copyright 2010 Urban Apps LLC. All rights reserved.
+//  Created by Matt Coneybeare on 1/8/12.
+//  Copyright (c) 2012 Urban Apps. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "UARoundedRectView.h"
 
+// Logging Helpers
+#ifdef UAMODALVIEW_DEBUG
+#define UADebugLog( s, ... ) NSLog( @"<%@:%d> %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__,  [NSString stringWithFormat:(s), ##__VA_ARGS__] )
+#else
+#define UADebugLog( s, ... ) 
+#endif
+
 @class UAModalPanel;
+
+@protocol UAModalPanelDelegate
+@optional
+- (BOOL)shouldCloseModalPanel:(UAModalPanel *)modalPanel;
+- (void)didCloseModalPanel:(UAModalPanel *)modalPanel;
+@end
 
 typedef void (^UAModalDisplayPanelEvent)(UAModalPanel* panel);
 typedef void (^UAModalDisplayPanelAnimationComplete)(BOOL finished);
 
 @interface UAModalPanel : UIView {	
-	id			delegate;
+	NSObject<UAModalPanelDelegate>	*delegate;
 	
 	UIView		*contentContainer;
 	UIView		*roundedRect;
@@ -23,7 +36,6 @@ typedef void (^UAModalDisplayPanelAnimationComplete)(BOOL finished);
 	UIView		*contentView;
 	
 	CGPoint		startEndPoint;
-	CGRect		innerFrame;
 	
 	CGFloat		outerMargin;
 	CGFloat		innerMargin;
@@ -35,7 +47,8 @@ typedef void (^UAModalDisplayPanelAnimationComplete)(BOOL finished);
 	
 }
 
-@property (nonatomic, assign) id			delegate;
+@property (nonatomic, assign) NSObject<UAModalPanelDelegate>	*delegate;
+
 @property (nonatomic, retain) UIView		*contentContainer;
 @property (nonatomic, retain) UIView		*roundedRect;
 @property (nonatomic, retain) UIButton		*closeButton;
@@ -56,11 +69,11 @@ typedef void (^UAModalDisplayPanelAnimationComplete)(BOOL finished);
 // Shows the bounce animation. Default = YES
 @property (nonatomic, assign) BOOL			shouldBounce;
 
-@property (readwrite, copy) UAModalDisplayPanelEvent onClosePressed;
+@property (readwrite, copy)	UAModalDisplayPanelEvent onClosePressed;
 
 - (void)show;
 - (void)showFromPoint:(CGPoint)point;
-- (void)hideWithDelegate:(id)del selector:(SEL)sel;
+- (void)hide;
 - (void)hideWithOnComplete:(UAModalDisplayPanelAnimationComplete)onComplete;
 
 - (CGRect)roundedRectFrame;

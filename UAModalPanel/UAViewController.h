@@ -8,13 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class UAModalPanel;
+#import "UAModalPanel.h"
 
-@interface UAViewController : UIViewController {
-	__block UAModalPanel *currentPanel; // pointer to the current one
-}
-
-@property (nonatomic, retain) UAModalPanel	*currentPanel; // pointer to the current one
+@interface UAViewController : UIViewController<UAModalPanelDelegate>;
 
 - (IBAction)showModalPanel:(id)sender;
 
