@@ -70,14 +70,25 @@ Display the panel by creating an instance of your subclass and show it from a po
 You can optionally implement the `UAModalPanelDelegate` methods for handling dismissal:
 
 ````objective-c
+// Optional: This is called before the open animations.
+//   Only used if delegate is set.
+- (void)willShowModalPanel:(UAModalPanel *)modalPanel;
+
+// Optional: This is called after the open animations.
+//   Only used if delegate is set.
+- (void)didShowModalPanel:(UAModalPanel *)modalPanel;
+
 // Optional: This is called when the close button is pressed
 //   You can use it to perform validations
 //   Return YES to close the panel, otherwise NO
 //   Only used if delegate is set.
 - (BOOL)shouldCloseModalPanel:(UAModalPanel *)modalPanel;
-    
+
+// Optional: This is called before the close animations.
+//   Only used if delegate is set.
+- (void)willCloseModalPanel:(UAModalPanel *)modalPanel;
+
 // Optional: This is called after the close animations.
-//   If you store a local iVar, you could remove the view from the superview here and cleanup
 //   Only used if delegate is set.
 - (void)didCloseModalPanel:(UAModalPanel *)modalPanel;
 ````
@@ -88,11 +99,13 @@ Or you can use blocks when creating the panel.
 // The block is responsible for closing the panel,
 //   either with -[UAModalPanel hide] or -[UAModalPanel hideWithOnComplete:]
 //   Panel is a reference to the modalPanel
+
 modalPanel.onClosePressed = ^(UAModalPanel* panel) {
-    [panel hideWithOnComplete:^(BOOL finished) {
-        [panel removeFromSuperview];            
-    }];
+  [panel hideWithOnComplete:^(BOOL finished) {
+    // Do something awesome
+  }];
 };
+
 ````
 
 **Animation Hooks**
