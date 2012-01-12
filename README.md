@@ -55,73 +55,61 @@ The best way to use the panel is to subclass it and add your own elements to the
 
 **Add UAModalPanel to a View Controller**
 
-In your `.h` file, keep an instance variable to the panel. This allows your controller to communicate with the panel if necessary, and to close it when done.
-
-````objective-c
-    @class UAModalPanel;
-    @interface UAViewController : UIViewController {
-        UAModalPanel *currentPanel;
-    }
-    @property (nonatomic, retain) UAModalPanel  *currentPanel;
-````
-
-In your .m file, synthesize and dealloc the panel
-
-````objective-c
-    @synthesize currentPanel;
-    - (void)dealloc {
-        self.currentPanel = nil;
-        [super dealloc];
-    }
-````
-
 Display the panel by creating an instance of your subclass and show it from a point:
 
 ````objective-c
     - (IBAction)showModalPanel:(id)sender {
-        self.currentPanel = [[[UAExampleModalPanel alloc] initWithFrame:self.view.bounds] autorelease];
-        self.currentPanel.delegate = self;
-        [self.view addSubview:self.currentPanel];
-        [self.currentPanel showFromPoint:[sender center]];
+        modalPanel = [[[UAExampleModalPanel alloc] initWithFrame:self.view.bounds] autorelease];
+        [self.view addSubview:modalPanel];
+        [modalPanel showFromPoint:[sender center]];
     }
 ````
 
 **Event Handling (Delegates or Blocks)**
 
-You can either implement the delegate method for when the close button is pressed:
+You can optionally implement the `UAModalPanelDelegate` methods for handling dismissal:
 
 ````objective-c
-    - (void)removeModalView {
-        [self.currentPanel hideWithDelegate:self selector:@selector(removeModal)];
-    }
+    // Optional: This is called when the close button is pressed
+    //   You can use it to perform validations
+    //   Return YES to close the panel, otherwise NO
+    //   Only used if delegate is set. You can use blocks instead
+    - (BOOL)shouldCloseModalPanel:(UAModalPanel *)modalPanel;
+    
+    // Optional: This is called after the close animations.
+    //   If you store a local iVar, you could remove the view from the superview here and cleanup
+    //   Only used if delegate is set. You can use blocks instead
+    - (void)didCloseModalPanel:(UAModalPanel *)modalPanel;
 ````
-
-... and for when the close animations are completed:
-
-````objective-c
-    - (void)removeModal {
-        [self.currentPanel removeFromSuperview];
-        self.currentPanel = nil;
-    }
-````
-
-... or forget about delegates completely and use blocks when creating the panel. See example project for example usage.
+    
+Or you can use blocks when creating the panel.
 
 ````objective-c
-    self.currentPanel.onClosePressed = ^(UAModalPanel* panel) {
+    // The block is responsible for closing the panel,
+		//   either with -[UAModalPanel hide] or -[UAModalPanel hideWithOnComplete:]
+		//   Panel is a reference to the modalPanel
+    modalPanel.onClosePressed = ^(UAModalPanel* panel) {
         [panel hideWithOnComplete:^(BOOL finished) {
-            [panel removeFromSuperview];
-            
-            if (panel == self.currentPanel) {
-                self.currentPanel = nil;
-            }
+            [panel removeFromSuperview];            
         }];
     };
 ````
 
-*NOTE: Keeping a reference to the current panel is less necessary when using blocks because the block passes back a pointer to the panel.
+**Animation Hooks**
 
+You can add any of these methods to your subclass to get hooks at various points of the bounce animation.
 
+````objective-c
+    - (void)showAnimationStarting;
+    - (void)showAnimationPart1Finished;
+    - (void)showAnimationPart2Finished;
+    - (void)showAnimationPart3Finished;
+    - (void)showAnimationFinished;
+````
+
+**Logging**
+
+You can add `UAMODALVIEW_DEBUG` as a preprocessor macro on your project to turn on some logging in UAModalPanel.
 
 
 Step 4: Customize UAModalPanel
@@ -129,54 +117,56 @@ Step 4: Customize UAModalPanel
   
 **UAModalPanel Customizations**
 
+The best place to customize is in your UAModalPanel subclass
+
 ````objective-c
     // Margin between edge of container frame and panel. Default = 20.0
-    self.currentPanel.outerMargin = 30.0f;
+    self.outerMargin = 30.0f;
     
     // Margin between edge of panel and the content area. Default = 20.0
-    self.currentPanel.innerMargin = 30.0f;
+    self.innerMargin = 30.0f;
     
     // Border color of the panel. Default = [UIColor whiteColor]
-    self.currentPanel.borderColor = [UIColor blueColor];
+    self.borderColor = [UIColor blueColor];
     
     // Border width of the panel. Default = 1.5f;
-    self.currentPanel.borderWidth = 5.0f;
+    self.borderWidth = 5.0f;
     
     // Corner radius of the panel. Default = 4.0f
-    self.currentPanel.cornerRadius = 10.0f;
+    self.cornerRadius = 10.0f;
     
     // Color of the panel itself. Default = [UIColor colorWithWhite:0.0 alpha:0.8]
-    self.currentPanel.contentColor = [UIColor yellowColor];
+    self.contentColor = [UIColor yellowColor];
     
     // Shows the bounce animation. Default = YES
-    self.currentPanel.shouldBounce = NO;
+    self.shouldBounce = NO;
 ````
   
 **UATitledModalPanel customizations**
 
 ````objective-c
     // Height of the title view. Default = 40.0f
-    self.currentPanel.titleBarHeight = 80.0f;
+    self.titleBarHeight = 80.0f;
     
     // The background color gradient of the title
     CGFloat colors[8] = {0, 1, 1, 1, 1, 1, 0, 1};
-    [self.currentPanel.titleBar setColorComponents:colors];
+    [self.titleBar setColorComponents:colors];
     
     // The header label, a UILabel with the same frame as the titleBar
-    self.currentPanel.headerLabel.font = [UIFont boldSystemFontOfSize:24];
+    self.headerLabel.font = [UIFont boldSystemFontOfSize:24];
 ````
 
 **UANoisyGradientBackground and UAGradientBackground customizations**
 
 ````objective-c
     // The gradient style (Linear, linear reversed, radial, radial reversed, center highlight). Default = Linear
-    [[(UATitledModalPanel *)self.currentPanel titleBar] setGradientStyle:UAGradientBackgroundStyleCenterHighlight];
+    [[self titleBar] setGradientStyle:UAGradientBackgroundStyleCenterHighlight];
     
     // The line mode of the gradient view (top, bottom, both, none)
-    [[self.currentPanel titleBar] setLineMode:UAGradientLineModeNone];
+    [[self titleBar] setLineMode:UAGradientLineModeNone];
     
     // The noise layer opacity
-    [[self.currentPanel titleBar] setNoiseOpacity:0.3];
+    [[self titleBar] setNoiseOpacity:0.3];
 ````
 
 
