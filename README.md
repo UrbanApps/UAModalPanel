@@ -59,7 +59,7 @@ Display the panel by creating an instance of your subclass and show it from a po
 
 ````objective-c
     - (IBAction)showModalPanel:(id)sender {
-        modalPanel = [[[UAExampleModalPanel alloc] initWithFrame:self.view.bounds] autorelease];
+        UAModalPanel *modalPanel = [[[UAExampleModalPanel alloc] initWithFrame:self.view.bounds] autorelease];
         [self.view addSubview:modalPanel];
         [modalPanel showFromPoint:[sender center]];
     }
@@ -73,12 +73,12 @@ You can optionally implement the `UAModalPanelDelegate` methods for handling dis
     // Optional: This is called when the close button is pressed
     //   You can use it to perform validations
     //   Return YES to close the panel, otherwise NO
-    //   Only used if delegate is set. You can use blocks instead
+    //   Only used if delegate is set.
     - (BOOL)shouldCloseModalPanel:(UAModalPanel *)modalPanel;
     
     // Optional: This is called after the close animations.
     //   If you store a local iVar, you could remove the view from the superview here and cleanup
-    //   Only used if delegate is set. You can use blocks instead
+    //   Only used if delegate is set.
     - (void)didCloseModalPanel:(UAModalPanel *)modalPanel;
 ````
     
@@ -86,8 +86,8 @@ Or you can use blocks when creating the panel.
 
 ````objective-c
     // The block is responsible for closing the panel,
-		//   either with -[UAModalPanel hide] or -[UAModalPanel hideWithOnComplete:]
-		//   Panel is a reference to the modalPanel
+    //   either with -[UAModalPanel hide] or -[UAModalPanel hideWithOnComplete:]
+    //   Panel is a reference to the modalPanel
     modalPanel.onClosePressed = ^(UAModalPanel* panel) {
         [panel hideWithOnComplete:^(BOOL finished) {
             [panel removeFromSuperview];            
