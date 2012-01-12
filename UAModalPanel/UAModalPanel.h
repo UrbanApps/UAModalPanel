@@ -20,7 +20,10 @@
 
 @protocol UAModalPanelDelegate
 @optional
+- (void)willShowModalPanel:(UAModalPanel *)modalPanel;
+- (void)didShowModalPanel:(UAModalPanel *)modalPanel;
 - (BOOL)shouldCloseModalPanel:(UAModalPanel *)modalPanel;
+- (void)willCloseModalPanel:(UAModalPanel *)modalPanel;
 - (void)didCloseModalPanel:(UAModalPanel *)modalPanel;
 @end
 

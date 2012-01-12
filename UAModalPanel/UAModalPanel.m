@@ -201,6 +201,10 @@
 - (void)showAnimationPart3Finished {};	//subcalsses override
 - (void)showAnimationFinished {};		//subcalsses override
 - (void)show {
+	
+	if ([delegate respondsToSelector:@selector(willShowModalPanel:)])
+		[delegate willShowModalPanel:self];
+	
 	[self showAnimationStarting];
 	self.alpha = 0.0;
 	self.contentContainer.transform = CGAffineTransformMakeScale(0.00001, 0.00001);
@@ -230,7 +234,9 @@
 																	   self.contentContainer.transform = CGAffineTransformIdentity;
 																   }
 																   completion:^(BOOL finished){
-																	   [self showAnimationFinished];																						
+																	   [self showAnimationFinished];
+																	   if ([delegate respondsToSelector:@selector(didShowModalPanel:)])
+																		   [delegate didShowModalPanel:self];
 																   }];
 											  }];
 						 }];
@@ -247,6 +253,8 @@
 					 }
 					 completion:(shouldBounce ? animationBlock : ^(BOOL finished) {
 						[self showAnimationFinished];
+						if ([delegate respondsToSelector:@selector(didShowModalPanel:)])
+							[delegate didShowModalPanel:self];
 					})];
 
 }
@@ -258,6 +266,9 @@
 
 - (void)hide {	
 	// Hide the view right away
+	if ([delegate respondsToSelector:@selector(willCloseModalPanel:)])
+		[delegate willCloseModalPanel:self];
+	
     [UIView animateWithDuration:0.3
 					 animations:^{
 						 self.alpha = 0;
@@ -269,9 +280,8 @@
 					 completion:^(BOOL finished){
 						 if ([delegate respondsToSelector:@selector(didCloseModalPanel:)]) {
 							 [delegate didCloseModalPanel:self];
-						 } else {
-							 [self removeFromSuperview];
 						 }
+						 [self removeFromSuperview];
 					 }];
 }
 

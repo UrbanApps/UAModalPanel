@@ -75,21 +75,37 @@
 
 #pragma mark - UAModalDisplayPanelViewDelegate 
 
+// Optional: This is called before the open animations.
+//   Only used if delegate is set.
+- (void)willShowModalPanel:(UAModalPanel *)modalPanel {
+	UADebugLog(@"willShowModalPanel called with modalPanel: %@", modalPanel);
+}
+
+// Optional: This is called after the open animations.
+//   Only used if delegate is set.
+- (void)didShowModalPanel:(UAModalPanel *)modalPanel {
+	UADebugLog(@"didShowModalPanel called with modalPanel: %@", modalPanel);
+}
+
 // Optional: This is called when the close button is pressed
 //   You can use it to perform validations
 //   Return YES to close the panel, otherwise NO
-//   Only used if delegate is set. You can use blocks instead
+//   Only used if delegate is set.
 - (BOOL)shouldCloseModalPanel:(UAModalPanel *)modalPanel {
 	UADebugLog(@"shouldCloseModalPanel called with modalPanel: %@", modalPanel);
 	return YES;
 }
 
+// Optional: This is called before the close animations.
+//   Only used if delegate is set.
+- (void)willCloseModalPanel:(UAModalPanel *)modalPanel {
+	UADebugLog(@"willCloseModalPanel called with modalPanel: %@", modalPanel);
+}
+
 // Optional: This is called after the close animations.
-//   If you store a local iVar, you could remove the view from the superview here and cleanup
-//   Only used if delegate is set. You can use blocks instead
+//   Only used if delegate is set.
 - (void)didCloseModalPanel:(UAModalPanel *)modalPanel {
 	UADebugLog(@"didCloseModalPanel called with modalPanel: %@", modalPanel);
-	[modalPanel removeFromSuperview];
 }
 
 
