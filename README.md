@@ -3,16 +3,16 @@ What is UAModalPanel?
 
 ![UAModalPanel Example Pic](http://files.urbanapps.com/images/_UAModalPanel.jpg "UAModalPanel Example Pic")![UAModalPanel Example Pic 2](http://files.urbanapps.com/images/_UAModalPanel2.jpg "UAModalPanel Example Pic 2")![UAModalPanel Example Pic 3](http://files.urbanapps.com/images/_UAModalPanel3.jpg "UAModalPanel Example Pic 3")
 
-`UAModalPanel` is a highly customizable, alternative modal panel that you can popup in your view controllers to show content that might not need an entire new screen to show. It has a bounce animation, content fade-in, and a fancy noisy-gradient title bar. It works on the iPhone and iPad, with or without rotation, and is a non-ARC project.
+UAModalPanel is a highly customizable, alternative modal panel that you can popup in your view controllers to show content that might not need an entire new screen to show. It has a bounce animation, content fade-in, and a fancy noisy-gradient title bar. It works on the iPhone and iPad, with or without rotation, and is a non-ARC project.
 
 Example Video
 ---------------------
-I can't figure out how to embed a video in markdown, so here is a link to it: http://www.youtube.com/watch?v=AJDR0GAsV9E
+http://www.youtube.com/watch?v=AJDR0GAsV9E
 
 
 Step 0: Prerequisites
 ---------------------
-You'll need at least XCode 3.2 and an iOS 4.0+ project
+You'll need at least Xcode 3.2 and an iOS 4.0+ project
 
 Step 1: Get UAModalPanel files (add as Git submodule)
 ----------------
@@ -67,7 +67,7 @@ Display the panel by creating an instance of your subclass and show it from a po
 
 **Event Handling (Delegates or Blocks)**
 
-You can optionally implement the `UAModalPanelDelegate` methods for handling dismissal:
+You can optionally implement the `UAModalPanelDelegate` methods for callbacks and validations:
 
 ````objective-c
 // Optional: This is called before the open animations.
@@ -99,7 +99,6 @@ Or you can use blocks when creating the panel.
 // The block is responsible for closing the panel,
 //   either with -[UAModalPanel hide] or -[UAModalPanel hideWithOnComplete:]
 //   Panel is a reference to the modalPanel
-
 modalPanel.onClosePressed = ^(UAModalPanel* panel) {
   [panel hideWithOnComplete:^(BOOL finished) {
     // Do something awesome
@@ -122,15 +121,15 @@ You can add any of these methods to your subclass to get hooks at various points
 
 **Logging**
 
-You can add `UAMODALVIEW_DEBUG` as a preprocessor macro on your project to turn on some logging in UAModalPanel.
+You can add `UAMODALVIEW_DEBUG` as a preprocessor macro on your project to turn on some potentially useful logging in UAModalPanel.
 
 
 Step 4: Customize UAModalPanel
 ------------------------
   
-**UAModalPanel Customizations**
+The best place to customize is in your UAModalPanel subclass.
 
-The best place to customize is in your UAModalPanel subclass
+**UAModalPanel Customizations**
 
 ````objective-c
 // Margin between edge of container frame and panel. Default = 20.0
