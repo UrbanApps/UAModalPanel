@@ -9,11 +9,12 @@ Example Video
 ---------------------
 http://www.youtube.com/watch?v=AJDR0GAsV9E
 
-
+<hr/>
 Step 0: Prerequisites
 ---------------------
 You'll need at least Xcode 3.2 and an iOS 4.0+ project
 
+<hr/>
 Step 1: Get UAModalPanel files (add as Git submodule)
 ----------------
 In terminal navigate to the root of your project directory and run these commands (assuming your project is a git repo):
@@ -25,7 +26,7 @@ This creates new submodule, downloads the files to Submodules/UAModalPanel direc
 
     git submodule update
 
-
+<hr/>
 Step 2: Add UAModalPanel to your project
 ------------------------------------
 
@@ -45,7 +46,7 @@ Expand the 'Frameworks' group in your project's file list. Make sure you have th
 
 If you are missing any frameworks, right click the 'Frameworks' group and select Add -> Existing Frameworks. Select the framework you are missing and add it to your project.
 
-
+<hr/>
 Step 3: Implement UAModalPanel
 ------------------------
 
@@ -65,45 +66,48 @@ Display the panel by creating an instance of your subclass and show it from a po
 }
 ````
 
-**Event Handling (Delegates or Blocks)**
+UAModalPanel knows how to close itself, but if you want more control, read on.
 
-You can optionally implement the `UAModalPanelDelegate` methods for callbacks and validations:
+**Optional Event Handling**
+
+You can optionally implement either the `UAModalPanelDelegate` methods for callbacks and validations...
 
 ````objective-c
 // Optional: This is called before the open animations.
-//   Only used if delegate is set.
+//   Only used if delegate is set and not using blocks.
 - (void)willShowModalPanel:(UAModalPanel *)modalPanel;
 
 // Optional: This is called after the open animations.
-//   Only used if delegate is set.
+//   Only used if delegate is set and not using blocks.
 - (void)didShowModalPanel:(UAModalPanel *)modalPanel;
 
 // Optional: This is called when the close button is pressed
 //   You can use it to perform validations
 //   Return YES to close the panel, otherwise NO
-//   Only used if delegate is set.
+//   Only used if delegate is set and not using blocks.
 - (BOOL)shouldCloseModalPanel:(UAModalPanel *)modalPanel;
 
 // Optional: This is called before the close animations.
-//   Only used if delegate is set.
+//   Only used if delegate is set and not using blocks.
 - (void)willCloseModalPanel:(UAModalPanel *)modalPanel;
 
 // Optional: This is called after the close animations.
-//   Only used if delegate is set.
+//   Only used if delegate is set and not using blocks.
 - (void)didCloseModalPanel:(UAModalPanel *)modalPanel;
 ````
     
-Or you can use blocks when creating the panel.
+...or you can use blocks when creating the panel.
 
 ````objective-c
 // The block is responsible for closing the panel,
 //   either with -[UAModalPanel hide] or -[UAModalPanel hideWithOnComplete:]
 //   Panel is a reference to the modalPanel
-modalPanel.onClosePressed = ^(UAModalPanel* panel) {
-  [panel hideWithOnComplete:^(BOOL finished) {
-    // Do something awesome
-  }];
-};
+    modalPanel.onClosePressed = ^(UAModalPanel* panel) {
+        // Do something awesome when the close button is pressed
+        [panel hideWithOnComplete:^(BOOL finished) {
+            // Do something else awesome after it closes.
+        }];
+    };
 
 ````
 
@@ -123,7 +127,7 @@ You can add any of these methods to your subclass to get hooks at various points
 
 You can add `UAMODALVIEW_DEBUG` as a preprocessor macro on your project to turn on some potentially useful logging in UAModalPanel.
 
-
+<hr/>
 Step 4: Customize UAModalPanel
 ------------------------
   
@@ -153,7 +157,7 @@ self.contentColor = [UIColor yellowColor];
 // Shows the bounce animation. Default = YES
 self.shouldBounce = NO;
 ````
-  
+
 **UATitledModalPanel customizations**
 
 ````objective-c
@@ -181,7 +185,7 @@ self.headerLabel.font = [UIFont boldSystemFontOfSize:24];
 [[self titleBar] setNoiseOpacity:0.3];
 ````
 
-
+<hr/>
 Step 5: There is no step 5.
 ------------------------
 
