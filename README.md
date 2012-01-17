@@ -52,7 +52,7 @@ Step 3: Implement UAModalPanel
 
 **Subclass UAModalPanel**
 
-The best way to use the panel is to subclass it and add your own elements to the `contentView`. To get a plain modal panel, subclass `UAModalPanel`. To get a titled modal panel, subclass `UATitledModalPanel`. Check out the example project for a sample subclass, `UAExampleModalPanel`
+The best way to use the panel is to subclass it and add your own elements to the `contentView`. To get a plain modal panel, subclass [UAModalPanel](https://github.com/coneybeare/UAModalPanel/blob/master/UAModalPanel/UAModalPanel.h) . To get a titled modal panel, subclass [UATitledModalPanel](https://github.com/coneybeare/UAModalPanel/blob/master/UAModalPanel/UATitledModalPanel.h). Check out the example project for a sample subclass, [UAExampleModalPanel](https://github.com/coneybeare/UAModalPanel/blob/master/UAModalPanel/UAExampleModalPanel.h)
 
 **Add UAModalPanel to a View Controller**
 
@@ -70,7 +70,7 @@ UAModalPanel knows how to close itself, but if you want more control, read on.
 
 **Optional Event Handling**
 
-You can optionally implement either the `UAModalPanelDelegate` methods for callbacks and validations...
+You can optionally implement either the UAModalPanelDelegate methods for callbacks and validations...
 
 ````objective-c
 // Optional: This is called before the open animations.
