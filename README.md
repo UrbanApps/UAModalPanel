@@ -9,6 +9,7 @@ Example Video
 ---------------------
 http://www.youtube.com/watch?v=AJDR0GAsV9E
 
+
 <hr/>
 Step 0: Prerequisites
 ---------------------
@@ -191,7 +192,21 @@ Step 5: There is no step 5.
 
 That's it. Please feel free to fork and submit pull requests, fix issues or whatever else.
 
+<hr/>
+App that are using UAModalPanel:
+------------------------
+If you are using UAModalPanel, please contact me to get added to this list!
 
-* 13k reputation on Stack Overflow: http://stackoverflow.com/users/69634/coneybeare
-* Follow my code blog: http://code.coneybeare.net
-* Contact me on Twitter: http://twitter.com/coneybeare
+* [Ambiance](http://ambianceapp.com/iphone), [Ambiance Lite](http://ambianceapp.com/iphone)
+* [NPR Hourly News](http://nprhourlynews.com)
+* [FlippedText](http://flippedtext.com)
+* [Hanging with Cheats](http://hangingwithcheats.com)
+
+
+Get in touch:
+------------------------
+Questions, comments, beer vouchers or death threats!
+
+* [Follow my code blog](http://code.coneybeare.net)
+* [Follow me on Twitter](http://twitter.com/coneybeare) 
+* [Contact me](http://coneybeare.net)
