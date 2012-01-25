@@ -53,7 +53,7 @@ Step 3: Implement UAModalPanel
 
 **Subclass UAModalPanel**
 
-The best way to use the panel is to subclass it and add your own elements to the `contentView`. To get a plain modal panel, subclass [UAModalPanel](https://github.com/coneybeare/UAModalPanel/blob/master/UAModalPanel/UAModalPanel.h) . To get a titled modal panel, subclass [UATitledModalPanel](https://github.com/coneybeare/UAModalPanel/blob/master/UAModalPanel/UATitledModalPanel.h). Check out the example project for a sample subclass, [UAExampleModalPanel](https://github.com/coneybeare/UAModalPanel/blob/master/UAModalPanel/UAExampleModalPanel.h)
+The best way to use the panel is to subclass it and add your own elements to the `contentView`. To get a plain modal panel, subclass [UAModalPanel](https://github.com/coneybeare/UAModalPanel/blob/master/UAModalPanel/Panel/Panels/UAModalPanel.h) . To get a titled modal panel, subclass [UATitledModalPanel](https://github.com/coneybeare/UAModalPanel/blob/master/UAModalPanel/Panel/Panels/UATitledModalPanel.h). Check out the example project for a sample subclass, [UAExampleModalPanel](https://github.com/coneybeare/UAModalPanel/blob/master/UAModalPanel/Example%20Project/UAExampleModalPanel.h)
 
 **Add UAModalPanel to a View Controller**
 
