@@ -7,61 +7,64 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E617700C14BA9E2F00694D1F /* UIView+JMNoise.m in Sources */ = {isa = PBXBuildFile; fileRef = E617700714BA9E2F00694D1F /* UIView+JMNoise.m */; };
-		E617700D14BA9E2F00694D1F /* UAGradientBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = E617700914BA9E2F00694D1F /* UAGradientBackground.m */; };
-		E617700E14BA9E2F00694D1F /* UANoisyGradientBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = E617700B14BA9E2F00694D1F /* UANoisyGradientBackground.m */; };
 		E617701114BA9ED600694D1F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E617701014BA9ED600694D1F /* QuartzCore.framework */; };
 		E64F520614BA98FA009CB18D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64F520514BA98FA009CB18D /* UIKit.framework */; };
 		E64F520814BA98FA009CB18D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64F520714BA98FA009CB18D /* Foundation.framework */; };
 		E64F520A14BA98FA009CB18D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64F520914BA98FA009CB18D /* CoreGraphics.framework */; };
-		E64F521014BA98FA009CB18D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E64F520E14BA98FA009CB18D /* InfoPlist.strings */; };
-		E64F521214BA98FA009CB18D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E64F521114BA98FA009CB18D /* main.m */; };
-		E64F521614BA98FA009CB18D /* UAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E64F521514BA98FA009CB18D /* UAAppDelegate.m */; };
-		E64F521914BA98FA009CB18D /* UAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E64F521814BA98FA009CB18D /* UAViewController.m */; };
-		E64F521C14BA98FA009CB18D /* UAViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = E64F521A14BA98FA009CB18D /* UAViewController_iPhone.xib */; };
-		E64F521F14BA98FA009CB18D /* UAViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = E64F521D14BA98FA009CB18D /* UAViewController_iPad.xib */; };
-		E64F522C14BA9AC1009CB18D /* UARoundedRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = E64F522714BA9AC1009CB18D /* UARoundedRectView.m */; };
-		E64F522D14BA9AC1009CB18D /* UAModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = E64F522914BA9AC1009CB18D /* UAModalPanel.m */; };
-		E64F522E14BA9AC1009CB18D /* UATitledModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = E64F522B14BA9AC1009CB18D /* UATitledModalPanel.m */; };
-		E64F523114BA9B1F009CB18D /* UAExampleModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = E64F523014BA9B1F009CB18D /* UAExampleModalPanel.m */; };
-		E64F523414BA9B6C009CB18D /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = E64F523214BA9B6C009CB18D /* close.png */; };
-		E64F523514BA9B6C009CB18D /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E64F523314BA9B6C009CB18D /* close@2x.png */; };
-		E6CCD30C14BB85EE0031E09A /* UrbanApps.png in Resources */ = {isa = PBXBuildFile; fileRef = E6CCD30B14BB85EE0031E09A /* UrbanApps.png */; };
+		E65CAB1914CFB930004F3776 /* UIView+JMNoise.m in Sources */ = {isa = PBXBuildFile; fileRef = E65CAB0914CFB930004F3776 /* UIView+JMNoise.m */; };
+		E65CAB1A14CFB930004F3776 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = E65CAB0B14CFB930004F3776 /* close.png */; };
+		E65CAB1B14CFB930004F3776 /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E65CAB0C14CFB930004F3776 /* close@2x.png */; };
+		E65CAB1C14CFB930004F3776 /* UAModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = E65CAB0F14CFB930004F3776 /* UAModalPanel.m */; };
+		E65CAB1D14CFB930004F3776 /* UATitledModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = E65CAB1114CFB930004F3776 /* UATitledModalPanel.m */; };
+		E65CAB1E14CFB930004F3776 /* UAGradientBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = E65CAB1414CFB930004F3776 /* UAGradientBackground.m */; };
+		E65CAB1F14CFB930004F3776 /* UANoisyGradientBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = E65CAB1614CFB930004F3776 /* UANoisyGradientBackground.m */; };
+		E65CAB2014CFB930004F3776 /* UARoundedRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = E65CAB1814CFB930004F3776 /* UARoundedRectView.m */; };
+		E65CAB3314CFB98C004F3776 /* UAExampleModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = E65CAB2114CFB98C004F3776 /* UAExampleModalPanel.m */; };
+		E65CAB3414CFB98C004F3776 /* UAExampleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E65CAB2314CFB98C004F3776 /* UAExampleView.xib */; };
+		E65CAB3514CFB98C004F3776 /* UAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E65CAB2414CFB98C004F3776 /* UAViewController.m */; };
+		E65CAB3614CFB98C004F3776 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E65CAB2614CFB98C004F3776 /* main.m */; };
+		E65CAB3A14CFB98C004F3776 /* UAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E65CAB2F14CFB98C004F3776 /* UAAppDelegate.m */; };
+		E65CAB3B14CFB98C004F3776 /* UAModalPanel-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E65CAB3014CFB98C004F3776 /* UAModalPanel-Info.plist */; };
+		E65CAB3C14CFB98C004F3776 /* UrbanApps.png in Resources */ = {isa = PBXBuildFile; fileRef = E65CAB3214CFB98C004F3776 /* UrbanApps.png */; };
+		E65CAB4314CFB9A8004F3776 /* UAViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = E65CAB3D14CFB9A8004F3776 /* UAViewController_iPhone.xib */; };
+		E65CAB4414CFB9A8004F3776 /* UAViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = E65CAB3F14CFB9A8004F3776 /* UAViewController_iPad.xib */; };
+		E65CAB4514CFB9A8004F3776 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E65CAB4114CFB9A8004F3776 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E617700614BA9E2F00694D1F /* UIView+JMNoise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JMNoise.h"; sourceTree = "<group>"; };
-		E617700714BA9E2F00694D1F /* UIView+JMNoise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JMNoise.m"; sourceTree = "<group>"; };
-		E617700814BA9E2F00694D1F /* UAGradientBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGradientBackground.h; sourceTree = "<group>"; };
-		E617700914BA9E2F00694D1F /* UAGradientBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGradientBackground.m; sourceTree = "<group>"; };
-		E617700A14BA9E2F00694D1F /* UANoisyGradientBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UANoisyGradientBackground.h; sourceTree = "<group>"; };
-		E617700B14BA9E2F00694D1F /* UANoisyGradientBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UANoisyGradientBackground.m; sourceTree = "<group>"; };
 		E617701014BA9ED600694D1F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E64F520114BA98FA009CB18D /* UAModalPanel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UAModalPanel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E64F520514BA98FA009CB18D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E64F520714BA98FA009CB18D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E64F520914BA98FA009CB18D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		E64F520D14BA98FA009CB18D /* UAModalPanel-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UAModalPanel-Info.plist"; sourceTree = "<group>"; };
-		E64F520F14BA98FA009CB18D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		E64F521114BA98FA009CB18D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E64F521314BA98FA009CB18D /* UAModalPanel-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UAModalPanel-Prefix.pch"; sourceTree = "<group>"; };
-		E64F521414BA98FA009CB18D /* UAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UAAppDelegate.h; sourceTree = "<group>"; };
-		E64F521514BA98FA009CB18D /* UAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UAAppDelegate.m; sourceTree = "<group>"; };
-		E64F521714BA98FA009CB18D /* UAViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UAViewController.h; sourceTree = "<group>"; };
-		E64F521814BA98FA009CB18D /* UAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UAViewController.m; sourceTree = "<group>"; };
-		E64F521B14BA98FA009CB18D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/UAViewController_iPhone.xib; sourceTree = "<group>"; };
-		E64F521E14BA98FA009CB18D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/UAViewController_iPad.xib; sourceTree = "<group>"; };
-		E64F522614BA9AC1009CB18D /* UARoundedRectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UARoundedRectView.h; sourceTree = "<group>"; };
-		E64F522714BA9AC1009CB18D /* UARoundedRectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UARoundedRectView.m; sourceTree = "<group>"; };
-		E64F522814BA9AC1009CB18D /* UAModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAModalPanel.h; sourceTree = "<group>"; };
-		E64F522914BA9AC1009CB18D /* UAModalPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAModalPanel.m; sourceTree = "<group>"; };
-		E64F522A14BA9AC1009CB18D /* UATitledModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UATitledModalPanel.h; sourceTree = "<group>"; };
-		E64F522B14BA9AC1009CB18D /* UATitledModalPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UATitledModalPanel.m; sourceTree = "<group>"; };
-		E64F522F14BA9B1F009CB18D /* UAExampleModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAExampleModalPanel.h; sourceTree = "<group>"; };
-		E64F523014BA9B1F009CB18D /* UAExampleModalPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAExampleModalPanel.m; sourceTree = "<group>"; };
-		E64F523214BA9B6C009CB18D /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
-		E64F523314BA9B6C009CB18D /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
-		E6CCD30B14BB85EE0031E09A /* UrbanApps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UrbanApps.png; sourceTree = "<group>"; };
+		E65CAB0814CFB930004F3776 /* UIView+JMNoise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JMNoise.h"; sourceTree = "<group>"; };
+		E65CAB0914CFB930004F3776 /* UIView+JMNoise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JMNoise.m"; sourceTree = "<group>"; };
+		E65CAB0B14CFB930004F3776 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
+		E65CAB0C14CFB930004F3776 /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
+		E65CAB0E14CFB930004F3776 /* UAModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAModalPanel.h; sourceTree = "<group>"; };
+		E65CAB0F14CFB930004F3776 /* UAModalPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAModalPanel.m; sourceTree = "<group>"; };
+		E65CAB1014CFB930004F3776 /* UATitledModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UATitledModalPanel.h; sourceTree = "<group>"; };
+		E65CAB1114CFB930004F3776 /* UATitledModalPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UATitledModalPanel.m; sourceTree = "<group>"; };
+		E65CAB1314CFB930004F3776 /* UAGradientBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGradientBackground.h; sourceTree = "<group>"; };
+		E65CAB1414CFB930004F3776 /* UAGradientBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGradientBackground.m; sourceTree = "<group>"; };
+		E65CAB1514CFB930004F3776 /* UANoisyGradientBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UANoisyGradientBackground.h; sourceTree = "<group>"; };
+		E65CAB1614CFB930004F3776 /* UANoisyGradientBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UANoisyGradientBackground.m; sourceTree = "<group>"; };
+		E65CAB1714CFB930004F3776 /* UARoundedRectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UARoundedRectView.h; sourceTree = "<group>"; };
+		E65CAB1814CFB930004F3776 /* UARoundedRectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UARoundedRectView.m; sourceTree = "<group>"; };
+		E65CAB2114CFB98C004F3776 /* UAExampleModalPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UAExampleModalPanel.m; path = "Example Project/UAExampleModalPanel.m"; sourceTree = "<group>"; };
+		E65CAB2214CFB98C004F3776 /* UAExampleModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UAExampleModalPanel.h; path = "Example Project/UAExampleModalPanel.h"; sourceTree = "<group>"; };
+		E65CAB2314CFB98C004F3776 /* UAExampleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UAExampleView.xib; path = "Example Project/UAExampleView.xib"; sourceTree = "<group>"; };
+		E65CAB2414CFB98C004F3776 /* UAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UAViewController.m; path = "Example Project/UAViewController.m"; sourceTree = "<group>"; };
+		E65CAB2514CFB98C004F3776 /* UAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UAViewController.h; path = "Example Project/UAViewController.h"; sourceTree = "<group>"; };
+		E65CAB2614CFB98C004F3776 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Example Project/main.m"; sourceTree = "<group>"; };
+		E65CAB2E14CFB98C004F3776 /* UAAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UAAppDelegate.h; path = "Example Project/UAAppDelegate.h"; sourceTree = "<group>"; };
+		E65CAB2F14CFB98C004F3776 /* UAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UAAppDelegate.m; path = "Example Project/UAAppDelegate.m"; sourceTree = "<group>"; };
+		E65CAB3014CFB98C004F3776 /* UAModalPanel-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "UAModalPanel-Info.plist"; path = "Example Project/UAModalPanel-Info.plist"; sourceTree = "<group>"; };
+		E65CAB3114CFB98C004F3776 /* UAModalPanel-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UAModalPanel-Prefix.pch"; path = "Example Project/UAModalPanel-Prefix.pch"; sourceTree = "<group>"; };
+		E65CAB3214CFB98C004F3776 /* UrbanApps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = UrbanApps.png; path = "Example Project/UrbanApps.png"; sourceTree = "<group>"; };
+		E65CAB3E14CFB9A8004F3776 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "Example Project/en.lproj/UAViewController_iPhone.xib"; sourceTree = "<group>"; };
+		E65CAB4014CFB9A8004F3776 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "Example Project/en.lproj/UAViewController_iPad.xib"; sourceTree = "<group>"; };
+		E65CAB4214CFB9A8004F3776 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "Example Project/en.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,10 +114,10 @@
 		E64F520C14BA98FA009CB18D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E64F520D14BA98FA009CB18D /* UAModalPanel-Info.plist */,
-				E64F520E14BA98FA009CB18D /* InfoPlist.strings */,
-				E64F521114BA98FA009CB18D /* main.m */,
-				E64F521314BA98FA009CB18D /* UAModalPanel-Prefix.pch */,
+				E65CAB2614CFB98C004F3776 /* main.m */,
+				E65CAB3014CFB98C004F3776 /* UAModalPanel-Info.plist */,
+				E65CAB3114CFB98C004F3776 /* UAModalPanel-Prefix.pch */,
+				E65CAB4114CFB9A8004F3776 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -122,39 +125,92 @@
 		E64F522514BA9A90009CB18D /* UAModalPanel */ = {
 			isa = PBXGroup;
 			children = (
-				E64F523214BA9B6C009CB18D /* close.png */,
-				E64F523314BA9B6C009CB18D /* close@2x.png */,
-				E617700614BA9E2F00694D1F /* UIView+JMNoise.h */,
-				E617700714BA9E2F00694D1F /* UIView+JMNoise.m */,
-				E617700814BA9E2F00694D1F /* UAGradientBackground.h */,
-				E617700914BA9E2F00694D1F /* UAGradientBackground.m */,
-				E617700A14BA9E2F00694D1F /* UANoisyGradientBackground.h */,
-				E617700B14BA9E2F00694D1F /* UANoisyGradientBackground.m */,
-				E64F522614BA9AC1009CB18D /* UARoundedRectView.h */,
-				E64F522714BA9AC1009CB18D /* UARoundedRectView.m */,
-				E64F522814BA9AC1009CB18D /* UAModalPanel.h */,
-				E64F522914BA9AC1009CB18D /* UAModalPanel.m */,
-				E64F522A14BA9AC1009CB18D /* UATitledModalPanel.h */,
-				E64F522B14BA9AC1009CB18D /* UATitledModalPanel.m */,
+				E65CAB0714CFB930004F3776 /* Categories */,
+				E65CAB0A14CFB930004F3776 /* Images */,
+				E65CAB0D14CFB930004F3776 /* Panels */,
+				E65CAB1214CFB930004F3776 /* Views */,
 			);
 			path = UAModalPanel;
+			sourceTree = "<group>";
+		};
+		E65CAB0714CFB930004F3776 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				E65CAB0814CFB930004F3776 /* UIView+JMNoise.h */,
+				E65CAB0914CFB930004F3776 /* UIView+JMNoise.m */,
+			);
+			name = Categories;
+			path = Panel/Categories;
+			sourceTree = "<group>";
+		};
+		E65CAB0A14CFB930004F3776 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				E65CAB0B14CFB930004F3776 /* close.png */,
+				E65CAB0C14CFB930004F3776 /* close@2x.png */,
+			);
+			name = Images;
+			path = Panel/Images;
+			sourceTree = "<group>";
+		};
+		E65CAB0D14CFB930004F3776 /* Panels */ = {
+			isa = PBXGroup;
+			children = (
+				E65CAB0E14CFB930004F3776 /* UAModalPanel.h */,
+				E65CAB0F14CFB930004F3776 /* UAModalPanel.m */,
+				E65CAB1014CFB930004F3776 /* UATitledModalPanel.h */,
+				E65CAB1114CFB930004F3776 /* UATitledModalPanel.m */,
+			);
+			name = Panels;
+			path = Panel/Panels;
+			sourceTree = "<group>";
+		};
+		E65CAB1214CFB930004F3776 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E65CAB1314CFB930004F3776 /* UAGradientBackground.h */,
+				E65CAB1414CFB930004F3776 /* UAGradientBackground.m */,
+				E65CAB1514CFB930004F3776 /* UANoisyGradientBackground.h */,
+				E65CAB1614CFB930004F3776 /* UANoisyGradientBackground.m */,
+				E65CAB1714CFB930004F3776 /* UARoundedRectView.h */,
+				E65CAB1814CFB930004F3776 /* UARoundedRectView.m */,
+			);
+			name = Views;
+			path = Panel/Views;
+			sourceTree = "<group>";
+		};
+		E65CAB4614CFB9C1004F3776 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				E65CAB3214CFB98C004F3776 /* UrbanApps.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		E65CAB4714CFB9D5004F3776 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				E65CAB3D14CFB9A8004F3776 /* UAViewController_iPhone.xib */,
+				E65CAB3F14CFB9A8004F3776 /* UAViewController_iPad.xib */,
+				E65CAB2314CFB98C004F3776 /* UAExampleView.xib */,
+			);
+			name = XIBs;
 			sourceTree = "<group>";
 		};
 		E6CCD30E14BB8B0B0031E09A /* Example Project Files */ = {
 			isa = PBXGroup;
 			children = (
+				E65CAB2E14CFB98C004F3776 /* UAAppDelegate.h */,
+				E65CAB2F14CFB98C004F3776 /* UAAppDelegate.m */,
+				E65CAB2414CFB98C004F3776 /* UAViewController.m */,
+				E65CAB2514CFB98C004F3776 /* UAViewController.h */,
+				E65CAB2114CFB98C004F3776 /* UAExampleModalPanel.m */,
+				E65CAB2214CFB98C004F3776 /* UAExampleModalPanel.h */,
+				E65CAB4614CFB9C1004F3776 /* Images */,
+				E65CAB4714CFB9D5004F3776 /* XIBs */,
+				E64F520C14BA98FA009CB18D /* Supporting Files */,
 				E64F520414BA98FA009CB18D /* Frameworks */,
 				E64F520214BA98FA009CB18D /* Products */,
-				E64F520C14BA98FA009CB18D /* Supporting Files */,
-				E64F521414BA98FA009CB18D /* UAAppDelegate.h */,
-				E64F521514BA98FA009CB18D /* UAAppDelegate.m */,
-				E64F521714BA98FA009CB18D /* UAViewController.h */,
-				E64F521814BA98FA009CB18D /* UAViewController.m */,
-				E64F522F14BA9B1F009CB18D /* UAExampleModalPanel.h */,
-				E64F523014BA9B1F009CB18D /* UAExampleModalPanel.m */,
-				E64F521A14BA98FA009CB18D /* UAViewController_iPhone.xib */,
-				E64F521D14BA98FA009CB18D /* UAViewController_iPad.xib */,
-				E6CCD30B14BB85EE0031E09A /* UrbanApps.png */,
 			);
 			name = "Example Project Files";
 			path = UAModalPanel;
@@ -211,12 +267,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E64F521014BA98FA009CB18D /* InfoPlist.strings in Resources */,
-				E64F521C14BA98FA009CB18D /* UAViewController_iPhone.xib in Resources */,
-				E64F521F14BA98FA009CB18D /* UAViewController_iPad.xib in Resources */,
-				E64F523414BA9B6C009CB18D /* close.png in Resources */,
-				E64F523514BA9B6C009CB18D /* close@2x.png in Resources */,
-				E6CCD30C14BB85EE0031E09A /* UrbanApps.png in Resources */,
+				E65CAB1A14CFB930004F3776 /* close.png in Resources */,
+				E65CAB1B14CFB930004F3776 /* close@2x.png in Resources */,
+				E65CAB3414CFB98C004F3776 /* UAExampleView.xib in Resources */,
+				E65CAB3B14CFB98C004F3776 /* UAModalPanel-Info.plist in Resources */,
+				E65CAB3C14CFB98C004F3776 /* UrbanApps.png in Resources */,
+				E65CAB4314CFB9A8004F3776 /* UAViewController_iPhone.xib in Resources */,
+				E65CAB4414CFB9A8004F3776 /* UAViewController_iPad.xib in Resources */,
+				E65CAB4514CFB9A8004F3776 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,44 +285,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E64F521214BA98FA009CB18D /* main.m in Sources */,
-				E64F521614BA98FA009CB18D /* UAAppDelegate.m in Sources */,
-				E64F521914BA98FA009CB18D /* UAViewController.m in Sources */,
-				E64F522C14BA9AC1009CB18D /* UARoundedRectView.m in Sources */,
-				E64F522D14BA9AC1009CB18D /* UAModalPanel.m in Sources */,
-				E64F522E14BA9AC1009CB18D /* UATitledModalPanel.m in Sources */,
-				E64F523114BA9B1F009CB18D /* UAExampleModalPanel.m in Sources */,
-				E617700C14BA9E2F00694D1F /* UIView+JMNoise.m in Sources */,
-				E617700D14BA9E2F00694D1F /* UAGradientBackground.m in Sources */,
-				E617700E14BA9E2F00694D1F /* UANoisyGradientBackground.m in Sources */,
+				E65CAB1914CFB930004F3776 /* UIView+JMNoise.m in Sources */,
+				E65CAB1C14CFB930004F3776 /* UAModalPanel.m in Sources */,
+				E65CAB1D14CFB930004F3776 /* UATitledModalPanel.m in Sources */,
+				E65CAB1E14CFB930004F3776 /* UAGradientBackground.m in Sources */,
+				E65CAB1F14CFB930004F3776 /* UANoisyGradientBackground.m in Sources */,
+				E65CAB2014CFB930004F3776 /* UARoundedRectView.m in Sources */,
+				E65CAB3314CFB98C004F3776 /* UAExampleModalPanel.m in Sources */,
+				E65CAB3514CFB98C004F3776 /* UAViewController.m in Sources */,
+				E65CAB3614CFB98C004F3776 /* main.m in Sources */,
+				E65CAB3A14CFB98C004F3776 /* UAAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E64F520E14BA98FA009CB18D /* InfoPlist.strings */ = {
+		E65CAB3D14CFB9A8004F3776 /* UAViewController_iPhone.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E64F520F14BA98FA009CB18D /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		E64F521A14BA98FA009CB18D /* UAViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E64F521B14BA98FA009CB18D /* en */,
+				E65CAB3E14CFB9A8004F3776 /* en */,
 			);
 			name = UAViewController_iPhone.xib;
 			sourceTree = "<group>";
 		};
-		E64F521D14BA98FA009CB18D /* UAViewController_iPad.xib */ = {
+		E65CAB3F14CFB9A8004F3776 /* UAViewController_iPad.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E64F521E14BA98FA009CB18D /* en */,
+				E65CAB4014CFB9A8004F3776 /* en */,
 			);
 			name = UAViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+		E65CAB4114CFB9A8004F3776 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E65CAB4214CFB9A8004F3776 /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -319,13 +377,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "UAModalPanel/UAModalPanel-Prefix.pch";
+				GCC_PREFIX_HEADER = "UAModalPanel/Example Project/UAModalPanel-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					UAMODALVIEW_DEBUG,
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "UAModalPanel/UAModalPanel-Info.plist";
+				INFOPLIST_FILE = "UAModalPanel/Example Project/UAModalPanel-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -337,8 +395,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "UAModalPanel/UAModalPanel-Prefix.pch";
-				INFOPLIST_FILE = "UAModalPanel/UAModalPanel-Info.plist";
+				GCC_PREFIX_HEADER = "UAModalPanel/Example Project/UAModalPanel-Prefix.pch";
+				INFOPLIST_FILE = "UAModalPanel/Example Project/UAModalPanel-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
