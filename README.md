@@ -10,12 +10,12 @@ Example Video
 http://www.youtube.com/watch?v=AJDR0GAsV9E
 
 
-<hr/>
+
 Step 0: Prerequisites
 ---------------------
 You'll need at least Xcode 3.2 and an iOS 4.0+ project
 
-<hr/>
+
 Step 1: Get UAModalPanel files (add as Git submodule)
 ----------------
 In terminal navigate to the root of your project directory and run these commands (assuming your project is a git repo):
@@ -27,7 +27,7 @@ This creates new submodule, downloads the files to Submodules/UAModalPanel direc
 
     git submodule update
 
-<hr/>
+
 Step 2: Add UAModalPanel to your project
 ------------------------------------
 
@@ -47,7 +47,7 @@ Expand the 'Frameworks' group in your project's file list. Make sure you have th
 
 If you are missing any frameworks, right click the 'Frameworks' group and select Add -> Existing Frameworks. Select the framework you are missing and add it to your project.
 
-<hr/>
+
 Step 3: Implement UAModalPanel
 ------------------------
 
@@ -128,7 +128,7 @@ You can add any of these methods to your subclass to get hooks at various points
 
 You can add `UAMODALVIEW_DEBUG` as a preprocessor macro on your project to turn on some potentially useful logging in UAModalPanel.
 
-<hr/>
+
 Step 4: Customize UAModalPanel
 ------------------------
   
@@ -186,13 +186,13 @@ self.headerLabel.font = [UIFont boldSystemFontOfSize:24];
 [[self titleBar] setNoiseOpacity:0.3];
 ````
 
-<hr/>
+
 Step 5: There is no step 5.
 ------------------------
 
 That's it. Please feel free to fork and submit pull requests, fix issues or whatever else.
 
-<hr/>
+
 App that are using UAModalPanel:
 ------------------------
 If you are using UAModalPanel, please contact me to get added to this list!
