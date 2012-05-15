@@ -22,7 +22,7 @@
 @implementation UAModalPanel
 
 @synthesize roundedRect, closeButton, delegate, contentView, contentContainer;
-@synthesize innerMargin, outerMargin, cornerRadius, borderWidth, borderColor, contentColor, shouldBounce;
+@synthesize innerMargin, outerMargin, outerMarginY, cornerRadius, borderWidth, borderColor, contentColor, shouldBounce;
 @synthesize onClosePressed;
 
 
@@ -142,10 +142,13 @@
 
 - (CGRect)roundedRectFrame {
 
+    if (!outerMarginY)
+        outerMarginY = outerMargin;
+    
 	return CGRectMake(self.outerMargin + self.frame.origin.x,
-					  self.outerMargin + self.frame.origin.y,
+					  self.outerMarginY + self.frame.origin.y,
 					  self.frame.size.width - 2*self.outerMargin,
-					  self.frame.size.height - 2*self.outerMargin);
+					  self.frame.size.height - 2*self.outerMarginY);
 }
 
 - (CGRect)closeButtonFrame {

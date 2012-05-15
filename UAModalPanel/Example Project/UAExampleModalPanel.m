@@ -32,7 +32,10 @@
 			
 			// Margin between edge of container frame and panel. Default = 20.0
 			self.outerMargin = ((arc4random() % 4) + 1) * 20.0f;
-			
+            
+            // Margin between top/bottom edge of container frame and panel. Default = 20.0
+            self.outerMarginY = ((arc4random() % 4) + 1) * 20.0f;
+            
 			// Margin between edge of panel and the content area. Default = 20.0
 			self.innerMargin = ((arc4random() % 4) + 1) * 10.0f;
 			
