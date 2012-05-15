@@ -67,10 +67,10 @@
 	CGRect titleBarFrame = [self titleBarFrame];
 	CGRect roundedRectFrame = [self roundedRectFrame];
 	CGFloat y = titleBarFrame.origin.y + titleBarFrame.size.height;
-	CGRect rect = CGRectMake(self.outerMargin + self.innerMargin,
-							 self.outerMargin + self.innerMargin + y,
-							 roundedRectFrame.size.width - 2*self.innerMargin,
-							 roundedRectFrame.size.height - y - 2*self.innerMargin);
+	CGRect rect = CGRectMake(self.margin.left + self.padding.left,
+							 self.margin.top + self.padding.top + y,
+							 roundedRectFrame.size.width - self.padding.left - self.padding.right,
+							 roundedRectFrame.size.height - y - self.padding.bottom - self.padding.bottom);
 	return rect;
 }
 

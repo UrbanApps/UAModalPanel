@@ -22,7 +22,7 @@
 @implementation UAModalPanel
 
 @synthesize roundedRect, closeButton, delegate, contentView, contentContainer;
-@synthesize innerMargin, outerMargin, cornerRadius, borderWidth, borderColor, contentColor, shouldBounce;
+@synthesize margin, padding, cornerRadius, borderWidth, borderColor, contentColor, shouldBounce;
 @synthesize onClosePressed;
 
 
@@ -35,8 +35,8 @@
 		contentView = nil;
 		startEndPoint = CGPointZero;
 		
-		outerMargin = DEFAULT_MARGIN;
-		innerMargin = DEFAULT_MARGIN;
+		margin = UIEdgeInsetsMake(DEFAULT_MARGIN, DEFAULT_MARGIN, DEFAULT_MARGIN, DEFAULT_MARGIN);
+		padding = UIEdgeInsetsMake(DEFAULT_MARGIN, DEFAULT_MARGIN, DEFAULT_MARGIN, DEFAULT_MARGIN);
 		cornerRadius = DEFAULT_CORNER_RADIUS;
 		borderWidth = DEFAULT_BORDER_WIDTH;
 		borderColor = [DEFAULT_BORDER_COLOR retain];
@@ -142,10 +142,10 @@
 
 - (CGRect)roundedRectFrame {
 
-	return CGRectMake(self.outerMargin + self.frame.origin.x,
-					  self.outerMargin + self.frame.origin.y,
-					  self.frame.size.width - 2*self.outerMargin,
-					  self.frame.size.height - 2*self.outerMargin);
+	return CGRectMake(self.margin.left + self.frame.origin.x,
+					  self.margin.top + self.frame.origin.y,
+					  self.frame.size.width - self.margin.left - self.margin.right,
+					  self.frame.size.height - self.margin.top - self.margin.bottom);
 }
 
 - (CGRect)closeButtonFrame {
@@ -157,8 +157,11 @@
 }
 
 - (CGRect)contentViewFrame {
-	CGRect rect = CGRectInset([self roundedRectFrame], self.innerMargin, self.innerMargin);
-	return rect;
+	CGRect roundedRectFrame = [self roundedRectFrame];
+	return CGRectMake(self.padding.left + roundedRectFrame.origin.x,
+					  self.padding.top + roundedRectFrame.origin.y,
+					  roundedRectFrame.size.width - self.padding.left - self.padding.right,
+					  roundedRectFrame.size.height - self.padding.top - self.padding.bottom);
 }
 
 
@@ -169,8 +172,8 @@
 	self.closeButton.frame = [self closeButtonFrame];
 	self.contentView.frame = [self contentViewFrame];
 	
-//	UADebugLog(@"roundedRect frame: %@", NSStringFromCGRect(self.roundedRect.frame));
-//	UADebugLog(@"contentView frame: %@", NSStringFromCGRect(self.contentView.frame));
+	UADebugLog(@"roundedRect frame: %@", NSStringFromCGRect(self.roundedRect.frame));
+	UADebugLog(@"contentView frame: %@", NSStringFromCGRect(self.contentView.frame));
 }
 
 - (void)closePressed:(id)sender {

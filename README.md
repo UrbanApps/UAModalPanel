@@ -137,11 +137,11 @@ The best place to customize is in your UAModalPanel subclass.
 **UAModalPanel Customizations**
 
 ````objective-c
-// Margin between edge of container frame and panel. Default = 20.0
-self.outerMargin = 30.0f;
+// Margin between edge of container frame and panel. Default = {20.0, 20.0, 20.0, 20.0}
+self.margin = UIEdgeInsetsMake(10.0, 20.0, 30.0, 20.0);
     
-// Margin between edge of panel and the content area. Default = 20.0
-self.innerMargin = 30.0f;
+// Padding between edge of panel and the content area. Default = {20.0, 20.0, 20.0, 20.0}
+self.padding = UIEdgeInsetsMake(10.0, 20.0, 30.0, 20.0);
     
 // Border color of the panel. Default = [UIColor whiteColor]
 self.borderColor = [UIColor blueColor];
