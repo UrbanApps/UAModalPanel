@@ -41,6 +41,7 @@ typedef void (^UAModalDisplayPanelAnimationComplete)(BOOL finished);
 	CGPoint		startEndPoint;
 	
 	CGFloat		outerMargin;
+    CGFloat     outerMarginY;
 	CGFloat		innerMargin;
 	UIColor		*borderColor;
 	CGFloat		borderWidth;
@@ -59,6 +60,8 @@ typedef void (^UAModalDisplayPanelAnimationComplete)(BOOL finished);
 
 // Margin between edge of container frame and panel. Default = 20.0
 @property (nonatomic, assign) CGFloat		outerMargin;
+// Margin between top/bottom edge of container frame and panel. Default = 20.0
+@property (nonatomic, assign) CGFloat		outerMarginY;
 // Margin between edge of panel and the content area. Default = 20.0
 @property (nonatomic, assign) CGFloat		innerMargin;
 // Border color of the panel. Default = [UIColor whiteColor]
