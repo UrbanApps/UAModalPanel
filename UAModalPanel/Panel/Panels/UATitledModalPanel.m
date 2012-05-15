@@ -67,8 +67,8 @@
 	CGRect titleBarFrame = [self titleBarFrame];
 	CGRect roundedRectFrame = [self roundedRectFrame];
 	CGFloat y = titleBarFrame.origin.y + titleBarFrame.size.height;
-	CGRect rect = CGRectMake(self.outerMargin + self.innerMargin,
-							 self.outerMargin + self.innerMargin + y,
+	CGRect rect = CGRectMake(self.outerMarginX + self.innerMargin,
+							 self.outerMarginY + self.innerMargin + y,
 							 roundedRectFrame.size.width - 2*self.innerMargin,
 							 roundedRectFrame.size.height - y - 2*self.innerMargin);
 	return rect;
