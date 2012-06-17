@@ -22,6 +22,7 @@
 @optional
 - (void)willShowModalPanel:(UAModalPanel *)modalPanel;
 - (void)didShowModalPanel:(UAModalPanel *)modalPanel;
+- (void)didSelectActionButton:(UAModalPanel *)modalPanel;
 - (BOOL)shouldCloseModalPanel:(UAModalPanel *)modalPanel;
 - (void)willCloseModalPanel:(UAModalPanel *)modalPanel;
 - (void)didCloseModalPanel:(UAModalPanel *)modalPanel;
@@ -36,6 +37,7 @@ typedef void (^UAModalDisplayPanelAnimationComplete)(BOOL finished);
 	UIView			*contentContainer;
 	UIView			*roundedRect;
 	UIButton		*closeButton;
+	UIButton		*actionButton;
 	UIView			*contentView;
 	
 	CGPoint			startEndPoint;
@@ -56,6 +58,7 @@ typedef void (^UAModalDisplayPanelAnimationComplete)(BOOL finished);
 @property (nonatomic, retain) UIView		*contentContainer;
 @property (nonatomic, retain) UIView		*roundedRect;
 @property (nonatomic, retain) UIButton		*closeButton;
+@property (nonatomic, retain) UIButton		*actionButton;
 @property (nonatomic, retain) UIView		*contentView;
 
 // Margin between edge of container frame and panel. Default = {20.0, 20.0, 20.0, 20.0}
@@ -74,6 +77,7 @@ typedef void (^UAModalDisplayPanelAnimationComplete)(BOOL finished);
 @property (nonatomic, assign) BOOL			shouldBounce;
 
 @property (readwrite, copy)	UAModalDisplayPanelEvent onClosePressed;
+@property (readwrite, copy)	UAModalDisplayPanelEvent onActionPressed;
 
 - (void)show;
 - (void)showFromPoint:(CGPoint)point;

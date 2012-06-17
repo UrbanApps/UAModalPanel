@@ -21,9 +21,9 @@
 
 @implementation UAModalPanel
 
-@synthesize roundedRect, closeButton, delegate, contentView, contentContainer;
+@synthesize roundedRect, closeButton, actionButton, delegate, contentView, contentContainer;
 @synthesize margin, padding, cornerRadius, borderWidth, borderColor, contentColor, shouldBounce;
-@synthesize onClosePressed;
+@synthesize onClosePressed, onActionPressed;
 
 
 - (id)initWithFrame:(CGRect)frame {
@@ -32,6 +32,7 @@
 		delegate = nil;
 		roundedRect = nil;
 		closeButton = nil;
+		actionButton = nil;
 		contentView = nil;
 		startEndPoint = CGPointZero;
 		
@@ -65,6 +66,7 @@
 - (void)dealloc {
 	self.roundedRect = nil;
 	self.closeButton = nil;
+	self.actionButton = nil;
 	self.contentContainer = nil;
 	self.borderColor = nil;
 	self.contentColor = nil;
@@ -130,6 +132,30 @@
 	}
 	return closeButton;
 }
+
+- (UIButton*)actionButton {
+	if (!actionButton) {
+		UIImage *image = [UIImage imageNamed:@"modalButton.png"];
+		UIImage *stretch = [image resizableImageWithCapInsets:UIEdgeInsetsMake(0, image.size.width/2.0, 0, image.size.width/2.0)];
+		UIImage *image2 = [UIImage imageNamed:@"modalButton-selected.png"];
+		UIImage *stretch2 = [image2 resizableImageWithCapInsets:UIEdgeInsetsMake(0, image2.size.width/2.0, 0, image2.size.width/2.0)];
+		self.actionButton = [UIButton buttonWithType:UIButtonTypeCustom];
+		[self.actionButton setBackgroundImage:stretch forState:UIControlStateNormal];
+		[self.actionButton setBackgroundImage:stretch2 forState:UIControlStateHighlighted];
+		self.actionButton.layer.shadowColor = [[UIColor blackColor] CGColor];
+		self.actionButton.layer.shadowOffset = CGSizeMake(0,4);
+		self.actionButton.layer.shadowOpacity = 0.3;
+		self.actionButton.titleLabel.font = [UIFont boldSystemFontOfSize:12];
+		[self.actionButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+		[self.actionButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+		self.actionButton.contentEdgeInsets = UIEdgeInsetsMake(4, 8, 4, 8);
+		
+		[actionButton addTarget:self action:@selector(actionPressed:) forControlEvents:UIControlEventTouchUpInside];		
+		[self.contentContainer insertSubview:actionButton aboveSubview:self.roundedRect];
+	}
+	return actionButton;
+}
+
 - (UIView *)contentView {
 	if (!contentView) {
 		self.contentView = [[[UIView alloc] initWithFrame:CGRectZero] autorelease];
@@ -156,6 +182,18 @@
 					  closeButton.frame.size.height);
 }
 
+- (CGRect)actionButtonFrame {
+	if (![[self.actionButton titleForState:UIControlStateNormal] length])
+		return CGRectZero;
+	
+	[self.actionButton sizeToFit];
+	CGRect f = [self roundedRectFrame];
+	return CGRectMake(f.origin.x + f.size.width - self.actionButton.frame.size.width + 11,
+					  f.origin.y - floor(actionButton.frame.size.height*0.5),
+					  self.actionButton.frame.size.width,
+					  self.actionButton.frame.size.height);
+}
+
 - (CGRect)contentViewFrame {
 	CGRect roundedRectFrame = [self roundedRectFrame];
 	return CGRectMake(self.padding.left + roundedRectFrame.origin.x,
@@ -168,9 +206,10 @@
 - (void)layoutSubviews {
 	[super layoutSubviews];
 	
-	self.roundedRect.frame = [self roundedRectFrame];
-	self.closeButton.frame = [self closeButtonFrame];
-	self.contentView.frame = [self contentViewFrame];
+	self.roundedRect.frame	= [self roundedRectFrame];
+	self.closeButton.frame	= [self closeButtonFrame];
+	self.actionButton.frame	= [self actionButtonFrame];
+	self.contentView.frame	= [self contentViewFrame];
 	
 	UADebugLog(@"roundedRect frame: %@", NSStringFromCGRect(self.roundedRect.frame));
 	UADebugLog(@"contentView frame: %@", NSStringFromCGRect(self.contentView.frame));
@@ -197,6 +236,25 @@
 		[self hide];
 	}
 }
+
+- (void)actionPressed:(id)sender {
+	
+	// Using Delegates
+	if ([delegate respondsToSelector:@selector(didSelectActionButton:)]) {
+		[delegate didSelectActionButton:self];
+		
+		
+		// Using blocks
+	} else if (self.onActionPressed) {
+		UADebugLog(@"Action pressed using blocks for modalPanel: %@", self);
+		self.onActionPressed(self);
+		
+		// No delegate or blocks. Do nothing!
+	} else {
+		// no-op
+	}
+}
+
 
 - (void)showAnimationStarting {};		//subcalsses override
 - (void)showAnimationPart1Finished {};	//subcalsses override
@@ -304,6 +362,5 @@
                              onComplete(finished);
 					 }];
 }
-
 
 @end
