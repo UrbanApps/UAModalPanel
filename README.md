@@ -1,7 +1,7 @@
 What is UAModalPanel?
 ---------------------
 
-![UAModalPanel Example Pic](http://files.urbanapps.com/images/_UAModalPanel.jpg "UAModalPanel Example Pic")![UAModalPanel Example Pic 2](http://files.urbanapps.com/images/_UAModalPanel2.jpg "UAModalPanel Example Pic 2")![UAModalPanel Example Pic 3](http://files.urbanapps.com/images/_UAModalPanel3.jpg "UAModalPanel Example Pic 3")
+![UAModalPanel Example Pic](http://files.urbanapps.com/images/UAModalPanel.jpg "UAModalPanel Example Pic")![UAModalPanel Example Pic 2](http://files.urbanapps.com/images/UAModalPanel2.jpg "UAModalPanel Example Pic 2")![UAModalPanel Example Pic 3](http://files.urbanapps.com/images/UAModalPanel3.jpg "UAModalPanel Example Pic 3")![UAModalPanel Example Pic 4](http://files.urbanapps.com/images/UAModalPanel4.jpg "UAModalPanel Example Pic 4")
 
 UAModalPanel is a highly customizable, alternative modal panel that you can popup in your view controllers to show content that might not need an entire new screen to show. It has a bounce animation, content fade-in, and a fancy noisy-gradient title bar. It works on the iPhone and iPad, with or without rotation, and is a non-ARC project.
 
@@ -67,7 +67,7 @@ Display the panel by creating an instance of your subclass and show it from a po
 }
 ````
 
-UAModalPanel knows how to close itself, but if you want more control, read on.
+UAModalPanel knows how to close itself, but if you want more control or action button handling, read on.
 
 **Optional Event Handling**
 
@@ -87,6 +87,11 @@ You can optionally implement either the UAModalPanelDelegate methods for callbac
 //   Return YES to close the panel, otherwise NO
 //   Only used if delegate is set and not using blocks.
 - (BOOL)shouldCloseModalPanel:(UAModalPanel *)modalPanel;
+
+// Optional: This is called when the action button is pressed
+//   Action button is only visible when its title is non-nil;
+//   Only used if delegate is set and not using blocks.
+- (void)didSelectActionButton:(UAModalPanel *)modalPanel;
 
 // Optional: This is called before the close animations.
 //   Only used if delegate is set and not using blocks.
@@ -108,6 +113,11 @@ You can optionally implement either the UAModalPanelDelegate methods for callbac
         [panel hideWithOnComplete:^(BOOL finished) {
             // Do something else awesome after it closes.
         }];
+    };
+    
+//   Panel is a reference to the modalPanel
+    modalPanel.onActionPressed = ^(UAModalPanel* panel) {
+        // Do something awesome when the action button is pressed
     };
 
 ````
@@ -157,6 +167,9 @@ self.contentColor = [UIColor yellowColor];
     
 // Shows the bounce animation. Default = YES
 self.shouldBounce = NO;
+
+// Shows the actionButton. Default title is nil, thus the button is hidden by default
+[self.actionButton setTitle:@"Foobar" forState:UIControlStateNormal];
 ````
 
 **UATitledModalPanel customizations**
@@ -193,20 +206,45 @@ Step 5: There is no step 5.
 That's it. Please feel free to fork and submit pull requests, fix issues or whatever else.
 
 
+ARC Support
+------------------------
+UAModalPanel is not using ARC, but you can use it in your ARC project by adding `-fno-objc-arc` compiler flag to the "Compile Sources" section found in the Target's "Build Settings" tab
+
+![ARC Settings](http://files.urbanapps.com/images/UAModalPanelARC.png "ARC Settings")
+
+
+
 App that are using UAModalPanel:
 ------------------------
 If you are using UAModalPanel, please contact me to get added to this list!
 
 * [Ambiance](http://ambianceapp.com/iphone), [Ambiance Lite](http://ambianceapp.com/iphone)
-* [NPR Hourly News](http://nprhourlynews.com)
+* [Hourly News](http://itunes.apple.com/us/app/hourly-news/id493859859?mt=8)
 * [FlippedText](http://flippedtext.com)
 * [Hanging with Cheats](http://hangingwithcheats.com)
 
 
 Get in touch:
 ------------------------
-Questions, comments, beer vouchers or death threats!
 
 * [Follow my code blog](http://code.coneybeare.net)
 * [Follow me on Twitter](http://twitter.com/coneybeare) 
 * [Contact me](http://coneybeare.net)
+
+
+Donate:
+------------------------
+Please support us so that we can continue to make UAModalPanel even more awesome! If you are feeling particularly generous, please buy me a beer! 
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_donations">
+<input type="hidden" name="business" value="coneybeare@urbanapps.com">
+<input type="hidden" name="lc" value="US">
+<input type="hidden" name="item_name" value="Urban Apps">
+<input type="hidden" name="item_number" value="UAModalPanel">
+<input type="hidden" name="no_note" value="0">
+<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
