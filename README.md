@@ -237,4 +237,4 @@ Donate:
 Please support us so that we can continue to make UAModalPanel even more awesome! If you are feeling particularly generous, please buy me a beer! 
 
 
-[![Paypal Button](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif "Paypal Button")](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=coneybeare%40urbanapps%2ecom&lc=US&item_name=Urban%20Apps&item_number=UAModalPanel&no_note=0&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHostedGuest)
+[![Paypal Button](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif "Paypal Button")](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LGPE58JWZKBG2)
