@@ -51,6 +51,9 @@
 			// Shows the bounce animation. Default = YES
 			self.shouldBounce = (arc4random() % 2);
 			
+			// Shows the actionButton. Default title is nil, thus the button is hidden by default
+			[self.actionButton setTitle:@"Foobar" forState:UIControlStateNormal];
+
 			// Height of the title view. Default = 40.0f
 			[self setTitleBarHeight:((arc4random() % 5) + 2) * 20.0f];
 			

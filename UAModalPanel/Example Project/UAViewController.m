@@ -42,6 +42,13 @@
 			[panel hideWithOnComplete:^(BOOL finished) {
 				[panel removeFromSuperview];
 			}];
+			UADebugLog(@"onClosePressed block called from panel: %@", modalPanel);
+		};
+		
+		///////////////////////////////////////////
+		//   Panel is a reference to the modalPanel
+		modalPanel.onActionPressed = ^(UAModalPanel* panel) {
+			UADebugLog(@"onActionPressed block called from panel: %@", modalPanel);
 		};
 		
 		UADebugLog(@"UAModalView will display using blocks: %@", modalPanel);
@@ -94,6 +101,13 @@
 - (BOOL)shouldCloseModalPanel:(UAModalPanel *)modalPanel {
 	UADebugLog(@"shouldCloseModalPanel called with modalPanel: %@", modalPanel);
 	return YES;
+}
+
+// Optional: This is called when the action button is pressed
+//   Action button is only visible when its title is non-nil;
+//   Only used if delegate is set and not using blocks.
+- (void)didSelectActionButton:(UAModalPanel *)modalPanel {
+	UADebugLog(@"didSelectActionButton called with modalPanel: %@", modalPanel);
 }
 
 // Optional: This is called before the close animations.
