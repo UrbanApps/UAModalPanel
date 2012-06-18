@@ -145,7 +145,7 @@
 		self.actionButton.layer.shadowColor = [[UIColor blackColor] CGColor];
 		self.actionButton.layer.shadowOffset = CGSizeMake(0,4);
 		self.actionButton.layer.shadowOpacity = 0.3;
-		self.actionButton.titleLabel.font = [UIFont boldSystemFontOfSize:12];
+		self.actionButton.titleLabel.font = [UIFont boldSystemFontOfSize:11];
 		[self.actionButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 		[self.actionButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
 		self.actionButton.contentEdgeInsets = UIEdgeInsetsMake(4, 8, 4, 8);
@@ -256,11 +256,11 @@
 }
 
 
-- (void)showAnimationStarting {};		//subcalsses override
-- (void)showAnimationPart1Finished {};	//subcalsses override
-- (void)showAnimationPart2Finished {};	//subcalsses override
-- (void)showAnimationPart3Finished {};	//subcalsses override
-- (void)showAnimationFinished {};		//subcalsses override
+- (void)showAnimationStarting {};		//subclasses override
+- (void)showAnimationPart1Finished {};	//subclasses override
+- (void)showAnimationPart2Finished {};	//subclasses override
+- (void)showAnimationPart3Finished {};	//subclasses override
+- (void)showAnimationFinished {};		//subclasses override
 - (void)show {
 	
 	if ([delegate respondsToSelector:@selector(willShowModalPanel:)])
