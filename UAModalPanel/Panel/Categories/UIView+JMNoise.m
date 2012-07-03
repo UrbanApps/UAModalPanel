@@ -1,6 +1,5 @@
 //  Created by Jason Morrissey
 
-#import <QuartzCore/QuartzCore.h>
 #import "UIView+JMNoise.h"
 #include <stdlib.h>
 
@@ -13,11 +12,6 @@
 
 #pragma Mark -
 #pragma Mark - Noise Layer
-
-@interface NoiseLayer : CALayer
-+ (UIImage *)noiseTileImage;
-+ (void)drawPixelInContext:(CGContextRef)context point:(CGPoint)point width:(CGFloat)width opacity:(CGFloat)opacity whiteLevel:(CGFloat)whiteLevel;
-@end
 
 @implementation NoiseLayer
 

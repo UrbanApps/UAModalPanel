@@ -5,6 +5,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+
+@interface NoiseLayer : CALayer
++ (UIImage *)noiseTileImage;
++ (void)drawPixelInContext:(CGContextRef)context point:(CGPoint)point width:(CGFloat)width opacity:(CGFloat)opacity whiteLevel:(CGFloat)whiteLevel;
+@end
 
 @interface UIView (JMNoise)
 
