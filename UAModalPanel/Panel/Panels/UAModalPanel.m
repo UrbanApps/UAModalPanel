@@ -70,6 +70,8 @@
 	self.contentContainer = nil;
 	self.borderColor = nil;
 	self.contentColor = nil;
+	self.onActionPressed = nil;
+	self.onClosePressed = nil;
 	delegate = nil;
 	[super dealloc];
 }
