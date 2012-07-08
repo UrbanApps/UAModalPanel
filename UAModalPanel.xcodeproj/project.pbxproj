@@ -399,6 +399,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "UAModalPanel/Example Project/UAModalPanel-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -412,6 +413,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UAModalPanel/Example Project/UAModalPanel-Prefix.pch";
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "UAModalPanel/Example Project/UAModalPanel-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";

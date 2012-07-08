@@ -72,7 +72,7 @@
 	self.contentColor = nil;
 	self.onActionPressed = nil;
 	self.onClosePressed = nil;
-	delegate = nil;
+	self.delegate = nil;
 	[super dealloc];
 }
 
@@ -110,13 +110,13 @@
 - (UIView *)roundedRect {
 	if (!roundedRect) {
 		self.roundedRect = [[[UIView alloc] initWithFrame:CGRectZero] autorelease];
-		roundedRect.layer.masksToBounds = YES;
-		roundedRect.backgroundColor = self.contentColor;
-		roundedRect.layer.borderColor = [self.borderColor CGColor];
-		roundedRect.layer.borderWidth = self.borderWidth;
-		roundedRect.layer.cornerRadius = self.cornerRadius;
+		self.roundedRect.layer.masksToBounds = YES;
+		self.roundedRect.backgroundColor = self.contentColor;
+		self.roundedRect.layer.borderColor = [self.borderColor CGColor];
+		self.roundedRect.layer.borderWidth = self.borderWidth;
+		self.roundedRect.layer.cornerRadius = self.cornerRadius;
 
-		[self.contentContainer insertSubview:roundedRect atIndex:0];
+		[self.contentContainer insertSubview:self.roundedRect atIndex:0];
 	}
 	return roundedRect;
 }
