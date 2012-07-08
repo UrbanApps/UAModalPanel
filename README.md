@@ -1,7 +1,7 @@
 What is UAModalPanel?
 ---------------------
 
-![UAModalPanel Example Pic](http://files.urbanapps.com/images/UAModalPanel.jpg "UAModalPanel Example Pic")![UAModalPanel Example Pic 2](http://files.urbanapps.com/images/UAModalPanel2.jpg "UAModalPanel Example Pic 2")![UAModalPanel Example Pic 3](http://files.urbanapps.com/images/UAModalPanel3.jpg "UAModalPanel Example Pic 3")![UAModalPanel Example Pic 4](http://files.urbanapps.com/images/UAModalPanel4.jpg "UAModalPanel Example Pic 4")
+![UAModalPanel Example Pic](https://github.com/coneybeare/UAModalPanel/raw/master/README_assets/UAModalPanel.jpg "UAModalPanel Example Pic")![UAModalPanel Example Pic 2](https://github.com/coneybeare/UAModalPanel/raw/master/README_assets/UAModalPanel2.jpg "UAModalPanel Example Pic 2")![UAModalPanel Example Pic 3](https://github.com/coneybeare/UAModalPanel/raw/master/README_assets/UAModalPanel3.jpg "UAModalPanel Example Pic 3")![UAModalPanel Example Pic 4](https://github.com/coneybeare/UAModalPanel/raw/master/README_assets/UAModalPanel4.jpg "UAModalPanel Example Pic 4")
 
 UAModalPanel is a highly customizable, alternative modal panel that you can popup in your view controllers to show content that might not need an entire new screen to show. It has a bounce animation, content fade-in, and a fancy noisy-gradient title bar. It works on the iPhone and iPad, with or without rotation.
 
@@ -210,7 +210,7 @@ ARC Support
 ------------------------
 UAModalPanel is not using ARC, but you can use it in your ARC project by adding `-fno-objc-arc` compiler flag to the "Compile Sources" section found in the Target's "Build Settings" tab
 
-![ARC Settings](http://files.urbanapps.com/images/UAModalPanelARC.png "ARC Settings")
+![ARC Settings](https://github.com/coneybeare/UAModalPanel/raw/master/README_assets/UAModalPanelARC.png "ARC Settings")
 
 
 
