@@ -138,9 +138,13 @@
 - (UIButton*)actionButton {
 	if (!actionButton) {
 		UIImage *image = [UIImage imageNamed:@"modalButton.png"];
-        UIImage *stretch = ([UIImage respondsToSelector:@selector(resizableImageWithCapInsets:)]) ? [image resizableImageWithCapInsets:UIEdgeInsetsMake(0, image.size.width/2.0, 0, image.size.width/2.0)] : [image stretchableImageWithLeftCapWidth:image.size.width/2.0 topCapHeight:image.size.width/2.0];
+		UIImage *stretch = (([UIImage respondsToSelector:@selector(resizableImageWithCapInsets:)]) ?
+				    [image resizableImageWithCapInsets:UIEdgeInsetsMake(0, image.size.width/2.0, 0, image.size.width/2.0)] :
+				    [image stretchableImageWithLeftCapWidth:image.size.width/2.0 topCapHeight:image.size.width/2.0]);
 		UIImage *image2 = [UIImage imageNamed:@"modalButton-selected.png"];
-        UIImage *stretch2 = ([UIImage respondsToSelector:@selector(resizableImageWithCapInsets:)]) ? [image2 resizableImageWithCapInsets:UIEdgeInsetsMake(0, image2.size.width/2.0, 0, image2.size.width/2.0)] : [image stretchableImageWithLeftCapWidth:image2.size.width/2.0 topCapHeight:image2.size.width/2.0];
+		UIImage *stretch2 = (([UIImage respondsToSelector:@selector(resizableImageWithCapInsets:)]) ?
+				     [image2 resizableImageWithCapInsets:UIEdgeInsetsMake(0, image2.size.width/2.0, 0, image2.size.width/2.0)] :
+				     [image stretchableImageWithLeftCapWidth:image2.size.width/2.0 topCapHeight:image2.size.width/2.0]);
 		self.actionButton = [UIButton buttonWithType:UIButtonTypeCustom];
 		[self.actionButton setBackgroundImage:stretch forState:UIControlStateNormal];
 		[self.actionButton setBackgroundImage:stretch2 forState:UIControlStateHighlighted];
