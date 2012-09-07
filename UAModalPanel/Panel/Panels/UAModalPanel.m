@@ -326,6 +326,16 @@
 
 }
 - (void)showFromPoint:(CGPoint)point {
+// NB: No code has been changed here, but rather a remark is made, which may or may not lead to a code change later.
+//
+// Presumably (although this is not specified anywhere) the value that will be passed to this method (ie, "point")
+// will be expressed in terms of the UAModalPanel's superview's coordinate system (since that is the only coordinate system
+// that the caller could be aware of - more specifically, the caller is not aware of contentContainer), so setting
+// self.contentContainer.center to this value does not seem to be correct.
+//
+// If the above assumption is correct, it would appear that the same problem also exists in the hide:
+// and hideWithOnComplete: methods, which both also use this value (as startEndPoint) to set
+// the value of self.contentContainer.center.
 	startEndPoint = point;
 	self.contentContainer.center = point;
 	[self show];
