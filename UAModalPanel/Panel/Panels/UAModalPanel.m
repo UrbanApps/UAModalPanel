@@ -174,10 +174,14 @@
 
 - (CGRect)roundedRectFrame {
 
-	return CGRectMake(self.margin.left + self.frame.origin.x,
-					  self.margin.top + self.frame.origin.y,
-					  self.frame.size.width - self.margin.left - self.margin.right,
-					  self.frame.size.height - self.margin.top - self.margin.bottom);
+	// All previous references here to self.frame have been changed to self.contentContainer.bounds,
+	// since self.frame is expressed in terms of the UAModalPanel's superview's coordinate system
+	// which has no relation or connection to the frame of the rounded rectangle,
+	// which by definition is expressed in terms of self.contentContainer's coordinate system
+	return CGRectMake(self.margin.left + self.contentContainer.bounds.origin.x,
+					  self.margin.top + self.contentContainer.bounds.origin.y,
+					  self.contentContainer.bounds.size.width - self.margin.left - self.margin.right,
+					  self.contentContainer.bounds.size.height - self.margin.top - self.margin.bottom);
 }
 
 - (CGRect)closeButtonFrame {
