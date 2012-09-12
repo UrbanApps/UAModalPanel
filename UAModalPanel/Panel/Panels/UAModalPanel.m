@@ -130,7 +130,7 @@
 		self.closeButton.layer.shadowOpacity = 0.3;
 		
 		[closeButton addTarget:self action:@selector(closePressed:) forControlEvents:UIControlEventTouchUpInside];		
-		[self.contentContainer insertSubview:closeButton aboveSubview:self.roundedRect];
+		[self.contentContainer insertSubview:closeButton aboveSubview:self.contentView];
 	}
 	return closeButton;
 }
@@ -157,7 +157,7 @@
 		self.actionButton.contentEdgeInsets = UIEdgeInsetsMake(4, 8, 4, 8);
 		
 		[actionButton addTarget:self action:@selector(actionPressed:) forControlEvents:UIControlEventTouchUpInside];		
-		[self.contentContainer insertSubview:actionButton aboveSubview:self.roundedRect];
+		[self.contentContainer insertSubview:actionButton aboveSubview:self.contentView];
 	}
 	return actionButton;
 }
@@ -167,7 +167,7 @@
 		self.contentView = [[[UIView alloc] initWithFrame:CGRectZero] autorelease];
 		self.contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 		self.contentView.autoresizesSubviews = YES;
-		[self.contentContainer addSubview:contentView];
+		[self.contentContainer insertSubview:contentView aboveSubview:self.roundedRect];
 	}
 	return contentView;
 }
