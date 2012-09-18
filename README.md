@@ -213,6 +213,10 @@ UAModalPanel is not using ARC, but you can use it in your ARC project by adding 
 ![ARC Settings](https://github.com/coneybeare/UAModalPanel/raw/master/_README_ASSETS/UAModalPanelARC.png)
 
 
+Cocoapods
+------------------------
+UAModalPanel can be added to a project using [Cocoapods](https://github.com/alloy/cocoapods)
+
 
 App that are using UAModalPanel:
 ------------------------
