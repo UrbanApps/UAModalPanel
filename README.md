@@ -225,9 +225,8 @@ If you are using UAModalPanel, please contact me to get added to this list!
 * [Ambiance](http://ambianceapp.com/iphone), [Ambiance Lite](http://ambianceapp.com/iphone)
 * [Hourly News](http://itunes.apple.com/us/app/hourly-news/id493859859?mt=8)
 * [FlippedText](http://flippedtext.com)
-* [Hanging with Cheats](http://hangingwithcheats.com)
 
-
+ 
 Get in touch:
 ------------------------
 
