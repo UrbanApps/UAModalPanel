@@ -223,8 +223,10 @@ App that are using UAModalPanel:
 If you are using UAModalPanel, please contact me to get added to this list!
 
 * [Ambiance](http://ambianceapp.com/iphone), [Ambiance Lite](http://ambianceapp.com/iphone)
-* [Hourly News](http://itunes.apple.com/us/app/hourly-news/id493859859?mt=8)
+* [Hourly News](http://hourlynewsapp.com)
+* [The Last Shot](http://thelastshot.com)
 * [FlippedText](http://flippedtext.com)
+* [All Budget](http://www.geckobit.com/allbudget.html)
 
  
 Get in touch:
@@ -233,7 +235,6 @@ Get in touch:
 * [Follow my code blog](http://code.coneybeare.net)
 * [Follow me on Twitter](http://twitter.com/coneybeare) 
 * [Contact me](http://coneybeare.net)
-
 
 Donate:
 ------------------------
