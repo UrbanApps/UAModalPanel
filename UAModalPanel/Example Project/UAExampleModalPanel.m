@@ -15,7 +15,7 @@
 @synthesize viewLoadedFromXib;
 
 - (id)initWithFrame:(CGRect)frame title:(NSString *)title {
-	if ((self = [super initWithFrame:frame])) {
+	if (self = [super initWithFrame:frame]) {
 		
 		CGFloat colors[8] = BLACK_BAR_COMPONENTS;
 		[self.titleBar setColorComponents:colors];
@@ -40,7 +40,7 @@
 			self.borderColor = [UIColor colorWithRed:(arc4random() % 2) green:(arc4random() % 2) blue:(arc4random() % 2) alpha:1.0];
 			
 			// Border width of the panel. Default = 1.5f;
-			self.borderWidth = ((arc4random() % 21)) * 0.5f;
+			self.borderWidth = (arc4random() % 21) * 0.5f;
 			
 			// Corner radius of the panel. Default = 4.0f
 			self.cornerRadius = (arc4random() % 21);
