@@ -252,3 +252,7 @@ Please support us so that we can continue to make UAModalPanel even more awesome
 
 
 [![Paypal Button](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif "Paypal Button")](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LGPE58JWZKBG2)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/coneybeare/uamodalpanel/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
