@@ -1,7 +1,7 @@
 What is UAModalPanel?
 ---------------------
 
-![UAModalPanel Example Pic](https://github.com/coneybeare/UAModalPanel/raw/master/_README_ASSETS/UAModalPanel.jpg)![UAModalPanel Example Pic 2](https://github.com/coneybeare/UAModalPanel/raw/master/_README_ASSETS/UAModalPanel2.jpg)![UAModalPanel Example Pic 3](https://github.com/coneybeare/UAModalPanel/raw/master/_README_ASSETS/UAModalPanel3.jpg)![UAModalPanel Example Pic 4](https://github.com/coneybeare/UAModalPanel/raw/master/_README_ASSETS/UAModalPanel4.jpg)
+![UAModalPanel Example Pic](https://github.com/coneybeare/UAModalPanel/raw/master/_README_ASSETS/UAModalPanel.jpg)![UAModalPanel Example Pic 2](https://github.com/coneybeare/UAModalPanel/raw/master/_README_ASSETS/UAModalPanel2.jpg)![UAModalPanel Example Pic 3](https://github.com/coneybeare/UAModalPanel/raw/master/_README_ASSETS/UAModalPanel3.jpg)
 
 UAModalPanel is a highly customizable, alternative modal panel that you can popup in your view controllers to show content that might not need an entire new screen to show. It has a bounce animation, content fade-in, and a fancy noisy-gradient title bar. It works on the iPhone and iPad, with or without rotation.
 
@@ -245,6 +245,18 @@ Get in touch:
 * [Follow my code blog](http://code.coneybeare.net)
 * [Follow me on Twitter](http://twitter.com/coneybeare) 
 * [Contact me](http://coneybeare.net)
+
+
+What Does UA stand for?
+------------------------
+[Urban Apps](http://urbanapps.com). We make neat stuff. Check us out.
+
+
+Open-Source Urban Apps Projects
+------------------------
+* [UALogger](https://github.com/coneybeare/UALogger) - A logging utility for Mac/iOS apps
+* [UAAppReviewManager](https://github.com/coneybeare/UAAppReviewManager) - An app review prompting tool for iOS and Mac App Store apps.
+
 
 Donate:
 ------------------------
