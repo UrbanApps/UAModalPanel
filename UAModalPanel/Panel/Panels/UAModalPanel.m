@@ -40,14 +40,14 @@
 		padding = UIEdgeInsetsMake(DEFAULT_MARGIN, DEFAULT_MARGIN, DEFAULT_MARGIN, DEFAULT_MARGIN);
 		cornerRadius = DEFAULT_CORNER_RADIUS;
 		borderWidth = DEFAULT_BORDER_WIDTH;
-		borderColor = [DEFAULT_BORDER_COLOR retain];
-		contentColor = [DEFAULT_BACKGROUND_COLOR retain];
+		borderColor = DEFAULT_BORDER_COLOR;
+		contentColor = DEFAULT_BACKGROUND_COLOR;
 		shouldBounce = DEFAULT_BOUNCE;
 		
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 		self.autoresizesSubviews = YES;
 		
-		self.contentContainer = [[[UIView alloc] initWithFrame:self.bounds] autorelease];
+		self.contentContainer = [[UIView alloc] initWithFrame:self.bounds];
 		self.contentContainer.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 		self.contentContainer.autoresizesSubviews = YES;
 		[self addSubview:self.contentContainer];
@@ -73,7 +73,6 @@
 	self.onActionPressed = nil;
 	self.onClosePressed = nil;
 	self.delegate = nil;
-	[super dealloc];
 }
 
 #pragma mark - Description
@@ -93,15 +92,11 @@
 	self.roundedRect.layer.borderWidth = borderWidth;
 }
 - (void)setBorderColor:(UIColor *)newColor {
-	[newColor retain];
-	[borderColor release];
 	borderColor = newColor;
 	
 	self.roundedRect.layer.borderColor = [borderColor CGColor];
 }
 - (void)setContentColor:(UIColor *)newColor {
-	[newColor retain];
-	[contentColor release];
 	contentColor = newColor;
 	
 	self.roundedRect.backgroundColor = contentColor;
@@ -109,7 +104,7 @@
 
 - (UIView *)roundedRect {
 	if (!roundedRect) {
-		self.roundedRect = [[[UIView alloc] initWithFrame:CGRectZero] autorelease];
+		self.roundedRect = [[UIView alloc] initWithFrame:CGRectZero];
 		self.roundedRect.layer.masksToBounds = YES;
 		self.roundedRect.backgroundColor = self.contentColor;
 		self.roundedRect.layer.borderColor = [self.borderColor CGColor];
@@ -164,7 +159,7 @@
 
 - (UIView *)contentView {
 	if (!contentView) {
-		self.contentView = [[[UIView alloc] initWithFrame:CGRectZero] autorelease];
+		self.contentView = [[UIView alloc] initWithFrame:CGRectZero];
 		self.contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 		self.contentView.autoresizesSubviews = YES;
 		[self.contentContainer insertSubview:contentView aboveSubview:self.roundedRect];
@@ -312,7 +307,7 @@
 	// Show the view right away
     [UIView animateWithDuration:0.3
 						  delay:0.0
-						options:UIViewAnimationCurveEaseOut
+						options:UIViewAnimationOptionCurveEaseOut
 					 animations:^{
 						 self.alpha = 1.0;
 						 self.contentContainer.center = self.center;

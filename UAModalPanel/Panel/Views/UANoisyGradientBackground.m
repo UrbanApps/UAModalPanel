@@ -50,18 +50,18 @@
 
 
 + (id)gradientWithFrame:(CGRect)frame style:(UAGradientBackgroundStyle)aStyle color:(CGFloat *)components lineMode:(UAGradientLineMode)lineModes noiseOpacity:(CGFloat)opacity blendMode:(CGBlendMode)mode {
-	return  [[[UANoisyGradientBackground alloc] initWithFrame:frame
+	return  [[UANoisyGradientBackground alloc] initWithFrame:frame
 														style:aStyle
 														color:components
 													 lineMode:lineModes
 												 noiseOpacity:opacity
-													blendMode:mode] autorelease];
+													blendMode:mode];
 }
 + (id)gradientWithFrame:(CGRect)frame noiseOpacity:(CGFloat)noiseOpacity {
-	return [[[UANoisyGradientBackground alloc] initWithFrame:frame noiseOpacity:noiseOpacity] autorelease];
+	return [[UANoisyGradientBackground alloc] initWithFrame:frame noiseOpacity:noiseOpacity];
 }
 + (id)gradientWithFrame:(CGRect)frame blendMode:(CGFloat)mode {
-	return [[[UANoisyGradientBackground alloc] initWithFrame:frame blendMode:mode] autorelease];
+	return [[UANoisyGradientBackground alloc] initWithFrame:frame blendMode:mode];
 }
 
 

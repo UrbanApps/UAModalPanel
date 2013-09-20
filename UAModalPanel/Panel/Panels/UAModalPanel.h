@@ -32,7 +32,6 @@ typedef void (^UAModalDisplayPanelEvent)(UAModalPanel* panel);
 typedef void (^UAModalDisplayPanelAnimationComplete)(BOOL finished);
 
 @interface UAModalPanel : UIView {	
-	NSObject<UAModalPanelDelegate>	*delegate;
 	
 	UIView			*contentContainer;
 	UIView			*roundedRect;
