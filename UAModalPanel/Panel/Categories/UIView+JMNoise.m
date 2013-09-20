@@ -51,7 +51,8 @@ static UIImage * JMNoiseImage;
 
         CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
         CGContextRef context = CGBitmapContextCreate(nil,imageDimension,imageDimension,8,0,
-                                                     colorSpace,kCGImageAlphaPremultipliedLast);
+                                                     colorSpace,kCGBitmapAlphaInfoMask);
+        
         CFRelease(colorSpace);
 
         for (int i=0; i<(kNoiseTileDimension * kNoiseIntensity); i++)
@@ -99,7 +100,7 @@ static UIImage * JMNoiseImage;
 
 - (void)applyNoiseWithOpacity:(CGFloat)opacity atLayerIndex:(NSUInteger) layerIndex;
 {
-    NoiseLayer * noiseLayer = [[[NoiseLayer alloc] init] autorelease];
+    NoiseLayer * noiseLayer = [[NoiseLayer alloc] init];
     [noiseLayer setFrame:self.bounds];
     noiseLayer.masksToBounds = YES;
     noiseLayer.opacity = opacity;

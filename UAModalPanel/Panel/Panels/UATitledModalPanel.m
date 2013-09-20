@@ -18,7 +18,6 @@
 - (void)dealloc {
     self.titleBar = nil;
 	self.headerLabel = nil;
-    [super dealloc];
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -37,7 +36,7 @@
 		
 		[self.roundedRect addSubview:self.titleBar];
 		
-		self.headerLabel = [[[UILabel alloc] initWithFrame:CGRectZero] autorelease];
+		self.headerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
 		self.headerLabel.font = [UIFont systemFontOfSize:24];
 		self.headerLabel.backgroundColor = [UIColor clearColor];
 		self.headerLabel.textColor = [UIColor whiteColor];
@@ -94,7 +93,7 @@
 	UADebugLog(@"Fading in content for modalPanel: %@", self);
 	[UIView animateWithDuration:0.2
 						  delay:0.0
-						options:UIViewAnimationCurveEaseIn
+						options:UIViewAnimationOptionCurveEaseIn
 					 animations:^{
 						 self.contentView.alpha = 1.0;
 						 self.titleBar.alpha = 1.0;
