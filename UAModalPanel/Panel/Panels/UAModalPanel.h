@@ -31,53 +31,35 @@
 typedef void (^UAModalDisplayPanelEvent)(UAModalPanel* panel);
 typedef void (^UAModalDisplayPanelAnimationComplete)(BOOL finished);
 
-@interface UAModalPanel : UIView {	
-	NSObject<UAModalPanelDelegate>	*delegate;
-	
-	UIView			*contentContainer;
-	UIView			*roundedRect;
-	UIButton		*closeButton;
-	UIButton		*actionButton;
-	UIView			*contentView;
-	
-	CGPoint			startEndPoint;
-	
-	UIEdgeInsets	margin;
-	UIEdgeInsets	padding;
-	
-	UIColor			*borderColor;
-	CGFloat			borderWidth;
-	CGFloat			cornerRadius;
-	UIColor			*contentColor;
-	BOOL			shouldBounce;
-	
-}
+@interface UAModalPanel : UIView
 
-@property (nonatomic, assign) NSObject<UAModalPanelDelegate>	*delegate;
+@property (nonatomic, unsafe_unretained) NSObject<UAModalPanelDelegate>	*delegate;
 
-@property (nonatomic, retain) UIView		*contentContainer;
-@property (nonatomic, retain) UIView		*roundedRect;
-@property (nonatomic, retain) UIButton		*closeButton;
-@property (nonatomic, retain) UIButton		*actionButton;
-@property (nonatomic, retain) UIView		*contentView;
+@property (nonatomic, retain) UIView                    *contentContainer;
+@property (nonatomic, retain) UIView                    *roundedRect;
+@property (nonatomic, retain) UIButton                  *closeButton;
+@property (nonatomic, retain) UIButton    		*actionButton;
+@property (nonatomic, retain) UIView                    *contentView;
 
 // Margin between edge of container frame and panel. Default = {20.0, 20.0, 20.0, 20.0}
-@property (nonatomic, assign) UIEdgeInsets	margin;
+@property (nonatomic) UIEdgeInsets                      margin;
 // Padding between edge of panel and the content area. Default = {20.0, 20.0, 20.0, 20.0}
-@property (nonatomic, assign) UIEdgeInsets	padding;
+@property (nonatomic) UIEdgeInsets                      padding;
 // Border color of the panel. Default = [UIColor whiteColor]
-@property (nonatomic, retain) UIColor		*borderColor;
+@property (nonatomic, retain) UIColor                   *borderColor;
 // Border width of the panel. Default = 1.5f
-@property (nonatomic, assign) CGFloat		borderWidth;
+@property (nonatomic) CGFloat                           borderWidth;
 // Corner radius of the panel. Default = 4.0f
-@property (nonatomic, assign) CGFloat		cornerRadius;
+@property (nonatomic) CGFloat                           cornerRadius;
 // Color of the panel itself. Default = [UIColor colorWithWhite:0.0 alpha:0.8]
-@property (nonatomic, retain) UIColor		*contentColor;
+@property (nonatomic, retain) UIColor                   *contentColor;
 // Shows the bounce animation. Default = YES
-@property (nonatomic, assign) BOOL			shouldBounce;
+@property (nonatomic) BOOL                              shouldBounce;
 
-@property (readwrite, copy)	UAModalDisplayPanelEvent onClosePressed;
-@property (readwrite, copy)	UAModalDisplayPanelEvent onActionPressed;
+@property (nonatomic) CGPoint                           startEndPoint;
+
+@property (readwrite, copy) UAModalDisplayPanelEvent    onClosePressed;
+@property (readwrite, copy) UAModalDisplayPanelEvent 	onActionPressed;
 
 - (void)show;
 - (void)showFromPoint:(CGPoint)point;
