@@ -21,59 +21,40 @@
 
 @implementation UAModalPanel
 
-@synthesize roundedRect, closeButton, actionButton, delegate, contentView, contentContainer;
-@synthesize margin, padding, cornerRadius, borderWidth, borderColor, contentColor, shouldBounce;
-@synthesize onClosePressed, onActionPressed;
-
-
 - (id)initWithFrame:(CGRect)frame {
 	self = [super initWithFrame:frame];
 	if (self != nil) {
-		delegate = nil;
-		roundedRect = nil;
-		closeButton = nil;
-		actionButton = nil;
-		contentView = nil;
-		startEndPoint = CGPointZero;
+		_delegate = nil;
+		_roundedRect = nil;
+		_closeButton = nil;
+		_actionButton = nil;
+		_contentView = nil;
+		_startEndPoint = CGPointZero;
 		
-		margin = UIEdgeInsetsMake(DEFAULT_MARGIN, DEFAULT_MARGIN, DEFAULT_MARGIN, DEFAULT_MARGIN);
-		padding = UIEdgeInsetsMake(DEFAULT_MARGIN, DEFAULT_MARGIN, DEFAULT_MARGIN, DEFAULT_MARGIN);
-		cornerRadius = DEFAULT_CORNER_RADIUS;
-		borderWidth = DEFAULT_BORDER_WIDTH;
-		borderColor = [DEFAULT_BORDER_COLOR retain];
-		contentColor = [DEFAULT_BACKGROUND_COLOR retain];
-		shouldBounce = DEFAULT_BOUNCE;
+		_margin = UIEdgeInsetsMake(DEFAULT_MARGIN, DEFAULT_MARGIN, DEFAULT_MARGIN, DEFAULT_MARGIN);
+		_padding = UIEdgeInsetsMake(DEFAULT_MARGIN, DEFAULT_MARGIN, DEFAULT_MARGIN, DEFAULT_MARGIN);
+		_cornerRadius = DEFAULT_CORNER_RADIUS;
+		_borderWidth = DEFAULT_BORDER_WIDTH;
+		_borderColor = DEFAULT_BORDER_COLOR;
+		_contentColor = DEFAULT_BACKGROUND_COLOR;
+		_shouldBounce = DEFAULT_BOUNCE;
 		
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 		self.autoresizesSubviews = YES;
 		
-		self.contentContainer = [[[UIView alloc] initWithFrame:self.bounds] autorelease];
-		self.contentContainer.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-		self.contentContainer.autoresizesSubviews = YES;
-		[self addSubview:self.contentContainer];
+		_contentContainer = [[UIView alloc] initWithFrame:self.bounds];
+		_contentContainer.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+		_contentContainer.autoresizesSubviews = YES;
+		[self addSubview:_contentContainer];
 		
 		[self setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.5]]; // Fixed value, the bacground mask.
 				
-		[self.contentView setBackgroundColor:[UIColor clearColor]];
-		self.delegate = nil;
+		[_contentView setBackgroundColor:[UIColor clearColor]];
 	
 		self.tag = (arc4random() % 32768);
 		
 	}
 	return self;
-}
-
-- (void)dealloc {
-	self.roundedRect = nil;
-	self.closeButton = nil;
-	self.actionButton = nil;
-	self.contentContainer = nil;
-	self.borderColor = nil;
-	self.contentColor = nil;
-	self.onActionPressed = nil;
-	self.onClosePressed = nil;
-	self.delegate = nil;
-	[super dealloc];
 }
 
 #pragma mark - Description
@@ -85,58 +66,52 @@
 #pragma mark - Accessors
 
 - (void)setCornerRadius:(CGFloat)newRadius {
-	cornerRadius = newRadius;
-	self.roundedRect.layer.cornerRadius = cornerRadius;
+	_cornerRadius = newRadius;
+	self.roundedRect.layer.cornerRadius = self.cornerRadius;
 }
 - (void)setBorderWidth:(CGFloat)newWidth {
-	borderWidth = newWidth;
-	self.roundedRect.layer.borderWidth = borderWidth;
+	_borderWidth = newWidth;
+	self.roundedRect.layer.borderWidth = self.borderWidth;
 }
 - (void)setBorderColor:(UIColor *)newColor {
-	[newColor retain];
-	[borderColor release];
-	borderColor = newColor;
-	
-	self.roundedRect.layer.borderColor = [borderColor CGColor];
+	_borderColor = newColor;
+	self.roundedRect.layer.borderColor = [self.borderColor CGColor];
 }
 - (void)setContentColor:(UIColor *)newColor {
-	[newColor retain];
-	[contentColor release];
-	contentColor = newColor;
-	
-	self.roundedRect.backgroundColor = contentColor;
+	_contentColor = newColor;
+	self.roundedRect.backgroundColor = self.contentColor;
 }
 
 - (UIView *)roundedRect {
-	if (!roundedRect) {
-		self.roundedRect = [[[UIView alloc] initWithFrame:CGRectZero] autorelease];
-		self.roundedRect.layer.masksToBounds = YES;
-		self.roundedRect.backgroundColor = self.contentColor;
-		self.roundedRect.layer.borderColor = [self.borderColor CGColor];
-		self.roundedRect.layer.borderWidth = self.borderWidth;
-		self.roundedRect.layer.cornerRadius = self.cornerRadius;
+	if (!_roundedRect) {
+		_roundedRect = [[UIView alloc] initWithFrame:CGRectZero];
+		_roundedRect.layer.masksToBounds = YES;
+		_roundedRect.backgroundColor = self.contentColor;
+		_roundedRect.layer.borderColor = [self.borderColor CGColor];
+		_roundedRect.layer.borderWidth = self.borderWidth;
+		_roundedRect.layer.cornerRadius = self.cornerRadius;
 
-		[self.contentContainer insertSubview:self.roundedRect atIndex:0];
+		[self.contentContainer insertSubview:_roundedRect atIndex:0];
 	}
-	return roundedRect;
+	return _roundedRect;
 }
 - (UIButton*)closeButton {
-	if (!closeButton) {
-		self.closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-		[self.closeButton setImage:[UIImage imageNamed:@"close.png"] forState:UIControlStateNormal];
-		[self.closeButton setFrame:CGRectMake(0, 0, 44, 44)];
-		self.closeButton.layer.shadowColor = [[UIColor blackColor] CGColor];
-		self.closeButton.layer.shadowOffset = CGSizeMake(0,4);
-		self.closeButton.layer.shadowOpacity = 0.3;
+	if (!_closeButton) {
+		_closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+		[_closeButton setImage:[UIImage imageNamed:@"close.png"] forState:UIControlStateNormal];
+		[_closeButton setFrame:CGRectMake(0, 0, 44, 44)];
+		_closeButton.layer.shadowColor = [[UIColor blackColor] CGColor];
+		_closeButton.layer.shadowOffset = CGSizeMake(0,4);
+		_closeButton.layer.shadowOpacity = 0.3;
 		
-		[closeButton addTarget:self action:@selector(closePressed:) forControlEvents:UIControlEventTouchUpInside];		
-		[self.contentContainer insertSubview:closeButton aboveSubview:self.contentView];
+		[_closeButton addTarget:self action:@selector(closePressed:) forControlEvents:UIControlEventTouchUpInside];
+		[self.contentContainer insertSubview:_closeButton aboveSubview:self.contentView];
 	}
-	return closeButton;
+	return _closeButton;
 }
 
 - (UIButton*)actionButton {
-	if (!actionButton) {
+	if (!_actionButton) {
 		UIImage *image = [UIImage imageNamed:@"modalButton.png"];
 		UIImage *stretch = (([UIImage respondsToSelector:@selector(resizableImageWithCapInsets:)]) ?
 				    [image resizableImageWithCapInsets:UIEdgeInsetsMake(0, image.size.width/2.0, 0, image.size.width/2.0)] :
@@ -145,31 +120,31 @@
 		UIImage *stretch2 = (([UIImage respondsToSelector:@selector(resizableImageWithCapInsets:)]) ?
 				     [image2 resizableImageWithCapInsets:UIEdgeInsetsMake(0, image2.size.width/2.0, 0, image2.size.width/2.0)] :
 				     [image stretchableImageWithLeftCapWidth:image2.size.width/2.0 topCapHeight:image2.size.width/2.0]);
-		self.actionButton = [UIButton buttonWithType:UIButtonTypeCustom];
-		[self.actionButton setBackgroundImage:stretch forState:UIControlStateNormal];
-		[self.actionButton setBackgroundImage:stretch2 forState:UIControlStateHighlighted];
-		self.actionButton.layer.shadowColor = [[UIColor blackColor] CGColor];
-		self.actionButton.layer.shadowOffset = CGSizeMake(0,4);
-		self.actionButton.layer.shadowOpacity = 0.3;
-		self.actionButton.titleLabel.font = [UIFont boldSystemFontOfSize:11];
-		[self.actionButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-		[self.actionButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-		self.actionButton.contentEdgeInsets = UIEdgeInsetsMake(4, 8, 4, 8);
+		_actionButton = [UIButton buttonWithType:UIButtonTypeCustom];
+		[_actionButton setBackgroundImage:stretch forState:UIControlStateNormal];
+		[_actionButton setBackgroundImage:stretch2 forState:UIControlStateHighlighted];
+		_actionButton.layer.shadowColor = [[UIColor blackColor] CGColor];
+		_actionButton.layer.shadowOffset = CGSizeMake(0,4);
+		_actionButton.layer.shadowOpacity = 0.3;
+		_actionButton.titleLabel.font = [UIFont boldSystemFontOfSize:11];
+		[_actionButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+		[_actionButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+		_actionButton.contentEdgeInsets = UIEdgeInsetsMake(4, 8, 4, 8);
 		
-		[actionButton addTarget:self action:@selector(actionPressed:) forControlEvents:UIControlEventTouchUpInside];		
-		[self.contentContainer insertSubview:actionButton aboveSubview:self.contentView];
+		[_actionButton addTarget:self action:@selector(actionPressed:) forControlEvents:UIControlEventTouchUpInside];
+		[self.contentContainer insertSubview:_actionButton aboveSubview:self.contentView];
 	}
-	return actionButton;
+	return _actionButton;
 }
 
 - (UIView *)contentView {
-	if (!contentView) {
-		self.contentView = [[[UIView alloc] initWithFrame:CGRectZero] autorelease];
-		self.contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-		self.contentView.autoresizesSubviews = YES;
-		[self.contentContainer insertSubview:contentView aboveSubview:self.roundedRect];
+	if (!_contentView) {
+		_contentView = [[UIView alloc] initWithFrame:CGRectZero];
+		_contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+		_contentView.autoresizesSubviews = YES;
+		[self.contentContainer insertSubview:_contentView aboveSubview:self.roundedRect];
 	}
-	return contentView;
+	return _contentView;
 }
 
 - (CGRect)roundedRectFrame {
@@ -182,10 +157,10 @@
 
 - (CGRect)closeButtonFrame {
 	CGRect f = [self roundedRectFrame];
-	return CGRectMake(f.origin.x - floor(closeButton.frame.size.width*0.5),
-					  f.origin.y - floor(closeButton.frame.size.height*0.5),
-					  closeButton.frame.size.width,
-					  closeButton.frame.size.height);
+	return CGRectMake(f.origin.x - floor(self.closeButton.frame.size.width*0.5),
+					  f.origin.y - floor(self.closeButton.frame.size.height*0.5),
+					  self.closeButton.frame.size.width,
+					  self.closeButton.frame.size.height);
 }
 
 - (CGRect)actionButtonFrame {
@@ -195,7 +170,7 @@
 	[self.actionButton sizeToFit];
 	CGRect f = [self roundedRectFrame];
 	return CGRectMake(f.origin.x + f.size.width - self.actionButton.frame.size.width + 11,
-					  f.origin.y - floor(actionButton.frame.size.height*0.5),
+					  f.origin.y - floor(self.actionButton.frame.size.height*0.5),
 					  self.actionButton.frame.size.width,
 					  self.actionButton.frame.size.height);
 }
@@ -224,8 +199,8 @@
 - (void)closePressed:(id)sender {
 	
 	// Using Delegates
-	if ([delegate respondsToSelector:@selector(shouldCloseModalPanel:)]) {
-		if ([delegate shouldCloseModalPanel:self]) {
+	if ([self.delegate respondsToSelector:@selector(shouldCloseModalPanel:)]) {
+		if ([self.delegate shouldCloseModalPanel:self]) {
 			UADebugLog(@"Closing using delegates for modalPanel: %@", self);
 			[self hide];
 		}
@@ -246,8 +221,8 @@
 - (void)actionPressed:(id)sender {
 	
 	// Using Delegates
-	if ([delegate respondsToSelector:@selector(didSelectActionButton:)]) {
-		[delegate didSelectActionButton:self];
+	if ([self.delegate respondsToSelector:@selector(didSelectActionButton:)]) {
+		[self.delegate didSelectActionButton:self];
 		
 		
 		// Using blocks
@@ -261,7 +236,6 @@
 	}
 }
 
-
 - (void)showAnimationStarting {};		//subclasses override
 - (void)showAnimationPart1Finished {};	//subclasses override
 - (void)showAnimationPart2Finished {};	//subclasses override
@@ -269,8 +243,8 @@
 - (void)showAnimationFinished {};		//subclasses override
 - (void)show {
 	
-	if ([delegate respondsToSelector:@selector(willShowModalPanel:)])
-		[delegate willShowModalPanel:self];
+	if ([self.delegate respondsToSelector:@selector(willShowModalPanel:)])
+		[self.delegate willShowModalPanel:self];
 	
 	[self showAnimationStarting];
 	self.alpha = 0.0;
@@ -302,8 +276,8 @@
 																   }
 																   completion:^(BOOL finished){
 																	   [self showAnimationFinished];
-																	   if ([delegate respondsToSelector:@selector(didShowModalPanel:)])
-																		   [delegate didShowModalPanel:self];
+																	   if ([self.delegate respondsToSelector:@selector(didShowModalPanel:)])
+																		   [self.delegate didShowModalPanel:self];
 																   }];
 											  }];
 						 }];
@@ -316,37 +290,37 @@
 					 animations:^{
 						 self.alpha = 1.0;
 						 self.contentContainer.center = self.center;
-						 self.contentContainer.transform = CGAffineTransformMakeScale((shouldBounce ? 1.05 : 1.0), (shouldBounce ? 1.05 : 1.0));
+						 self.contentContainer.transform = CGAffineTransformMakeScale((self.shouldBounce ? 1.05 : 1.0), (self.shouldBounce ? 1.05 : 1.0));
 					 }
-					 completion:(shouldBounce ? animationBlock : ^(BOOL finished) {
+					 completion:(self.shouldBounce ? animationBlock : ^(BOOL finished) {
 						[self showAnimationFinished];
-						if ([delegate respondsToSelector:@selector(didShowModalPanel:)])
-							[delegate didShowModalPanel:self];
+						if ([self.delegate respondsToSelector:@selector(didShowModalPanel:)])
+							[self.delegate didShowModalPanel:self];
 					})];
 
 }
 - (void)showFromPoint:(CGPoint)point {
-	startEndPoint = point;
+	self.startEndPoint = point;
 	self.contentContainer.center = point;
 	[self show];
 }
 
 - (void)hide {	
 	// Hide the view right away
-	if ([delegate respondsToSelector:@selector(willCloseModalPanel:)])
-		[delegate willCloseModalPanel:self];
+	if ([self.delegate respondsToSelector:@selector(willCloseModalPanel:)])
+		[self.delegate willCloseModalPanel:self];
 	
     [UIView animateWithDuration:0.3
 					 animations:^{
 						 self.alpha = 0;
-						 if (startEndPoint.x != CGPointZero.x || startEndPoint.y != CGPointZero.y) {
-							 self.contentContainer.center = startEndPoint;
+						 if (self.startEndPoint.x != CGPointZero.x || self.startEndPoint.y != CGPointZero.y) {
+							 self.contentContainer.center = self.startEndPoint;
 						 }
 						 self.contentContainer.transform = CGAffineTransformMakeScale(0.0001, 0.0001);
 					 }
 					 completion:^(BOOL finished){
-						 if ([delegate respondsToSelector:@selector(didCloseModalPanel:)]) {
-							 [delegate didCloseModalPanel:self];
+						 if ([self.delegate respondsToSelector:@selector(didCloseModalPanel:)]) {
+							 [self.delegate didCloseModalPanel:self];
 						 }
 						 [self removeFromSuperview];
 					 }];
@@ -358,8 +332,8 @@
     [UIView animateWithDuration:0.3
 					 animations:^{
 						 self.alpha = 0;
-						 if (startEndPoint.x != CGPointZero.x || startEndPoint.y != CGPointZero.y) {
-							 self.contentContainer.center = startEndPoint;
+						 if (self.startEndPoint.x != CGPointZero.x || self.startEndPoint.y != CGPointZero.y) {
+							 self.contentContainer.center = self.startEndPoint;
 						 }
 						 self.contentContainer.transform = CGAffineTransformMakeScale(0.0001, 0.0001);
 					 }

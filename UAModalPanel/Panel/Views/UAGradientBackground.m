@@ -42,16 +42,16 @@
 
 
 + (id)gradientWithFrame:(CGRect)frame style:(UAGradientBackgroundStyle)aStyle color:(CGFloat *)components lineMode:(UAGradientLineMode)lineModes {
-	return [[[UAGradientBackground alloc] initWithFrame:frame style:aStyle color:components lineMode:lineModes] autorelease];
+	return [[UAGradientBackground alloc] initWithFrame:frame style:aStyle color:components lineMode:lineModes];
 }
 + (id)gradientWithFrame:(CGRect)frame color:(CGFloat *)components {
-	return [[(UAGradientBackground *)[UAGradientBackground alloc] initWithFrame:frame color:components] autorelease];
+	return [(UAGradientBackground *)[UAGradientBackground alloc] initWithFrame:frame color:components];
 }
 + (id)gradientWithFrame:(CGRect)frame style:(UAGradientBackgroundStyle)aStyle {
-	return [[[UAGradientBackground alloc] initWithFrame:frame style:aStyle] autorelease];
+	return [[UAGradientBackground alloc] initWithFrame:frame style:aStyle];
 }
 + (id)gradientWithFrame:(CGRect)frame; {
-	return [[[UAGradientBackground alloc] initWithFrame:frame] autorelease];
+	return [[UAGradientBackground alloc] initWithFrame:frame];
 }
 
 
@@ -133,7 +133,6 @@
 
 - (void)dealloc {
 	NSZoneFree(NSDefaultMallocZone(), colorComponents);
-	[super dealloc];
 }
 
 

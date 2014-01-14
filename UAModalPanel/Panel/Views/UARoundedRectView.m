@@ -50,7 +50,6 @@
 
 - (void)dealloc {
 	NSZoneFree(NSDefaultMallocZone(), colorComponents);
-    [super dealloc];
 }
 
 
