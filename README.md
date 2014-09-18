@@ -254,9 +254,11 @@ What Does UA stand for?
 
 Open-Source Urban Apps Projects
 ------------------------
-* [UAAppReviewManager](https://github.com/coneybeare/UAAppReviewManager) - An app review prompting tool for iOS and Mac App Store apps.
-* [UALogger](https://github.com/coneybeare/UALogger) - A logging utility for Mac/iOS apps
-* [UAObfuscatedString](https://github.com/urbanapps/UAObfuscatedString) - A simple NSString category to hide sensitive strings
+
+* [Armchair](https://github.com/UrbanApps/Armchair) - A simple yet powerful App Review Manager for iOS and OSX (Swift)
+* [UAAppReviewManager](https://github.com/UrbanApps/UAAppReviewManager) - An app review prompting tool for iOS and Mac App Store apps.
+* [UALogger](https://github.com/UrbanApps/UALogger) - A logging utility for Mac/iOS apps
+* [UAObfuscatedString](https://github.com/UrbanApps/UAObfuscatedString) - A simple NSString category to hide sensitive strings
 * [UAProgressView](https://github.com/UrbanApps/UAProgressView) A simple and lightweight, yet powerful animated circular progress view
 * [Urban](https://github.com/UrbanApps/Urban) - An Xcode color scheme that uses a soft dark background, with subtle blue, orange and yellow colors
 
