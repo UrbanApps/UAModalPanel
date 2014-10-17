@@ -81,13 +81,13 @@
 		//////////////////////////////////////
 		// SETUP RANDOM CONTENT
 		//////////////////////////////////////
-		UIWebView *wv = [[[UIWebView alloc] initWithFrame:CGRectZero] autorelease];
+		UIWebView *wv = [[UIWebView alloc] initWithFrame:CGRectZero];
 		[wv loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://urbanapps.com/product_list"]]];
 		
-		UITableView *tv = [[[UITableView alloc] initWithFrame:CGRectZero] autorelease];
+		UITableView *tv = [[UITableView alloc] initWithFrame:CGRectZero];
 		[tv setDataSource:self];
 		
-		UIImageView *iv = [[[UIImageView alloc] initWithFrame:CGRectZero] autorelease];
+		UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectZero];
 		[iv setImage:[UIImage imageNamed:@"UrbanApps.png"]];
 		[iv setContentMode:UIViewContentModeScaleAspectFit];
 		
@@ -96,18 +96,13 @@
 		NSArray *contentArray = [NSArray arrayWithObjects:wv, tv, iv, viewLoadedFromXib, nil];
 		
 		int i = arc4random() % [contentArray count];
-		v = [[contentArray objectAtIndex:i] retain];
+		v = [contentArray objectAtIndex:i];
 		[self.contentView addSubview:v];
 		
 	}	
 	return self;
 }
 
-- (void)dealloc {
-    [v release];
-	[viewLoadedFromXib release];
-    [super dealloc];
-}
 
 - (void)layoutSubviews {
 	[super layoutSubviews];
@@ -125,7 +120,7 @@
 	NSString *cellIdentifier = @"UAModalPanelCell";
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
 	if (cell == nil) {
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
 	}
 	
 	[cell.textLabel setText:[NSString stringWithFormat:@"Row %d", indexPath.row]];
@@ -138,8 +133,8 @@
 	// The button was pressed. Lets do something with it.
 	
 	// Maybe the delegate wants something to do with it...
-	if ([delegate respondsToSelector:@selector(superAwesomeButtonPressed:)]) {
-		[delegate performSelector:@selector(superAwesomeButtonPressed:) withObject:sender];
+	if ([self.delegate respondsToSelector:@selector(superAwesomeButtonPressed:)]) {
+		[self.delegate performSelector:@selector(superAwesomeButtonPressed:) withObject:sender];
 	
 	// Or perhaps someone is listening for notifications 
 	} else {

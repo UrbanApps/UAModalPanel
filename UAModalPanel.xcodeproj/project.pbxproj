@@ -28,11 +28,9 @@
 		E65CAB3514CFB98C004F3776 /* UAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E65CAB2414CFB98C004F3776 /* UAViewController.m */; };
 		E65CAB3614CFB98C004F3776 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E65CAB2614CFB98C004F3776 /* main.m */; };
 		E65CAB3A14CFB98C004F3776 /* UAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E65CAB2F14CFB98C004F3776 /* UAAppDelegate.m */; };
-		E65CAB3B14CFB98C004F3776 /* UAModalPanel-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E65CAB3014CFB98C004F3776 /* UAModalPanel-Info.plist */; };
 		E65CAB3C14CFB98C004F3776 /* UrbanApps.png in Resources */ = {isa = PBXBuildFile; fileRef = E65CAB3214CFB98C004F3776 /* UrbanApps.png */; };
 		E65CAB4314CFB9A8004F3776 /* UAViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = E65CAB3D14CFB9A8004F3776 /* UAViewController_iPhone.xib */; };
 		E65CAB4414CFB9A8004F3776 /* UAViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = E65CAB3F14CFB9A8004F3776 /* UAViewController_iPad.xib */; };
-		E65CAB4514CFB9A8004F3776 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E65CAB4114CFB9A8004F3776 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -214,8 +212,8 @@
 			children = (
 				E65CAB2E14CFB98C004F3776 /* UAAppDelegate.h */,
 				E65CAB2F14CFB98C004F3776 /* UAAppDelegate.m */,
-				E65CAB2414CFB98C004F3776 /* UAViewController.m */,
 				E65CAB2514CFB98C004F3776 /* UAViewController.h */,
+				E65CAB2414CFB98C004F3776 /* UAViewController.m */,
 				E65CAB2114CFB98C004F3776 /* UAExampleModalPanel.m */,
 				E65CAB2214CFB98C004F3776 /* UAExampleModalPanel.h */,
 				E65CAB4614CFB9C1004F3776 /* Images */,
@@ -282,11 +280,9 @@
 				E65CAB1A14CFB930004F3776 /* close.png in Resources */,
 				E65CAB1B14CFB930004F3776 /* close@2x.png in Resources */,
 				E65CAB3414CFB98C004F3776 /* UAExampleView.xib in Resources */,
-				E65CAB3B14CFB98C004F3776 /* UAModalPanel-Info.plist in Resources */,
 				E65CAB3C14CFB98C004F3776 /* UrbanApps.png in Resources */,
 				E65CAB4314CFB9A8004F3776 /* UAViewController_iPhone.xib in Resources */,
 				E65CAB4414CFB9A8004F3776 /* UAViewController_iPad.xib in Resources */,
-				E65CAB4514CFB9A8004F3776 /* InfoPlist.strings in Resources */,
 				E659BE00158D633F0031B337 /* modalButton.png in Resources */,
 				E659BE01158D633F0031B337 /* modalButton@2x.png in Resources */,
 				E659BE11158D6AFF0031B337 /* modalButton-selected.png in Resources */,
@@ -392,6 +388,7 @@
 		E64F522314BA98FA009CB18D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UAModalPanel/Example Project/UAModalPanel-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -411,6 +408,7 @@
 		E64F522414BA98FA009CB18D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UAModalPanel/Example Project/UAModalPanel-Prefix.pch";
 				GCC_VERSION = "";

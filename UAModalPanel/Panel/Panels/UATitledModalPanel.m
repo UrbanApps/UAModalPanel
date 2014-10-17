@@ -13,14 +13,6 @@
 
 @implementation UATitledModalPanel
 
-@synthesize titleBarHeight, titleBar, headerLabel;
-
-- (void)dealloc {
-    self.titleBar = nil;
-	self.headerLabel = nil;
-    [super dealloc];
-}
-
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -37,7 +29,7 @@
 		
 		[self.roundedRect addSubview:self.titleBar];
 		
-		self.headerLabel = [[[UILabel alloc] initWithFrame:CGRectZero] autorelease];
+		self.headerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
 		self.headerLabel.font = [UIFont systemFontOfSize:24];
 		self.headerLabel.backgroundColor = [UIColor clearColor];
 		self.headerLabel.textColor = [UIColor whiteColor];
