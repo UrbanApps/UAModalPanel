@@ -43,7 +43,7 @@
 		self.headerLabel.textColor = [UIColor whiteColor];
 		self.headerLabel.shadowColor = [UIColor blackColor];
 		self.headerLabel.shadowOffset = CGSizeMake(0, -1);
-		self.headerLabel.textAlignment = UITextAlignmentCenter;
+		self.headerLabel.textAlignment = NSTextAlignmentCenter;
 		[self.titleBar addSubview:self.headerLabel];
 
 		
@@ -94,7 +94,7 @@
 	UADebugLog(@"Fading in content for modalPanel: %@", self);
 	[UIView animateWithDuration:0.2
 						  delay:0.0
-						options:UIViewAnimationCurveEaseIn
+						options:UIViewAnimationOptionCurveEaseIn
 					 animations:^{
 						 self.contentView.alpha = 1.0;
 						 self.titleBar.alpha = 1.0;
