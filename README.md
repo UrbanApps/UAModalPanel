@@ -10,11 +10,17 @@ Example Video
 http://www.youtube.com/watch?v=AJDR0GAsV9E
 
 
-
 Step 0: Prerequisites
 ---------------------
 You'll need at least Xcode 3.2 and an iOS 4.0+ project
 
+Step 0.5: CocoaPods way
+----------------
+[CocoaPods](http://cocoapods.org/) is the recommended way to use UAModalPanel in your project.
+
+* Simply add this line to your `Podfile`: `pod 'UAModalPanel', '~> 1.2'`
+* Run `pod install`
+* Go directly to [Step 3](#step-3-implement-uamodalpanel)
 
 Step 1: Get UAModalPanel files (add as Git submodule)
 ----------------
@@ -211,11 +217,6 @@ ARC Support
 UAModalPanel is not using ARC, but you can use it in your ARC project by adding `-fno-objc-arc` compiler flag to the "Compile Sources" section found in the Target's "Build Settings" tab
 
 ![ARC Settings](https://github.com/coneybeare/UAModalPanel/raw/master/_README_ASSETS/UAModalPanelARC.png)
-
-
-Cocoapods
-------------------------
-UAModalPanel can be added to a project using [Cocoapods](https://github.com/CocoaPods/CocoaPods)
 
 
 Contributing to UAModalPanel

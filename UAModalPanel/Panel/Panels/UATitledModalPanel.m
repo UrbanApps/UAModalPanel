@@ -9,6 +9,12 @@
 #import "UATitledModalPanel.h"
 #import <QuartzCore/QuartzCore.h>
 
+#ifdef __IPHONE_6_0
+# define ALIGN_CENTER NSTextAlignmentCenter
+#else
+# define ALIGN_CENTER UITextAlignmentCenter
+#endif
+
 #define DEFAULT_TITLE_BAR_HEIGHT	40.0f
 
 @implementation UATitledModalPanel
@@ -43,7 +49,7 @@
 		self.headerLabel.textColor = [UIColor whiteColor];
 		self.headerLabel.shadowColor = [UIColor blackColor];
 		self.headerLabel.shadowOffset = CGSizeMake(0, -1);
-		self.headerLabel.textAlignment = UITextAlignmentCenter;
+		self.headerLabel.textAlignment = ALIGN_CENTER;
 		[self.titleBar addSubview:self.headerLabel];
 
 		
@@ -94,7 +100,7 @@
 	UADebugLog(@"Fading in content for modalPanel: %@", self);
 	[UIView animateWithDuration:0.2
 						  delay:0.0
-						options:UIViewAnimationCurveEaseIn
+						options:UIViewAnimationOptionCurveEaseIn
 					 animations:^{
 						 self.contentView.alpha = 1.0;
 						 self.titleBar.alpha = 1.0;

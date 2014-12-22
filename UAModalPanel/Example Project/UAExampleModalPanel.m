@@ -128,7 +128,7 @@
 		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
 	}
 	
-	[cell.textLabel setText:[NSString stringWithFormat:@"Row %d", indexPath.row]];
+	[cell.textLabel setText:[NSString stringWithFormat:@"Row %ld", (long)indexPath.row]];
 	
 	return cell;
 }

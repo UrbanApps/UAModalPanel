@@ -79,7 +79,7 @@
 #pragma mark - Description
 
 - (NSString *)description {
-	return [NSString stringWithFormat:@"<%@ %d>", [[self class] description], self.tag];
+	return [NSString stringWithFormat:@"<%@ %ld>", [[self class] description], (long)self.tag];
 }
 
 #pragma mark - Accessors
@@ -312,7 +312,7 @@
 	// Show the view right away
     [UIView animateWithDuration:0.3
 						  delay:0.0
-						options:UIViewAnimationCurveEaseOut
+						options:UIViewAnimationOptionCurveEaseOut
 					 animations:^{
 						 self.alpha = 1.0;
 						 self.contentContainer.center = self.center;
