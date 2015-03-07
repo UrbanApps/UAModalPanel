@@ -23,7 +23,7 @@
 
 - (IBAction)showModalPanel:(id)sender {
 	
-	UAExampleModalPanel *modalPanel = [[[UAExampleModalPanel alloc] initWithFrame:self.view.bounds title:[(UIButton *)sender titleForState:UIControlStateNormal]] autorelease];
+	UAExampleModalPanel *modalPanel = [[UAExampleModalPanel alloc] initWithFrame:self.view.bounds title:[(UIButton *)sender titleForState:UIControlStateNormal]];
 	 
 	/////////////////////////////////
 	// Randomly use the blocks method, delgate methods, or neither of them
@@ -42,13 +42,13 @@
 			[panel hideWithOnComplete:^(BOOL finished) {
 				[panel removeFromSuperview];
 			}];
-			UADebugLog(@"onClosePressed block called from panel: %@", modalPanel);
+			UADebugLog(@"onClosePressed block called from panel: %@", panel);
 		};
 		
 		///////////////////////////////////////////
 		//   Panel is a reference to the modalPanel
 		modalPanel.onActionPressed = ^(UAModalPanel* panel) {
-			UADebugLog(@"onActionPressed block called from panel: %@", modalPanel);
+			UADebugLog(@"onActionPressed block called from panel: %@", panel);
 		};
 		
 		UADebugLog(@"UAModalView will display using blocks: %@", modalPanel);

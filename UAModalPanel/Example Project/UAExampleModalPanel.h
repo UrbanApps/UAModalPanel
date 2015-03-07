@@ -13,7 +13,7 @@
 	IBOutlet UIView	*viewLoadedFromXib;
 }
 
-@property (nonatomic, retain) IBOutlet UIView *viewLoadedFromXib;
+@property (nonatomic, strong) IBOutlet UIView *viewLoadedFromXib;
 
 - (id)initWithFrame:(CGRect)frame title:(NSString *)title;
 - (IBAction)buttonPressed:(id)sender;

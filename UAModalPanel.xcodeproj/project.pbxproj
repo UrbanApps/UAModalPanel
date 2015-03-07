@@ -392,6 +392,7 @@
 		E64F522314BA98FA009CB18D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UAModalPanel/Example Project/UAModalPanel-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -411,6 +412,7 @@
 		E64F522414BA98FA009CB18D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UAModalPanel/Example Project/UAModalPanel-Prefix.pch";
 				GCC_VERSION = "";
