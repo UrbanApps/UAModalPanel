@@ -14,7 +14,7 @@
 
 @synthesize viewLoadedFromXib;
 
-- (id)initWithFrame:(CGRect)frame title:(NSString *)title {
+- (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title {
 	if ((self = [super initWithFrame:frame])) {
 		
 		CGFloat colors[8] = BLACK_BAR_COMPONENTS;
@@ -93,10 +93,10 @@
 		
 		[[NSBundle mainBundle] loadNibNamed:@"UAExampleView" owner:self options:nil];
 		
-		NSArray *contentArray = [NSArray arrayWithObjects:wv, tv, iv, viewLoadedFromXib, nil];
+		NSArray *contentArray = @[wv, tv, iv, viewLoadedFromXib];
 		
 		int i = arc4random() % [contentArray count];
-		v = [contentArray objectAtIndex:i];
+		v = contentArray[i];
 		[self.contentView addSubview:v];
 		
 	}	

@@ -15,7 +15,7 @@
 
 @property (nonatomic, strong) IBOutlet UIView *viewLoadedFromXib;
 
-- (id)initWithFrame:(CGRect)frame title:(NSString *)title;
+- (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title NS_DESIGNATED_INITIALIZER;
 - (IBAction)buttonPressed:(id)sender;
 
 @end

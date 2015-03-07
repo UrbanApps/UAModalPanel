@@ -25,6 +25,6 @@
 // The title label
 @property (nonatomic, strong) UILabel					*headerLabel;
 
-- (CGRect)titleBarFrame;
+@property (NS_NONATOMIC_IOSONLY, readonly) CGRect titleBarFrame;
 
 @end

@@ -26,7 +26,7 @@
 @synthesize onClosePressed, onActionPressed;
 
 
-- (id)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame {
 	self = [super initWithFrame:frame];
 	if (self != nil) {
 		delegate = nil;

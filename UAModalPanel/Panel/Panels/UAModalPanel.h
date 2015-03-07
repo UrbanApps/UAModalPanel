@@ -84,8 +84,8 @@ typedef void (^UAModalDisplayPanelAnimationComplete)(BOOL finished);
 - (void)hide;
 - (void)hideWithOnComplete:(UAModalDisplayPanelAnimationComplete)onComplete;
 
-- (CGRect)roundedRectFrame;
-- (CGRect)closeButtonFrame;
-- (CGRect)contentViewFrame;
+@property (NS_NONATOMIC_IOSONLY, readonly) CGRect roundedRectFrame;
+@property (NS_NONATOMIC_IOSONLY, readonly) CGRect closeButtonFrame;
+@property (NS_NONATOMIC_IOSONLY, readonly) CGRect contentViewFrame;
 
 @end
