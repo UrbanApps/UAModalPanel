@@ -28,7 +28,6 @@
 		E65CAB3514CFB98C004F3776 /* UAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E65CAB2414CFB98C004F3776 /* UAViewController.m */; };
 		E65CAB3614CFB98C004F3776 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E65CAB2614CFB98C004F3776 /* main.m */; };
 		E65CAB3A14CFB98C004F3776 /* UAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E65CAB2F14CFB98C004F3776 /* UAAppDelegate.m */; };
-		E65CAB3B14CFB98C004F3776 /* UAModalPanel-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E65CAB3014CFB98C004F3776 /* UAModalPanel-Info.plist */; };
 		E65CAB3C14CFB98C004F3776 /* UrbanApps.png in Resources */ = {isa = PBXBuildFile; fileRef = E65CAB3214CFB98C004F3776 /* UrbanApps.png */; };
 		E65CAB4314CFB9A8004F3776 /* UAViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = E65CAB3D14CFB9A8004F3776 /* UAViewController_iPhone.xib */; };
 		E65CAB4414CFB9A8004F3776 /* UAViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = E65CAB3F14CFB9A8004F3776 /* UAViewController_iPad.xib */; };
@@ -254,7 +253,7 @@
 		E64F51F814BA98FA009CB18D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Urban Apps";
 			};
 			buildConfigurationList = E64F51FB14BA98FA009CB18D /* Build configuration list for PBXProject "UAModalPanel" */;
@@ -282,7 +281,6 @@
 				E65CAB1A14CFB930004F3776 /* close.png in Resources */,
 				E65CAB1B14CFB930004F3776 /* close@2x.png in Resources */,
 				E65CAB3414CFB98C004F3776 /* UAExampleView.xib in Resources */,
-				E65CAB3B14CFB98C004F3776 /* UAModalPanel-Info.plist in Resources */,
 				E65CAB3C14CFB98C004F3776 /* UrbanApps.png in Resources */,
 				E65CAB4314CFB9A8004F3776 /* UAViewController_iPhone.xib in Resources */,
 				E65CAB4414CFB9A8004F3776 /* UAViewController_iPad.xib in Resources */,
@@ -348,9 +346,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -360,10 +365,15 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -373,13 +383,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
@@ -392,6 +413,7 @@
 		E64F522314BA98FA009CB18D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UAModalPanel/Example Project/UAModalPanel-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -411,6 +433,7 @@
 		E64F522414BA98FA009CB18D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UAModalPanel/Example Project/UAModalPanel-Prefix.pch";
 				GCC_VERSION = "";

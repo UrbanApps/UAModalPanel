@@ -12,7 +12,7 @@
 
 @synthesize gradientStyle, lineMode;
 
-- (id)initWithFrame:(CGRect)frame style:(UAGradientBackgroundStyle)aStyle color:(CGFloat *)components lineMode:(UAGradientLineMode)lineModes {
+- (instancetype)initWithFrame:(CGRect)frame style:(UAGradientBackgroundStyle)aStyle color:(CGFloat *)components lineMode:(UAGradientLineMode)lineModes {
 	if ((self = [super initWithFrame:frame])) {
         // Initialization code
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -28,30 +28,30 @@
 	}
     return self;
 }
-- (id)initWithFrame:(CGRect)frame color:(CGFloat *)components {
+- (instancetype)initWithFrame:(CGRect)frame color:(CGFloat *)components {
 	return [self initWithFrame:frame style:UAGradientBackgroundStyleLinear color:components lineMode:NO];
 }
-- (id)initWithFrame:(CGRect)frame style:(UAGradientBackgroundStyle)aStyle {
+- (instancetype)initWithFrame:(CGRect)frame style:(UAGradientBackgroundStyle)aStyle {
 	CGFloat components[8] = { 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 1.0 };
     return [self initWithFrame:frame style:aStyle color:components lineMode:UAGradientLineModeNone];
 }
-- (id)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame {
 	return [self initWithFrame:frame style:UAGradientBackgroundStyleLinear];
 }
 
 
 
 + (id)gradientWithFrame:(CGRect)frame style:(UAGradientBackgroundStyle)aStyle color:(CGFloat *)components lineMode:(UAGradientLineMode)lineModes {
-	return [[[UAGradientBackground alloc] initWithFrame:frame style:aStyle color:components lineMode:lineModes] autorelease];
+	return [[UAGradientBackground alloc] initWithFrame:frame style:aStyle color:components lineMode:lineModes];
 }
 + (id)gradientWithFrame:(CGRect)frame color:(CGFloat *)components {
-	return [[(UAGradientBackground *)[UAGradientBackground alloc] initWithFrame:frame color:components] autorelease];
+	return [(UAGradientBackground *)[UAGradientBackground alloc] initWithFrame:frame color:components];
 }
 + (id)gradientWithFrame:(CGRect)frame style:(UAGradientBackgroundStyle)aStyle {
-	return [[[UAGradientBackground alloc] initWithFrame:frame style:aStyle] autorelease];
+	return [[UAGradientBackground alloc] initWithFrame:frame style:aStyle];
 }
 + (id)gradientWithFrame:(CGRect)frame; {
-	return [[[UAGradientBackground alloc] initWithFrame:frame] autorelease];
+	return [[UAGradientBackground alloc] initWithFrame:frame];
 }
 
 
@@ -133,7 +133,6 @@
 
 - (void)dealloc {
 	NSZoneFree(NSDefaultMallocZone(), colorComponents);
-	[super dealloc];
 }
 
 

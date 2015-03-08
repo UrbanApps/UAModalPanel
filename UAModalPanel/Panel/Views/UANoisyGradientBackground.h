@@ -17,9 +17,9 @@
 @property (nonatomic, assign) CGFloat		noiseOpacity;
 @property (nonatomic, assign) CGBlendMode	blendMode;
 
-- (id)initWithFrame:(CGRect)frame style:(UAGradientBackgroundStyle)aStyle color:(CGFloat *)components lineMode:(UAGradientLineMode)lineModes noiseOpacity:(CGFloat)opacity blendMode:(CGBlendMode)mode;
-- (id)initWithFrame:(CGRect)frame noiseOpacity:(CGFloat)opacity;
-- (id)initWithFrame:(CGRect)frame blendMode:(CGFloat)mode;
+- (instancetype)initWithFrame:(CGRect)frame style:(UAGradientBackgroundStyle)aStyle color:(CGFloat *)components lineMode:(UAGradientLineMode)lineModes noiseOpacity:(CGFloat)opacity blendMode:(CGBlendMode)mode;
+- (instancetype)initWithFrame:(CGRect)frame noiseOpacity:(CGFloat)opacity;
+- (instancetype)initWithFrame:(CGRect)frame blendMode:(CGFloat)mode;
 
 + (id)gradientWithFrame:(CGRect)frame style:(UAGradientBackgroundStyle)aStyle color:(CGFloat *)components lineMode:(UAGradientLineMode)lineModes noiseOpacity:(CGFloat)opacity blendMode:(CGBlendMode)mode;
 + (id)gradientWithFrame:(CGRect)frame noiseOpacity:(CGFloat)opacity;

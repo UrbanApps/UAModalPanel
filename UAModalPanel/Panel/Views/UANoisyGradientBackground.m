@@ -18,27 +18,27 @@
 @synthesize noiseOpacity, blendMode;
 
 
-- (id)initWithFrame:(CGRect)frame style:(UAGradientBackgroundStyle)aStyle color:(CGFloat *)components lineMode:(UAGradientLineMode)lineModes noiseOpacity:(CGFloat)opacity blendMode:(CGBlendMode)mode {
+- (instancetype)initWithFrame:(CGRect)frame style:(UAGradientBackgroundStyle)aStyle color:(CGFloat *)components lineMode:(UAGradientLineMode)lineModes noiseOpacity:(CGFloat)opacity blendMode:(CGBlendMode)mode {
 	if ((self = [self initWithFrame:frame style:aStyle color:components lineMode:lineModes])) {
 		self.noiseOpacity = opacity;
 		self.blendMode = mode;
 	}
 	return self;
 }
-- (id)initWithFrame:(CGRect)frame noiseOpacity:(CGFloat)opacity {
+- (instancetype)initWithFrame:(CGRect)frame noiseOpacity:(CGFloat)opacity {
 	if (self = [self initWithFrame:frame]) {
 		self.noiseOpacity = opacity;
 	}
 	return self;
 }
-- (id)initWithFrame:(CGRect)frame blendMode:(CGFloat)mode {
+- (instancetype)initWithFrame:(CGRect)frame blendMode:(CGFloat)mode {
 	if ((self = [self initWithFrame:frame])) {
 		self.blendMode = blendMode;
 	}
 	return self;
 }
 
-- (id)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         self.noiseOpacity = NOISE_DEFAULT_OPACITY;
@@ -50,18 +50,18 @@
 
 
 + (id)gradientWithFrame:(CGRect)frame style:(UAGradientBackgroundStyle)aStyle color:(CGFloat *)components lineMode:(UAGradientLineMode)lineModes noiseOpacity:(CGFloat)opacity blendMode:(CGBlendMode)mode {
-	return  [[[UANoisyGradientBackground alloc] initWithFrame:frame
+	return  [[UANoisyGradientBackground alloc] initWithFrame:frame
 														style:aStyle
 														color:components
 													 lineMode:lineModes
 												 noiseOpacity:opacity
-													blendMode:mode] autorelease];
+													blendMode:mode];
 }
 + (id)gradientWithFrame:(CGRect)frame noiseOpacity:(CGFloat)noiseOpacity {
-	return [[[UANoisyGradientBackground alloc] initWithFrame:frame noiseOpacity:noiseOpacity] autorelease];
+	return [[UANoisyGradientBackground alloc] initWithFrame:frame noiseOpacity:noiseOpacity];
 }
 + (id)gradientWithFrame:(CGRect)frame blendMode:(CGFloat)mode {
-	return [[[UANoisyGradientBackground alloc] initWithFrame:frame blendMode:mode] autorelease];
+	return [[UANoisyGradientBackground alloc] initWithFrame:frame blendMode:mode];
 }
 
 

@@ -14,7 +14,7 @@
 
 @synthesize viewLoadedFromXib;
 
-- (id)initWithFrame:(CGRect)frame title:(NSString *)title {
+- (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title {
 	if ((self = [super initWithFrame:frame])) {
 		
 		CGFloat colors[8] = BLACK_BAR_COMPONENTS;
@@ -81,33 +81,28 @@
 		//////////////////////////////////////
 		// SETUP RANDOM CONTENT
 		//////////////////////////////////////
-		UIWebView *wv = [[[UIWebView alloc] initWithFrame:CGRectZero] autorelease];
+		UIWebView *wv = [[UIWebView alloc] initWithFrame:CGRectZero];
 		[wv loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://urbanapps.com/product_list"]]];
 		
-		UITableView *tv = [[[UITableView alloc] initWithFrame:CGRectZero] autorelease];
+		UITableView *tv = [[UITableView alloc] initWithFrame:CGRectZero];
 		[tv setDataSource:self];
 		
-		UIImageView *iv = [[[UIImageView alloc] initWithFrame:CGRectZero] autorelease];
+		UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectZero];
 		[iv setImage:[UIImage imageNamed:@"UrbanApps.png"]];
 		[iv setContentMode:UIViewContentModeScaleAspectFit];
 		
 		[[NSBundle mainBundle] loadNibNamed:@"UAExampleView" owner:self options:nil];
 		
-		NSArray *contentArray = [NSArray arrayWithObjects:wv, tv, iv, viewLoadedFromXib, nil];
+		NSArray *contentArray = @[wv, tv, iv, viewLoadedFromXib];
 		
 		int i = arc4random() % [contentArray count];
-		v = [[contentArray objectAtIndex:i] retain];
+		v = contentArray[i];
 		[self.contentView addSubview:v];
 		
 	}	
 	return self;
 }
 
-- (void)dealloc {
-    [v release];
-	[viewLoadedFromXib release];
-    [super dealloc];
-}
 
 - (void)layoutSubviews {
 	[super layoutSubviews];
@@ -125,7 +120,7 @@
 	NSString *cellIdentifier = @"UAModalPanelCell";
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
 	if (cell == nil) {
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
 	}
 	
 	[cell.textLabel setText:[NSString stringWithFormat:@"Row %ld", (long)indexPath.row]];
