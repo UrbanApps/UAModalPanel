@@ -298,7 +298,17 @@
 						options:UIViewAnimationOptionCurveEaseOut
 					 animations:^{
 						 self.alpha = 1.0;
-						 self.contentContainer.center = self.center;
+// The line of code directly below (which has been commented out) doesn't make sense,
+// since self.center is expressed in terms of the UAModalPanel's superview's coordinate system
+// while self.contentContainer.center is expressed in terms of the UAModalPanel (self)'s coordinate system;
+// these will not necessarily be exactly overlapping (ie, where an (x,y) coordinate in one represents
+// the same point on the screen as the same (x,y) coordinate in the other), nor should they have to be.
+//
+// Separately from this, it is unclear what the intended purpose of this line of code is anyway.
+// In scenarios where self and self.contentContainer's frames are not exactly overlapping,
+// this line breaks the correct display of the panel, even when only the show: method
+// (as opposed to the showFromPoint: method) is called.
+						 //self.contentContainer.center = self.center;
 						 self.contentContainer.transform = CGAffineTransformMakeScale((shouldBounce ? 1.05 : 1.0), (shouldBounce ? 1.05 : 1.0));
 					 }
 					 completion:(shouldBounce ? animationBlock : ^(BOOL finished) {
